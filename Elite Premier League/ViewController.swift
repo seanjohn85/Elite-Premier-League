@@ -6,9 +6,11 @@
 //  Copyright © 2018 JOHN KENNY. All rights reserved.
 //
 
+///main menu 
+
 import UIKit
 
-class ViewController: UIViewController {
+class MenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

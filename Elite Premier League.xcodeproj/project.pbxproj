@@ -12,6 +12,10 @@
 		C941CD75201E13100046A974 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C941CD73201E13100046A974 /* Main.storyboard */; };
 		C941CD77201E13100046A974 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C941CD76201E13100046A974 /* Assets.xcassets */; };
 		C941CD7A201E13100046A974 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C941CD78201E13100046A974 /* LaunchScreen.storyboard */; };
+		C941CD85201E32B80046A974 /* ImageRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C941CD84201E32B80046A974 /* ImageRecognitionViewController.swift */; };
+		C941CD87201E33FD0046A974 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C941CD86201E33FD0046A974 /* Player.swift */; };
+		C941CD8B201E4C320046A974 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = C941CD8A201E4C320046A974 /* Team.swift */; };
+		C941CD8D201E62700046A974 /* crestIdenifer3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C941CD8C201E62700046A974 /* crestIdenifer3.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,11 @@
 		C941CD76201E13100046A974 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C941CD79201E13100046A974 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C941CD7B201E13100046A974 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C941CD83201E2FC30046A974 /* Barclays Premier League.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barclays Premier League.ttf"; sourceTree = "<group>"; };
+		C941CD84201E32B80046A974 /* ImageRecognitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRecognitionViewController.swift; sourceTree = "<group>"; };
+		C941CD86201E33FD0046A974 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		C941CD8A201E4C320046A974 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		C941CD8C201E62700046A974 /* crestIdenifer3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = crestIdenifer3.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,12 +63,17 @@
 		C941CD6E201E13100046A974 /* Elite Premier League */ = {
 			isa = PBXGroup;
 			children = (
+				C941CD8C201E62700046A974 /* crestIdenifer3.mlmodel */,
 				C941CD6F201E13100046A974 /* AppDelegate.swift */,
 				C941CD71201E13100046A974 /* ViewController.swift */,
+				C941CD84201E32B80046A974 /* ImageRecognitionViewController.swift */,
+				C941CD83201E2FC30046A974 /* Barclays Premier League.ttf */,
 				C941CD73201E13100046A974 /* Main.storyboard */,
 				C941CD76201E13100046A974 /* Assets.xcassets */,
 				C941CD78201E13100046A974 /* LaunchScreen.storyboard */,
 				C941CD7B201E13100046A974 /* Info.plist */,
+				C941CD8A201E4C320046A974 /* Team.swift */,
+				C941CD86201E33FD0046A974 /* Player.swift */,
 			);
 			path = "Elite Premier League";
 			sourceTree = "<group>";
@@ -136,7 +150,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C941CD87201E33FD0046A974 /* Player.swift in Sources */,
 				C941CD72201E13100046A974 /* ViewController.swift in Sources */,
+				C941CD8D201E62700046A974 /* crestIdenifer3.mlmodel in Sources */,
+				C941CD85201E32B80046A974 /* ImageRecognitionViewController.swift in Sources */,
+				C941CD8B201E4C320046A974 /* Team.swift in Sources */,
 				C941CD70201E13100046A974 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
