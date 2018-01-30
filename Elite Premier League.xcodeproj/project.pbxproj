@@ -17,6 +17,8 @@
 		C941CD87201E33FD0046A974 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C941CD86201E33FD0046A974 /* Player.swift */; };
 		C941CD8B201E4C320046A974 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = C941CD8A201E4C320046A974 /* Team.swift */; };
 		C941CD8D201E62700046A974 /* crestIdenifer3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C941CD8C201E62700046A974 /* crestIdenifer3.mlmodel */; };
+		C94958E42020F7C200CD1982 /* crestIdeniferCNN.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C94958E32020F7C200CD1982 /* crestIdeniferCNN.mlmodel */; };
+		C94958E62020F83800CD1982 /* GlobalVar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94958E52020F83800CD1982 /* GlobalVar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		C941CD86201E33FD0046A974 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		C941CD8A201E4C320046A974 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		C941CD8C201E62700046A974 /* crestIdenifer3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = crestIdenifer3.mlmodel; sourceTree = "<group>"; };
+		C94958E32020F7C200CD1982 /* crestIdeniferCNN.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = crestIdeniferCNN.mlmodel; sourceTree = "<group>"; };
+		C94958E52020F83800CD1982 /* GlobalVar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVar.swift; sourceTree = "<group>"; };
 		F381E7331962B634EF88F3FA /* Pods-Elite Premier League.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elite Premier League.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Elite Premier League/Pods-Elite Premier League.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,9 +84,11 @@
 			isa = PBXGroup;
 			children = (
 				C941CD8C201E62700046A974 /* crestIdenifer3.mlmodel */,
+				C94958E32020F7C200CD1982 /* crestIdeniferCNN.mlmodel */,
 				C941CD6F201E13100046A974 /* AppDelegate.swift */,
 				C941CD71201E13100046A974 /* ViewController.swift */,
 				C941CD84201E32B80046A974 /* ImageRecognitionViewController.swift */,
+				C94958E52020F83800CD1982 /* GlobalVar.swift */,
 				C941CD83201E2FC30046A974 /* Barclays Premier League.ttf */,
 				C941CD73201E13100046A974 /* Main.storyboard */,
 				C941CD76201E13100046A974 /* Assets.xcassets */,
@@ -196,10 +202,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Elite Premier League/Pods-Elite Premier League-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -231,9 +239,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C94958E42020F7C200CD1982 /* crestIdeniferCNN.mlmodel in Sources */,
 				C941CD87201E33FD0046A974 /* Player.swift in Sources */,
 				C941CD72201E13100046A974 /* ViewController.swift in Sources */,
 				C941CD8D201E62700046A974 /* crestIdenifer3.mlmodel in Sources */,
+				C94958E62020F83800CD1982 /* GlobalVar.swift in Sources */,
 				C941CD85201E32B80046A974 /* ImageRecognitionViewController.swift in Sources */,
 				C941CD8B201E4C320046A974 /* Team.swift in Sources */,
 				C941CD70201E13100046A974 /* AppDelegate.swift in Sources */,

@@ -36,4 +36,14 @@ public class Team{
         self.away = away
         
     }
+    
+    //print the teams details for testing
+    func printTeam(){
+        print("\(self.name) \(self.defHome) \(self.attHome) \(self.home) \(self.defAway) \(self.attAway) \(self.away)")
+    }
+    
+    //add a player to the teams players array
+    func addPlayer(player: Player){
+        self.players?.append(player)
+    }
 }

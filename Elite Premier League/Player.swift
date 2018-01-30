@@ -31,13 +31,10 @@ public class Player{
     private var photoURL : String
     private var yellowCards : Int
     private var redCards : Int
-    private var infulenece : Double
-    private var creativity : Double
-    private var threat : Double
     private var news : String?
     
     ///constructor for player objects
-    init (playerId : Int, team : Team, fName : String, lName : String, pos : Int, goals : Int, assits : Int, saves : Int, number : Int, cleanSheets : Int, ownGoals : Int, penoSaved : Int, penoMissed : Int, photoURL : String, yellowCards : Int, redCards : Int, infulenece : Double, creativity : Double, threat : Double){
+    init (playerId : Int, team : Team, fName : String, lName : String, pos : Int, goals : Int, assits : Int, saves : Int, number : Int, cleanSheets : Int, ownGoals : Int, penoSaved : Int, penoMissed : Int, photoURL : String, yellowCards : Int, redCards : Int){
         self.playerId = playerId
         self.team = team
         self.fName = fName
@@ -54,9 +51,7 @@ public class Player{
         self.photoURL = photoURL
         self.yellowCards = yellowCards
         self.redCards = redCards
-        self.infulenece = infulenece
-        self.creativity = creativity
-        self.threat = threat
+
     }
     
     

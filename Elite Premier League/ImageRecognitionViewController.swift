@@ -12,6 +12,10 @@ import AVFoundation
 
 import Vision
 
+import Alamofire
+
+import SwiftyJSON
+
 class ImageRecognitionViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
     //a view that houses the video feed
@@ -140,7 +144,7 @@ class ImageRecognitionViewController: UIViewController, AVCapturePhotoCaptureDel
             fatalError("could not get any output")
         }
         
-        var  team = ""
+        var  team = "Man Utd"
        // var conFide
         
         var confidence : VNConfidence = 0
@@ -148,23 +152,79 @@ class ImageRecognitionViewController: UIViewController, AVCapturePhotoCaptureDel
         for classification in prediction {
             if classification.confidence > confidence {
                 confidence = classification.confidence
-                team = classification.identifier
+                //team = classification.identifier
                 print("here working \(classification.confidence)")
             }
         }
         
         //if its found a match send a request to the server
-        if (confidence > 0.90){
+        if (confidence > 0.1){
             print("i think its \(team) im \(confidence) sure!!")
+            //requests the teams data from the server
+            requestTeamData(teamName: team)
          
         //or else repeat this process
         }else{
             Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.getImageFromCamera), userInfo: nil, repeats: false)
         }
         
-        
-        
     }
+    
+    func requestTeamData(teamName: String){
+        let parameters: Parameters = ["name": teamName]
+        print("get server request")
+        let url = "http://192.168.0.158:8080/rest/getData/"
+        //request to Django server ---  NB *******Django server Must Be started***********
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
+                print("Progress: \(progress.fractionCompleted)")
+            }
+            .validate { request, response, data in
+                // Custom evaluation closure now includes data (allows you to parse data to dig out error messages if necessary)
+                return .success
+            }
+            .responseJSON { response in
+                let swiftyJsonVar = JSON(response.result.value!)
+                //debugPrint(response)
+                print(swiftyJsonVar["team"])
+                //update the team using the current teams details
+                GlobalVar.currentTeam  = Team(name : swiftyJsonVar["team"]["name"].rawString()!,
+                                      defHome   : Int(swiftyJsonVar["team"]["strength_defence_home" ].rawString()!)!,
+                                      attHome   : Int(swiftyJsonVar["team"]["strength_attack_home"].rawString()!)!,
+                                      home      : Int(swiftyJsonVar["team"]["strength_overall_home" ].rawString()!)!,
+                                      defAway   : Int(swiftyJsonVar["team"]["strength_defence_away"].rawString()!)!,
+                                      attAway   : Int(swiftyJsonVar["team"]["strength_attack_away" ].rawString()!)!,
+                                      away      : Int(swiftyJsonVar["team"]["strength_overall_away" ].rawString()!)!)
+                
+                
+                print(swiftyJsonVar)
+                print("players")
+                let list: Array<JSON> = swiftyJsonVar["players"].arrayValue
+                for p in list{
+                    //print(p["news"])
+                    GlobalVar.currentTeam?.addPlayer(player: Player(playerId      : Int(p["playerId"].rawString()!)!,
+                                                                    team          : GlobalVar.currentTeam!,
+                                                                    fName         : p["f_name"].rawString()!,
+                                                                    lName         : p["l_name"].rawString()!,
+                                                                    pos           : Int(p["pos"].rawString()!)!,
+                                                                    goals         : Int(p["goals"].rawString()!)!,
+                                                                    assits        : Int(p["assits"].rawString()!)!,
+                                                                    saves         : Int(p["saves"].rawString()!)!,
+                                                                    number        : Int(p["number"].rawString()!)!,
+                                                                    cleanSheets   : Int(p["clean_sheets"].rawString()!)!,
+                                                                    ownGoals      : Int(p["own_goals"].rawString()!)!,
+                                                                    penoSaved     : Int(p["penalties_saved"].rawString()!)!,
+                                                                    penoMissed    : Int(p["penalties_missed"].rawString()!)!,
+                                                                    photoURL      : p["photo"].rawString()!,
+                                                                    yellowCards   : Int(p["yellow_cards"].rawString()!)!,
+                                                                    redCards      : Int(p["red_cards"].rawString()!)!))
+                    
+                    
+                }
+                print(GlobalVar.currentTeam!.printTeam())
+        }
+    }
+    
     
     
     //get the document location of a file using a url
