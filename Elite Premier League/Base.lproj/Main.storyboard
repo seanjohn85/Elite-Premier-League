@@ -10,8 +10,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
+        <array key="PremierLeague.ttf">
+            <string>PremierLeague</string>
         </array>
     </customFonts>
     <scenes>
@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PLLogo" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5es-1J-6QB">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PLLogo" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5es-1J-6QB">
                                 <rect key="frame" x="154" y="-990" width="804" height="1332"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DYS-7Y-dfE">
@@ -33,7 +33,7 @@
                                     <constraint firstAttribute="height" constant="50" id="hBD-r8-lTh"/>
                                     <constraint firstAttribute="width" constant="150" id="mVn-mk-cs4"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="25"/>
                                 <state key="normal" title="Scan Crest">
                                     <color key="titleColor" red="0.0" green="1" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -64,44 +64,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mKE-Zs-02J">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mKE-Zs-02J">
                                 <rect key="frame" x="0.0" y="0.0" width="1112" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Title" id="0hJ-PO-IVK"/>
                                 </items>
                             </navigationBar>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ede-jE-VWb">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ede-jE-VWb">
                                 <rect key="frame" x="0.0" y="44" width="1112" height="790"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mKE-Zs-02J" firstAttribute="leading" secondItem="Ede-jE-VWb" secondAttribute="leading" id="DvU-WN-kAt"/>
+                            <constraint firstItem="mKE-Zs-02J" firstAttribute="trailing" secondItem="Ede-jE-VWb" secondAttribute="trailing" id="EpY-bh-AmN"/>
+                            <constraint firstItem="Ede-jE-VWb" firstAttribute="trailing" secondItem="Bet-f7-o31" secondAttribute="trailing" id="JKa-nd-FVK"/>
+                            <constraint firstItem="Ede-jE-VWb" firstAttribute="top" secondItem="mKE-Zs-02J" secondAttribute="bottom" id="PLA-fg-A78"/>
+                            <constraint firstItem="Ede-jE-VWb" firstAttribute="bottom" secondItem="Bet-f7-o31" secondAttribute="bottom" id="dDD-CS-gNs"/>
+                            <constraint firstItem="mKE-Zs-02J" firstAttribute="top" secondItem="VVr-Pb-Nhh" secondAttribute="top" id="mXv-7o-V4U"/>
+                            <constraint firstItem="Ede-jE-VWb" firstAttribute="leading" secondItem="Bet-f7-o31" secondAttribute="leading" id="v1p-ac-EEB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Bet-f7-o31"/>
                     </view>
                     <connections>
                         <outlet property="videoFeedView" destination="Ede-jE-VWb" id="8Y4-cJ-rE8"/>
+                        <segue destination="Uik-dd-lQ3" kind="show" identifier="teamScreen" id="erg-xX-VcV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RDw-vi-WeD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="826.61870503597129" y="133.81294964028777"/>
         </scene>
-        <!--View Controller-->
+        <!--Team View Controller-->
         <scene sceneID="2VR-nS-6Ky">
             <objects>
-                <viewController id="Uik-dd-lQ3" sceneMemberID="viewController">
+                <viewController id="Uik-dd-lQ3" customClass="TeamViewController" customModule="Elite_Premier_League" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8rV-6I-kmX">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="msn-J9-qxc">
+                                <rect key="frame" x="0.0" y="0.0" width="1112" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="5vn-Ly-TVj"/>
+                                </items>
+                            </navigationBar>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XlF-Ke-2kw">
+                                <rect key="frame" x="0.0" y="44" width="1112" height="790"/>
+                            </arscnView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="XlF-Ke-2kw" firstAttribute="trailing" secondItem="6MK-Li-dKL" secondAttribute="trailing" id="93s-3G-84M"/>
+                            <constraint firstItem="msn-J9-qxc" firstAttribute="top" secondItem="8rV-6I-kmX" secondAttribute="top" id="AdF-c5-vpN"/>
+                            <constraint firstItem="XlF-Ke-2kw" firstAttribute="leading" secondItem="6MK-Li-dKL" secondAttribute="leading" id="ESb-kr-oS1"/>
+                            <constraint firstItem="msn-J9-qxc" firstAttribute="leading" secondItem="XlF-Ke-2kw" secondAttribute="leading" id="IkQ-tn-Lff"/>
+                            <constraint firstItem="msn-J9-qxc" firstAttribute="trailing" secondItem="XlF-Ke-2kw" secondAttribute="trailing" id="QK3-1P-NrV"/>
+                            <constraint firstItem="XlF-Ke-2kw" firstAttribute="top" secondItem="msn-J9-qxc" secondAttribute="bottom" id="kWy-T1-IZI"/>
+                            <constraint firstItem="XlF-Ke-2kw" firstAttribute="bottom" secondItem="6MK-Li-dKL" secondAttribute="bottom" id="zmG-bG-fn1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6MK-Li-dKL"/>
                     </view>
+                    <connections>
+                        <outlet property="sceneKit" destination="XlF-Ke-2kw" id="dod-0x-yFo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BgR-Cg-PM5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="816" y="921"/>
+            <point key="canvasLocation" x="815.82733812949641" y="920.86330935251806"/>
         </scene>
     </scenes>
     <resources>
