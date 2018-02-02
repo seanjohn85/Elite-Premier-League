@@ -10,6 +10,7 @@
 		A808EABD0B60A55C88537E68 /* Pods_Elite_Premier_League.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3DBF8256119198DB3576979 /* Pods_Elite_Premier_League.framework */; };
 		C9270803202133EC000CB201 /* crestIdeniferCNN.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C9270802202133EC000CB201 /* crestIdeniferCNN.mlmodel */; };
 		C927080520228E29000CB201 /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C927080420228E29000CB201 /* TeamViewController.swift */; };
+		C927080B2023E0E1000CB201 /* Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = C927080A2023E0E1000CB201 /* Fixture.swift */; };
 		C941CD70201E13100046A974 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C941CD6F201E13100046A974 /* AppDelegate.swift */; };
 		C941CD72201E13100046A974 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C941CD71201E13100046A974 /* ViewController.swift */; };
 		C941CD75201E13100046A974 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C941CD73201E13100046A974 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 		B3DBF8256119198DB3576979 /* Pods_Elite_Premier_League.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Elite_Premier_League.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9270802202133EC000CB201 /* crestIdeniferCNN.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = crestIdeniferCNN.mlmodel; sourceTree = "<group>"; };
 		C927080420228E29000CB201 /* TeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
+		C927080A2023E0E1000CB201 /* Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixture.swift; sourceTree = "<group>"; };
 		C941CD6C201E13100046A974 /* Elite Premier League.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Elite Premier League.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C941CD6F201E13100046A974 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C941CD71201E13100046A974 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				C94958E52020F83800CD1982 /* GlobalVar.swift */,
 				C941CD8A201E4C320046A974 /* Team.swift */,
 				C941CD86201E33FD0046A974 /* Player.swift */,
+				C927080A2023E0E1000CB201 /* Fixture.swift */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				C941CD85201E32B80046A974 /* ImageRecognitionViewController.swift in Sources */,
 				C941CD8B201E4C320046A974 /* Team.swift in Sources */,
 				C9270803202133EC000CB201 /* crestIdeniferCNN.mlmodel in Sources */,
+				C927080B2023E0E1000CB201 /* Fixture.swift in Sources */,
 				C927080520228E29000CB201 /* TeamViewController.swift in Sources */,
 				C941CD70201E13100046A974 /* AppDelegate.swift in Sources */,
 			);

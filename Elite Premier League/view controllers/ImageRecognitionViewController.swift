@@ -198,6 +198,14 @@ class ImageRecognitionViewController: UIViewController, AVCapturePhotoCaptureDel
                 
                 
                 print(swiftyJsonVar)
+                 let fixture = Fixture(
+                    homeTeam : swiftyJsonVar["fixture"]["homeTeam"].rawString()!,
+                    awayTeam : swiftyJsonVar["fixture"]["awayTeam"].rawString()!,
+                    date : swiftyJsonVar["fixture"]["date"].rawString()!,
+                    homeGoals : Int(swiftyJsonVar["fixture"]["homeGoals"].rawString()!)!,
+                    awayGoals : Int(swiftyJsonVar["fixture"]["awayGoals"].rawString()!)!)
+                
+                GlobalVar.currentTeam?.thisFixture = fixture
                 print("players")
                 //creates a list of players from the json
                 let list: Array<JSON> = swiftyJsonVar["players"].arrayValue

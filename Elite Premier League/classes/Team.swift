@@ -24,6 +24,7 @@ public class Team{
     private var defAway : Int
     private var attAway : Int
     private var away : Int
+    private var fixture : Fixture?
     
     //constructor
     init(name : String, defHome : Int, attHome : Int, home : Int, defAway : Int, attAway : Int, away : Int){
@@ -34,7 +35,6 @@ public class Team{
         self.defAway = defAway
         self.attAway = attAway
         self.away = away
-        
     }
     
     //print the teams details for testing
@@ -56,6 +56,17 @@ public class Team{
         set
         {
             self.name = newValue
+        }
+    }
+    
+    var thisFixture : Fixture{
+        get
+        {
+            return fixture!
+        }
+        set
+        {
+            self.fixture = newValue
         }
     }
 }
