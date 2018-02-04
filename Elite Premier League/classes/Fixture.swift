@@ -68,7 +68,7 @@ public class Fixture{
         }
     }
     
-    var thisAwatGoals : Int{
+    var thisAwayGoals : Int{
         get
         {
             return awayGoals

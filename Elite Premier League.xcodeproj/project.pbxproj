@@ -21,6 +21,7 @@
 		C941CD8B201E4C320046A974 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = C941CD8A201E4C320046A974 /* Team.swift */; };
 		C941CD8D201E62700046A974 /* crestIdenifer3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C941CD8C201E62700046A974 /* crestIdenifer3.mlmodel */; };
 		C94958E62020F83800CD1982 /* GlobalVar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94958E52020F83800CD1982 /* GlobalVar.swift */; };
+		C9C5F0C220273C7600A9F3AD /* PremierLeague.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C941CD83201E2FC30046A974 /* PremierLeague.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -208,6 +209,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9C5F0C220273C7600A9F3AD /* PremierLeague.ttf in Resources */,
 				C941CD7A201E13100046A974 /* LaunchScreen.storyboard in Resources */,
 				C941CD77201E13100046A974 /* Assets.xcassets in Resources */,
 				C941CD75201E13100046A974 /* Main.storyboard in Resources */,

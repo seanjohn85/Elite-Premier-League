@@ -152,13 +152,13 @@ class ImageRecognitionViewController: UIViewController, AVCapturePhotoCaptureDel
         for classification in prediction {
             if classification.confidence > confidence {
                 confidence = classification.confidence
-                team = classification.identifier
+                //team = classification.identifier
                 print("here working \(classification.identifier)")
             }
         }
         
         //if its found a match send a request to the server
-        if (confidence > 0.5){
+        if (confidence > 0.1){
             print("i think its \(team) im \(confidence) sure!!")
             //requests the teams data from the server
             requestTeamData(teamName: team)
@@ -173,7 +173,7 @@ class ImageRecognitionViewController: UIViewController, AVCapturePhotoCaptureDel
     func requestTeamData(teamName: String){
         let parameters: Parameters = ["name": teamName]
         print("get server request")
-        let url = "http://192.168.0.158:8080/rest/getData/"
+        let url = "http://192.168.0.157:8080/rest/getData/"
         //request to Django server ---  NB *******Django server Must Be started***********
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in

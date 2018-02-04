@@ -32,53 +32,110 @@ class TeamViewController: UIViewController, ARSCNViewDelegate{
     override func viewDidAppear(_ animated: Bool) {
         sceneKit.session.run(configuration)
         
-        let node = SCNNode(geometry : SCNPlane(width: 3, height: 2))
+
+        let node = SCNNode(geometry : SCNPlane(width: 3, height: 2.5))
         node.geometry?.firstMaterial?.diffuse.contents  = UIColor(red: 0.0 / 255.0, green: 255.0 / 255.0, blue: 133.0 / 255.0, alpha: 0.8)
         node.position = SCNVector3(0, 0, -5)
         self.sceneKit.scene.rootNode.addChildNode(node)
         
-        let node2 = SCNNode(geometry : SCNPlane(width: 0.4, height: 0.4))
-        node2.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "\(GlobalVar.currentTeam!.thisName)Crest")
-        node2.position = SCNVector3(0, 0, 0.1)
-        node.addChildNode(node2)
+        
+        //create a plane to house the date
+        let dateNode = SCNNode(geometry : SCNPlane(width: 2, height: 0.2))
+        dateNode.position = SCNVector3(0, 1, 0.1)
+        let dateLabel = UILabel(frame: CGRect(x: CGFloat(0), y: CGFloat(0),
+                                          width: CGFloat(300), height: CGFloat(100)))
+        dateLabel.textColor = UIColor(red: 56.0 / 255.0, green: 0.0 / 255.0, blue: 60 / 255.0, alpha: 1)
+        dateLabel.layer.backgroundColor = UIColor(red: 0.0 / 255.0, green: 255.0 / 255.0, blue: 133.0 / 255.0, alpha: 0.1).cgColor
+        dateLabel.textAlignment = NSTextAlignment.center
+        //sets the text on the label
+        dateLabel.text = GlobalVar.currentTeam?.thisFixture.thisDate
+        //sets the font to the app font
+        dateLabel.font = UIFont (name: "Premier League", size: 40)
+        //adjusts text to fit
+        dateLabel.adjustsFontSizeToFitWidth = true
+        //test need to be converted to an image to remove background
+        dateNode.geometry?.firstMaterial?.diffuse.contents = convertLabelToImage(label : dateLabel)
+        node.addChildNode(dateNode)
+        //ensures the fixtures contains a home team
+        if let crest = GlobalVar.currentTeam?.thisFixture.thisHomeTeam{
+            print("Home team \(crest)")
+            //adds the crest to the fixtures plane
+            addCrest(crestName : crest, x : -0.68, y : 0.45, node: node)
+        }
+        //ensures the fixtures contains an away team
+        if let crest = GlobalVar.currentTeam?.thisFixture.thisAwayTeam{
+            print("away team \(crest)")
+            //adds the crest to the fixtures plane
+            addCrest(crestName : crest, x :0.68, y : 0.45, node: node)
+        }
+        
+        
+    
        
         
-        let node3 = SCNNode()
+        let teamNames = SCNNode(geometry : SCNPlane(width: 2.98, height: 0.4))
         let label = UILabel(frame: CGRect(x: CGFloat(0), y: CGFloat(0),
-                                          width: CGFloat(100), height: CGFloat(50)))
+                                          width: CGFloat(800), height: CGFloat(100)))
         
-        let plane = SCNPlane(width: 0.3, height: 0.2)
-        label.textColor = UIColor(red: 0.0 / 255.0, green: 255.0 / 255.0, blue: 133.0 / 255.0, alpha: 0.8)
+        label.textColor = UIColor(red: 255.0 / 255.0, green: 255.0 / 255.0, blue: 255.0 / 255.0, alpha: 1)
         label.textAlignment = NSTextAlignment.center
-        label.backgroundColor = UIColor.black.withAlphaComponent(0.2)
-        
-        label.text = GlobalVar.currentTeam!.thisName
+        label.layer.backgroundColor = UIColor(red: 56.0 / 255.0, green: 0 / 255.0, blue: 60.0 / 255.0, alpha: 1).cgColor
+        label.text = "\(GlobalVar.currentTeam!.thisFixture.thisHomeTeam)    V   \(GlobalVar.currentTeam!.thisFixture.thisAwayTeam) "
+        label.font = UIFont (name: "Premier League", size: 60)
         label.adjustsFontSizeToFitWidth = true
+        teamNames.geometry?.firstMaterial?.diffuse.contents = label
         
-        plane.firstMaterial?.diffuse.contents = label
-        node3.geometry = plane
-        node3.position = SCNVector3(0.3, 0.3, 0.1)
+        teamNames.position = SCNVector3(0, -0.35, 0.04)
+        node.addChildNode(teamNames)
         
-        //self.sceneKit.scene.rootNode.addChildNode(node)
+        //prediction label
         
-        //node.addChildNode(labelNode)
-        
-        
-        // self.sceneKit.scene.rootNode.addChildNode(labelNode)
-        node.addChildNode(node3)
+        let prediction = SCNNode(geometry : SCNPlane(width: 1.5, height: 0.4))
+        let predictionLabel = UILabel(frame: CGRect(x: CGFloat(0), y: CGFloat(0),
+                                          width: CGFloat(800), height: CGFloat(100)))
         
         
-        let menuNode = SCNNode()
-        menuNode.geometry = SCNSphere(radius: 0.2)
-        menuNode.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "\(GlobalVar.currentTeam!.thisName)Texture")
-        menuNode.position = SCNVector3(2, 2, -1)
-        self.sceneKit.scene.rootNode.addChildNode(menuNode)
+        
+        predictionLabel.textColor = UIColor(red: 255.0 / 255.0, green: 255.0 / 255.0, blue: 255.0 / 255.0, alpha: 1)
+        predictionLabel.textAlignment = NSTextAlignment.center
+        predictionLabel.layer.backgroundColor = UIColor(red: 56.0 / 255.0, green: 0 / 255.0, blue: 60.0 / 255.0, alpha: 0).cgColor
+        predictionLabel.text = "Prediction:"
+        predictionLabel.font = UIFont (name: "Premier League", size: 60)
+        predictionLabel.adjustsFontSizeToFitWidth = true
+        
+    
+        prediction.geometry?.firstMaterial?.diffuse.contents = convertLabelToImage(label : predictionLabel)
+        
+        prediction.position = SCNVector3(-1.0, -0.85, 0.1)
+        node.addChildNode(prediction)
+        
+        let predictionRes = SCNNode(geometry : SCNPlane(width: 1.5, height: 0.4))
+        let predictionResLabel = UILabel(frame: CGRect(x: CGFloat(0), y: CGFloat(0),
+                                                    width: CGFloat(800), height: CGFloat(100)))
         
         
-        let action = SCNAction.rotateBy(x: 0, y: CGFloat(360.degree2Rad), z: 0, duration: 8)
-        let forever = SCNAction.repeatForever(action)
-        menuNode.runAction(forever)
         
+        predictionResLabel.textColor = UIColor(red: 56.0 / 255.0, green: 0 / 255.0, blue: 60.0 / 255.0, alpha: 1)
+        predictionResLabel.textAlignment = NSTextAlignment.center
+        predictionResLabel.layer.backgroundColor = UIColor(red: 56.0 / 255.0, green: 0 / 255.0, blue: 60.0 / 255.0, alpha: 0).cgColor
+        predictionResLabel.text = "\(GlobalVar.currentTeam!.thisFixture.thisHomeGoals) - \(GlobalVar.currentTeam!.thisFixture.thisAwayGoals)"
+        predictionResLabel.font = UIFont (name: "Premier League", size: 60)
+        predictionResLabel.adjustsFontSizeToFitWidth = true
+        
+        
+        predictionRes.geometry?.firstMaterial?.diffuse.contents = convertLabelToImage(label : predictionResLabel)
+        
+        predictionRes.position = SCNVector3(0.65, -0.85, 0.1)
+        node.addChildNode(predictionRes)
+        
+        
+        
+        
+        
+        addMenu()
+        
+        
+        print("fixture details \(GlobalVar.currentTeam?.thisFixture.thisHomeTeam) \(GlobalVar.currentTeam?.thisFixture.thisAwayTeam) \(GlobalVar.currentTeam?.thisFixture.thisDate) \(GlobalVar.currentTeam?.thisFixture.thisAwayGoals) \(GlobalVar.currentTeam?.thisFixture.thisHomeGoals)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,7 +143,54 @@ class TeamViewController: UIViewController, ARSCNViewDelegate{
         // Dispose of any resources that can be recreated.
     }
     
-
+    
+    func addMenu(){
+        let menuNode = SCNNode()
+        menuNode.geometry = SCNSphere(radius: 0.1)
+        menuNode.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "\(GlobalVar.currentTeam!.thisName)Texture")
+        menuNode.position = SCNVector3(-0.35, 0.4, -1)
+        self.sceneKit.scene.rootNode.addChildNode(menuNode)
+        
+        
+        let action = SCNAction.rotateBy(x: 0, y: CGFloat(360.degree2Rad), z: 0, duration: 8)
+        let forever = SCNAction.repeatForever(action)
+        menuNode.runAction(forever)
+    }
+    
+    func addFixture(){
+        
+    }
+    
+    //function to add a crest to the fixtures plane
+    func addCrest(crestName : String, x : Double, y : Double, node: SCNNode){
+        //crests a new node
+        let crestNode = SCNNode(geometry : SCNPlane(width: 0.7, height: 0.7))
+        //appends the crest image to the node palne
+        crestNode.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "\(crestName)Crest")
+        //positions the crest using the given the x and y pos prams
+        crestNode.position = SCNVector3(x, y, 0.1)
+        //adds the crest to the node pram as a child
+        node.addChildNode(crestNode)
+    }
+    
+    
+    func addImagePlane(){
+        
+    }
+    
+    func addTextToNode(){
+        
+    }
+    
+    //used to convert a uilable to a uiimage as its required to have no background on a plane node
+    func convertLabelToImage(label : UILabel) -> UIImage{
+        UIGraphicsBeginImageContextWithOptions(label.bounds.size, false, 0)
+        label.drawHierarchy(in: label.bounds, afterScreenUpdates: true)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!;
+    }
+    
 
 }
 
