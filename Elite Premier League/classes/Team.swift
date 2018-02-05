@@ -17,6 +17,7 @@ public class Team{
     
     //instance varibles
     private var name : String
+    private var code : Int
     private var players : [Player]?
     private var defHome : Int
     private var attHome : Int
@@ -27,8 +28,9 @@ public class Team{
     private var fixture : Fixture?
     
     //constructor
-    init(name : String, defHome : Int, attHome : Int, home : Int, defAway : Int, attAway : Int, away : Int){
+    init(name : String, code : Int, defHome : Int, attHome : Int, home : Int, defAway : Int, attAway : Int, away : Int){
         self.name = name
+        self.code = code
         self.defHome = defHome
         self.attHome = attHome
         self.home = home
@@ -56,6 +58,17 @@ public class Team{
         set
         {
             self.name = newValue
+        }
+    }
+    
+    var thisCode : Int{
+        get
+        {
+            return code
+        }
+        set
+        {
+            self.code = newValue
         }
     }
     

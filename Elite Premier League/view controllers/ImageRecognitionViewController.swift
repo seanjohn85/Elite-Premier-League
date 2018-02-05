@@ -14,6 +14,7 @@ import Vision
 
 import Alamofire
 
+
 import SwiftyJSON
 
 class ImageRecognitionViewController: UIViewController, AVCapturePhotoCaptureDelegate {
@@ -188,7 +189,7 @@ class ImageRecognitionViewController: UIViewController, AVCapturePhotoCaptureDel
                 //debugPrint(response)
                 print(swiftyJsonVar["team"])
                 //update the team using the current teams details
-                GlobalVar.currentTeam  = Team(name : swiftyJsonVar["team"]["name"].rawString()!,
+                GlobalVar.currentTeam  = Team(name : swiftyJsonVar["team"]["name"].rawString()!,code : Int(swiftyJsonVar["team"]["code" ].rawString()!)!,
                                       defHome   : Int(swiftyJsonVar["team"]["strength_defence_home" ].rawString()!)!,
                                       attHome   : Int(swiftyJsonVar["team"]["strength_attack_home"].rawString()!)!,
                                       home      : Int(swiftyJsonVar["team"]["strength_overall_home" ].rawString()!)!,
@@ -252,5 +253,7 @@ class ImageRecognitionViewController: UIViewController, AVCapturePhotoCaptureDel
         let documentsDirectory = paths[0]
         return documentsDirectory
     }
+    
+    
 
 }

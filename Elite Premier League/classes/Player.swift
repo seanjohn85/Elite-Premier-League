@@ -54,5 +54,8 @@ public class Player{
 
     }
     
+    func imageLocation() -> String{
+        return "\(self.team.thisCode)\(self.photoURL).png"
+    }
     
 }

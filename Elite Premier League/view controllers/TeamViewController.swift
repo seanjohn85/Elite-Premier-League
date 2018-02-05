@@ -10,13 +10,18 @@ import UIKit
 import ARKit
 import SceneKit
 
+import Alamofire
+
+import AlamofireImage
+
+
 class TeamViewController: UIViewController, ARSCNViewDelegate{
     
 
     @IBOutlet weak var sceneKit: ARSCNView!
      let configuration = ARWorldTrackingConfiguration()
     
-
+    let node = SCNNode(geometry : SCNPlane(width: 3, height: 2.5))
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,7 +38,7 @@ class TeamViewController: UIViewController, ARSCNViewDelegate{
         sceneKit.session.run(configuration)
         
 
-        let node = SCNNode(geometry : SCNPlane(width: 3, height: 2.5))
+        
         node.geometry?.firstMaterial?.diffuse.contents  = UIColor(red: 0.0 / 255.0, green: 255.0 / 255.0, blue: 133.0 / 255.0, alpha: 0.8)
         node.position = SCNVector3(0, 0, -5)
         self.sceneKit.scene.rootNode.addChildNode(node)
@@ -67,6 +72,7 @@ class TeamViewController: UIViewController, ARSCNViewDelegate{
             print("away team \(crest)")
             //adds the crest to the fixtures plane
             addCrest(crestName : crest, x :0.68, y : 0.45, node: node)
+           // getPlayerImageFromServer(/*player : Player*/)
         }
         
         
@@ -135,7 +141,7 @@ class TeamViewController: UIViewController, ARSCNViewDelegate{
         addMenu()
         
         
-        print("fixture details \(GlobalVar.currentTeam?.thisFixture.thisHomeTeam) \(GlobalVar.currentTeam?.thisFixture.thisAwayTeam) \(GlobalVar.currentTeam?.thisFixture.thisDate) \(GlobalVar.currentTeam?.thisFixture.thisAwayGoals) \(GlobalVar.currentTeam?.thisFixture.thisHomeGoals)")
+        print("fixture details \(String(describing: GlobalVar.currentTeam?.thisFixture.thisHomeTeam)) \(GlobalVar.currentTeam?.thisFixture.thisAwayTeam ?? "no away team") \(String(describing: GlobalVar.currentTeam?.thisFixture.thisDate)) \(GlobalVar.currentTeam?.thisFixture.thisAwayGoals ?? 0) \(String(describing: GlobalVar.currentTeam?.thisFixture.thisHomeGoals))")
     }
 
     override func didReceiveMemoryWarning() {
@@ -191,6 +197,35 @@ class TeamViewController: UIViewController, ARSCNViewDelegate{
         return image!;
     }
     
+    
+    func getPlayerImageFromServer(/*player : Player*/){
+        //the url of the image
+        //let url = "\(GlobalVar.imagesUrl)\(player.imageLocation())"
+        let url = "http://192.168.0.157:8080/static/images/1/9808.png"
+        ///server request to download the image
+        
+        Alamofire.request(url).responseImage { response in
+            debugPrint(response)
+            
+            print(response.request ?? "none")
+            print(response.response ?? "none")
+            debugPrint(response.result)
+            
+            if let image = response.result.value {
+                print("image downloaded: \(image)")
+                /*let crestNode = SCNNode(geometry : SCNPlane(width: 0.7, height: 0.7))
+                //appends the crest image to the node palne
+                crestNode.geometry?.firstMaterial?.diffuse.contents = image
+                    //positions the crest using the given the x and y pos prams
+                crestNode.position = SCNVector3(0.68, 0.45, 0.1)
+                //adds the crest to the node pram as a child
+                self.node.addChildNode(crestNode)*/
+            }
+        
+       
+        }
+        
+    }
 
 }
 
