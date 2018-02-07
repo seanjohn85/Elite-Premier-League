@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="ipad10_5" orientation="landscape">
+    <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,20 +20,17 @@
         <!--Menu View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MenuViewController" customModule="Elite_Premier_League" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="menu" storyboardIdentifier="menu" id="BYZ-38-t0r" customClass="MenuViewController" customModule="Elite_Premier_League" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PLLogo" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5es-1J-6QB">
-                                <rect key="frame" x="154" y="-990" width="804" height="1332"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DYS-7Y-dfE">
-                                <rect key="frame" x="481" y="392" width="150" height="50"/>
+                                <rect key="frame" x="284" y="487" width="200" height="50"/>
                                 <color key="backgroundColor" red="0.24313725490196078" green="0.062745098039215685" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="hBD-r8-lTh"/>
-                                    <constraint firstAttribute="width" constant="150" id="mVn-mk-cs4"/>
+                                    <constraint firstAttribute="width" constant="200" id="nHd-uE-E2F"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="26"/>
                                 <state key="normal" title="Scan Crest">
@@ -41,13 +40,18 @@
                                     <segue destination="XZj-46-hzZ" kind="show" id="V26-2Q-o2l"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PLLogo" translatesAutoresizingMaskIntoConstraints="NO" id="33P-Mw-Jz9">
+                                <rect key="frame" x="307" y="278.5" width="154" height="153.5"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="1" blue="0.52156862745098043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="DYS-7Y-dfE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="C3v-nU-06u"/>
-                            <constraint firstItem="DYS-7Y-dfE" firstAttribute="top" secondItem="5es-1J-6QB" secondAttribute="bottom" constant="50" id="SM2-kZ-iHK"/>
-                            <constraint firstItem="5es-1J-6QB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="W85-88-GiY"/>
+                            <constraint firstItem="33P-Mw-Jz9" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.2" id="G8V-Y1-84c"/>
+                            <constraint firstItem="DYS-7Y-dfE" firstAttribute="top" secondItem="33P-Mw-Jz9" secondAttribute="bottom" constant="55" id="XWx-xs-YD9"/>
+                            <constraint firstItem="33P-Mw-Jz9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="diX-fZ-szU"/>
                             <constraint firstItem="DYS-7Y-dfE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ray-Z6-RNc"/>
+                            <constraint firstItem="33P-Mw-Jz9" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.2" id="y2z-ho-RyC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -61,17 +65,21 @@
             <objects>
                 <viewController id="XZj-46-hzZ" customClass="ImageRecognitionViewController" customModule="Elite_Premier_League" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VVr-Pb-Nhh">
-                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mKE-Zs-02J">
-                                <rect key="frame" x="0.0" y="0.0" width="1112" height="44"/>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKE-Zs-02J">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                                <color key="barTintColor" red="0.0" green="1" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="largeTitleTextAttributes">
+                                    <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="17"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="Title" id="0hJ-PO-IVK"/>
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ede-jE-VWb">
-                                <rect key="frame" x="0.0" y="44" width="1112" height="790"/>
+                                <rect key="frame" x="0.0" y="44" width="768" height="980"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -80,10 +88,14 @@
                             <constraint firstItem="mKE-Zs-02J" firstAttribute="leading" secondItem="Ede-jE-VWb" secondAttribute="leading" id="DvU-WN-kAt"/>
                             <constraint firstItem="mKE-Zs-02J" firstAttribute="trailing" secondItem="Ede-jE-VWb" secondAttribute="trailing" id="EpY-bh-AmN"/>
                             <constraint firstItem="Ede-jE-VWb" firstAttribute="trailing" secondItem="Bet-f7-o31" secondAttribute="trailing" id="JKa-nd-FVK"/>
+                            <constraint firstItem="Ede-jE-VWb" firstAttribute="top" secondItem="mKE-Zs-02J" secondAttribute="bottom" id="LRe-Pz-VVH"/>
                             <constraint firstItem="Ede-jE-VWb" firstAttribute="top" secondItem="mKE-Zs-02J" secondAttribute="bottom" id="PLA-fg-A78"/>
+                            <constraint firstItem="Ede-jE-VWb" firstAttribute="leading" secondItem="Bet-f7-o31" secondAttribute="leading" id="RH4-oe-IbV"/>
                             <constraint firstItem="Ede-jE-VWb" firstAttribute="bottom" secondItem="Bet-f7-o31" secondAttribute="bottom" id="dDD-CS-gNs"/>
+                            <constraint firstItem="Ede-jE-VWb" firstAttribute="bottom" secondItem="Bet-f7-o31" secondAttribute="bottom" id="ljp-dD-26J"/>
                             <constraint firstItem="mKE-Zs-02J" firstAttribute="top" secondItem="VVr-Pb-Nhh" secondAttribute="top" id="mXv-7o-V4U"/>
                             <constraint firstItem="Ede-jE-VWb" firstAttribute="leading" secondItem="Bet-f7-o31" secondAttribute="leading" id="v1p-ac-EEB"/>
+                            <constraint firstItem="Ede-jE-VWb" firstAttribute="trailing" secondItem="Bet-f7-o31" secondAttribute="trailing" id="yrd-7H-1ZE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bet-f7-o31"/>
                     </view>
@@ -101,27 +113,35 @@
             <objects>
                 <viewController id="Uik-dd-lQ3" customClass="TeamViewController" customModule="Elite_Premier_League" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8rV-6I-kmX">
-                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="msn-J9-qxc">
-                                <rect key="frame" x="0.0" y="0.0" width="1112" height="44"/>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msn-J9-qxc">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                                <color key="barTintColor" red="0.0" green="1" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="largeTitleTextAttributes">
+                                    <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="17"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="Title" id="5vn-Ly-TVj"/>
                                 </items>
                             </navigationBar>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XlF-Ke-2kw">
-                                <rect key="frame" x="0.0" y="44" width="1112" height="790"/>
+                                <rect key="frame" x="0.0" y="44" width="768" height="980"/>
                             </arscnView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="XlF-Ke-2kw" firstAttribute="trailing" secondItem="6MK-Li-dKL" secondAttribute="trailing" id="93s-3G-84M"/>
+                            <constraint firstItem="XlF-Ke-2kw" firstAttribute="top" secondItem="msn-J9-qxc" secondAttribute="bottom" id="AGJ-NU-DWG"/>
                             <constraint firstItem="msn-J9-qxc" firstAttribute="top" secondItem="8rV-6I-kmX" secondAttribute="top" id="AdF-c5-vpN"/>
                             <constraint firstItem="XlF-Ke-2kw" firstAttribute="leading" secondItem="6MK-Li-dKL" secondAttribute="leading" id="ESb-kr-oS1"/>
+                            <constraint firstItem="XlF-Ke-2kw" firstAttribute="leading" secondItem="6MK-Li-dKL" secondAttribute="leading" id="HNu-cJ-hzy"/>
                             <constraint firstItem="msn-J9-qxc" firstAttribute="leading" secondItem="XlF-Ke-2kw" secondAttribute="leading" id="IkQ-tn-Lff"/>
                             <constraint firstItem="msn-J9-qxc" firstAttribute="trailing" secondItem="XlF-Ke-2kw" secondAttribute="trailing" id="QK3-1P-NrV"/>
+                            <constraint firstItem="XlF-Ke-2kw" firstAttribute="trailing" secondItem="6MK-Li-dKL" secondAttribute="trailing" id="eNM-m0-q5s"/>
                             <constraint firstItem="XlF-Ke-2kw" firstAttribute="top" secondItem="msn-J9-qxc" secondAttribute="bottom" id="kWy-T1-IZI"/>
+                            <constraint firstItem="XlF-Ke-2kw" firstAttribute="bottom" secondItem="6MK-Li-dKL" secondAttribute="bottom" id="kbo-cL-Nb0"/>
                             <constraint firstItem="XlF-Ke-2kw" firstAttribute="bottom" secondItem="6MK-Li-dKL" secondAttribute="bottom" id="zmG-bG-fn1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6MK-Li-dKL"/>
@@ -132,7 +152,53 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BgR-Cg-PM5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="815.82733812949641" y="920.86330935251806"/>
+            <point key="canvasLocation" x="850" y="917"/>
+        </scene>
+        <!--Pogba Mini Game View Controller-->
+        <scene sceneID="6eA-iB-VCu">
+            <objects>
+                <viewController id="fbA-Dk-Bgg" customClass="PogbaMiniGameViewController" customModule="Elite_Premier_League" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YHd-cf-W1A">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iee-ym-Vgj">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                                <color key="barTintColor" red="0.0" green="1" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="largeTitleTextAttributes">
+                                    <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="17"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Title" id="1jX-lk-y4j"/>
+                                </items>
+                            </navigationBar>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qPA-fY-ebo">
+                                <rect key="frame" x="0.0" y="44" width="768" height="980"/>
+                            </arscnView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qPA-fY-ebo" firstAttribute="leading" secondItem="84e-QA-SCy" secondAttribute="leading" id="21W-fM-dM2"/>
+                            <constraint firstItem="qPA-fY-ebo" firstAttribute="trailing" secondItem="84e-QA-SCy" secondAttribute="trailing" id="6Wb-Mj-i2l"/>
+                            <constraint firstItem="qPA-fY-ebo" firstAttribute="bottom" secondItem="84e-QA-SCy" secondAttribute="bottom" id="HHe-CF-Cjn"/>
+                            <constraint firstItem="qPA-fY-ebo" firstAttribute="bottom" secondItem="84e-QA-SCy" secondAttribute="bottom" id="IFy-am-TtA"/>
+                            <constraint firstItem="qPA-fY-ebo" firstAttribute="top" secondItem="iee-ym-Vgj" secondAttribute="bottom" id="VgS-uN-4rz"/>
+                            <constraint firstItem="qPA-fY-ebo" firstAttribute="top" secondItem="iee-ym-Vgj" secondAttribute="bottom" id="YZV-Pa-K6o"/>
+                            <constraint firstItem="qPA-fY-ebo" firstAttribute="trailing" secondItem="84e-QA-SCy" secondAttribute="trailing" id="bk1-7S-Ff7"/>
+                            <constraint firstItem="qPA-fY-ebo" firstAttribute="leading" secondItem="84e-QA-SCy" secondAttribute="leading" id="eOh-Z8-eli"/>
+                            <constraint firstItem="iee-ym-Vgj" firstAttribute="trailing" secondItem="qPA-fY-ebo" secondAttribute="trailing" id="nZ1-dw-aZO"/>
+                            <constraint firstItem="iee-ym-Vgj" firstAttribute="leading" secondItem="qPA-fY-ebo" secondAttribute="leading" id="rVd-6M-fJ6"/>
+                            <constraint firstItem="iee-ym-Vgj" firstAttribute="top" secondItem="YHd-cf-W1A" secondAttribute="top" id="t6z-tw-c22"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="84e-QA-SCy"/>
+                    </view>
+                    <connections>
+                        <outlet property="sceneView" destination="qPA-fY-ebo" id="gck-Sd-3NS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="86X-nc-LjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138" y="907"/>
         </scene>
     </scenes>
     <resources>

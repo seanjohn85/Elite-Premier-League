@@ -15,6 +15,7 @@ public class Fixture{
     private var homeGoals   : Int
     private var awayGoals   : Int
     
+    //constructor to create a fixture
     init(homeTeam : String, awayTeam : String, date : String, homeGoals : Int, awayGoals: Int){
         self.homeTeam   = homeTeam
         self.awayTeam   = awayTeam

@@ -146,8 +146,7 @@ class ImageRecognitionViewController: UIViewController, AVCapturePhotoCaptureDel
         }
         
         var  team = "Man Utd"
-       // var conFide
-        
+       
         var confidence : VNConfidence = 0
         
         for classification in prediction {
@@ -200,38 +199,47 @@ class ImageRecognitionViewController: UIViewController, AVCapturePhotoCaptureDel
                 
                 print(swiftyJsonVar)
                  let fixture = Fixture(
-                    homeTeam : swiftyJsonVar["fixture"]["homeTeam"].rawString()!,
-                    awayTeam : swiftyJsonVar["fixture"]["awayTeam"].rawString()!,
-                    date : swiftyJsonVar["fixture"]["date"].rawString()!,
-                    homeGoals : Int(swiftyJsonVar["fixture"]["homeGoals"].rawString()!)!,
-                    awayGoals : Int(swiftyJsonVar["fixture"]["awayGoals"].rawString()!)!)
+                    homeTeam    : swiftyJsonVar["fixture"]["homeTeam"].rawString()!,
+                    awayTeam    : swiftyJsonVar["fixture"]["awayTeam"].rawString()!,
+                    date        : swiftyJsonVar["fixture"]["date"].rawString()!,
+                    homeGoals   : Int(swiftyJsonVar["fixture"]["homeGoals"].rawString()!)!,
+                    awayGoals   : Int(swiftyJsonVar["fixture"]["awayGoals"].rawString()!)!)
                 
                 GlobalVar.currentTeam?.thisFixture = fixture
                 print("players")
                 //creates a list of players from the json
                 let list: Array<JSON> = swiftyJsonVar["players"].arrayValue
                 //loops through the list of players
+                var x = [Player] ()
                 for p in list{
                     //print(p["news"])
+                    let named = Player(playerId      : Int(p["playerId"].rawString()!)!,
+                                       team          : GlobalVar.currentTeam!,
+                                       fName         : p["f_name"].rawString()!,
+                                       lName         : p["l_name"].rawString()!,
+                                       pos           : Int(p["pos"].rawString()!)!,
+                                       goals         : Int(p["goals"].rawString()!)!,
+                                       assits        : Int(p["assits"].rawString()!)!,
+                                       saves         : Int(p["saves"].rawString()!)!,
+                                       number        : Int(p["number"].rawString()!)!,
+                                       cleanSheets   : Int(p["clean_sheets"].rawString()!)!,
+                                       ownGoals      : Int(p["own_goals"].rawString()!)!,
+                                       penoSaved     : Int(p["penalties_saved"].rawString()!)!,
+                                       penoMissed    : Int(p["penalties_missed"].rawString()!)!,
+                                       photoURL      : p["photo"].rawString()!,
+                                       yellowCards   : Int(p["yellow_cards"].rawString()!)!,
+                                       redCards      : Int(p["red_cards"].rawString()!)!)
+                    print(named.returnDetails())
                     //adds each player to the teams list of players
-                    GlobalVar.currentTeam?.addPlayer(player: Player(playerId      : Int(p["playerId"].rawString()!)!,
-                                                                    team          : GlobalVar.currentTeam!,
-                                                                    fName         : p["f_name"].rawString()!,
-                                                                    lName         : p["l_name"].rawString()!,
-                                                                    pos           : Int(p["pos"].rawString()!)!,
-                                                                    goals         : Int(p["goals"].rawString()!)!,
-                                                                    assits        : Int(p["assits"].rawString()!)!,
-                                                                    saves         : Int(p["saves"].rawString()!)!,
-                                                                    number        : Int(p["number"].rawString()!)!,
-                                                                    cleanSheets   : Int(p["clean_sheets"].rawString()!)!,
-                                                                    ownGoals      : Int(p["own_goals"].rawString()!)!,
-                                                                    penoSaved     : Int(p["penalties_saved"].rawString()!)!,
-                                                                    penoMissed    : Int(p["penalties_missed"].rawString()!)!,
-                                                                    photoURL      : p["photo"].rawString()!,
-                                                                    yellowCards   : Int(p["yellow_cards"].rawString()!)!,
-                                                                    redCards      : Int(p["red_cards"].rawString()!)!))
+                    x.append(named)
+                    
+                    //GlobalVar.currentTeam?.addPlayer(player: named)
+                    print("\(GlobalVar.currentTeam?.players?.count)")
+                    
                     
                 }
+                GlobalVar.currentTeam?.thisPlayers = x
+                print("\(GlobalVar.currentTeam?.players?.count)")
                 print(GlobalVar.currentTeam!.printTeam())
                 self.callSegue(identifier: "teamScreen")
                 

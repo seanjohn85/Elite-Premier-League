@@ -12,7 +12,7 @@
 		C927080520228E29000CB201 /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C927080420228E29000CB201 /* TeamViewController.swift */; };
 		C927080B2023E0E1000CB201 /* Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = C927080A2023E0E1000CB201 /* Fixture.swift */; };
 		C941CD70201E13100046A974 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C941CD6F201E13100046A974 /* AppDelegate.swift */; };
-		C941CD72201E13100046A974 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C941CD71201E13100046A974 /* ViewController.swift */; };
+		C941CD72201E13100046A974 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C941CD71201E13100046A974 /* MenuViewController.swift */; };
 		C941CD75201E13100046A974 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C941CD73201E13100046A974 /* Main.storyboard */; };
 		C941CD77201E13100046A974 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C941CD76201E13100046A974 /* Assets.xcassets */; };
 		C941CD7A201E13100046A974 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C941CD78201E13100046A974 /* LaunchScreen.storyboard */; };
@@ -21,6 +21,7 @@
 		C941CD8B201E4C320046A974 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = C941CD8A201E4C320046A974 /* Team.swift */; };
 		C941CD8D201E62700046A974 /* crestIdenifer3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C941CD8C201E62700046A974 /* crestIdenifer3.mlmodel */; };
 		C94958E62020F83800CD1982 /* GlobalVar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94958E52020F83800CD1982 /* GlobalVar.swift */; };
+		C9A41ADD2029E30700B3221B /* PogbaMiniGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A41ADC2029E30700B3221B /* PogbaMiniGameViewController.swift */; };
 		C9C5F0C220273C7600A9F3AD /* PremierLeague.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C941CD83201E2FC30046A974 /* PremierLeague.ttf */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +33,7 @@
 		C927080A2023E0E1000CB201 /* Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixture.swift; sourceTree = "<group>"; };
 		C941CD6C201E13100046A974 /* Elite Premier League.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Elite Premier League.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C941CD6F201E13100046A974 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C941CD71201E13100046A974 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C941CD71201E13100046A974 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		C941CD74201E13100046A974 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C941CD76201E13100046A974 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C941CD79201E13100046A974 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -43,6 +44,7 @@
 		C941CD8A201E4C320046A974 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		C941CD8C201E62700046A974 /* crestIdenifer3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = crestIdenifer3.mlmodel; sourceTree = "<group>"; };
 		C94958E52020F83800CD1982 /* GlobalVar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVar.swift; sourceTree = "<group>"; };
+		C9A41ADC2029E30700B3221B /* PogbaMiniGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PogbaMiniGameViewController.swift; sourceTree = "<group>"; };
 		F381E7331962B634EF88F3FA /* Pods-Elite Premier League.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elite Premier League.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Elite Premier League/Pods-Elite Premier League.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,9 +100,10 @@
 		C92708092023AD66000CB201 /* view controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C941CD71201E13100046A974 /* ViewController.swift */,
+				C941CD71201E13100046A974 /* MenuViewController.swift */,
 				C941CD84201E32B80046A974 /* ImageRecognitionViewController.swift */,
 				C927080420228E29000CB201 /* TeamViewController.swift */,
+				C9A41ADC2029E30700B3221B /* PogbaMiniGameViewController.swift */,
 			);
 			path = "view controllers";
 			sourceTree = "<group>";
@@ -282,11 +285,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C941CD87201E33FD0046A974 /* Player.swift in Sources */,
-				C941CD72201E13100046A974 /* ViewController.swift in Sources */,
+				C941CD72201E13100046A974 /* MenuViewController.swift in Sources */,
 				C941CD8D201E62700046A974 /* crestIdenifer3.mlmodel in Sources */,
 				C94958E62020F83800CD1982 /* GlobalVar.swift in Sources */,
 				C941CD85201E32B80046A974 /* ImageRecognitionViewController.swift in Sources */,
 				C941CD8B201E4C320046A974 /* Team.swift in Sources */,
+				C9A41ADD2029E30700B3221B /* PogbaMiniGameViewController.swift in Sources */,
 				C9270803202133EC000CB201 /* crestIdeniferCNN.mlmodel in Sources */,
 				C927080B2023E0E1000CB201 /* Fixture.swift in Sources */,
 				C927080520228E29000CB201 /* TeamViewController.swift in Sources */,

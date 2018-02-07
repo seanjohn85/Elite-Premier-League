@@ -16,5 +16,6 @@ struct GlobalVar{
     static var currentTeam : Team?
     
     static let imagesUrl = "http://192.168.0.157:8080/static/images/"
+    
 }
 

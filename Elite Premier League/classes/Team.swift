@@ -18,7 +18,7 @@ public class Team{
     //instance varibles
     private var name : String
     private var code : Int
-    private var players : [Player]?
+    var players : [Player]!
     private var defHome : Int
     private var attHome : Int
     private var home : Int
@@ -50,6 +50,16 @@ public class Team{
     }
     
     ///getters and setters
+    var thisPlayers : [Player]{
+        get
+        {
+            return players!
+        }
+        set
+        {
+            self.players = newValue
+        }
+    }
     var thisName : String{
         get
         {
