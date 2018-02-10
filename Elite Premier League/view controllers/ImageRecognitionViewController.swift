@@ -21,25 +21,19 @@ class ImageRecognitionViewController: UIViewController, AVCapturePhotoCaptureDel
     
     //a view that houses the video feed
     @IBOutlet weak var videoFeedView: UIView!
-    
     //capture video vars
     var captureSession = AVCaptureSession()
     //get camera output
     var output  = AVCapturePhotoOutput()
-    
+    //used for the voideo preview layer for images
     var preview = AVCaptureVideoPreviewLayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //camera()
+        //set the camera to feed images to the model
         camera()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     //function an initialise the videoFeed from the iOS device and embedd input in the view
     func camera(){
         //sets up the camera session as photo as still images are used by the model
@@ -74,10 +68,8 @@ class ImageRecognitionViewController: UIViewController, AVCapturePhotoCaptureDel
         
     }//end of camera set up
     
-
-    
+    //used to get the current iumage from the camera feed
     @objc func getImageFromCamera(){
-        
         //settings for image capture
         let settings = AVCapturePhotoSettings()
         //take the first available format from the camera
@@ -89,16 +81,13 @@ class ImageRecognitionViewController: UIViewController, AVCapturePhotoCaptureDel
             kCVPixelBufferHeightKey as String : 250
         ]
         settings.previewPhotoFormat = format
-        //capture image from camera
+        //capture image from camera calling the photoOutput method
         output.capturePhoto(with: settings, delegate: self)
-        
-        //use model to identify the image
-        
-        //get results and process them
     }
     
     //access the image
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        //gives error if cant get the image
         if let error = error{
             print ("error getting photo \(error)")
         }
@@ -112,48 +101,40 @@ class ImageRecognitionViewController: UIViewController, AVCapturePhotoCaptureDel
     
     //uses the model to idenifiy a crest
     func scanCrest(image: UIImage){
-        
-        
         //get the image using the file path
         if let data = UIImagePNGRepresentation(image){
             let fileName = self.getDirectory().appendingPathComponent("crest.png")
             //store the image
             try? data.write(to: fileName)
-            
             //feed the image into the model as input use its url
-            
             //set up the model
             let model = try! VNCoreMLModel(for: crestIdeniferCNN().model)
+            //run the model & get results
             let request = VNCoreMLRequest(model: model, completionHandler: results)
             let handler = VNImageRequestHandler(url: fileName)
             //only one request
             try! handler.perform([request])
         }
-        
-        
-        
-        
-        
-        //run the model
-        
-        //get results
     }
     
-    
+    //a vision requestion event handler
     func results(request: VNRequest, error : Error?){
+        //if cant get an output exit this fuction to avoid the app crashing
         guard let prediction = request.results as? [VNClassificationObservation] else{
             fatalError("could not get any output")
         }
-        
+        //used to hold the team the modle identifies
         var  team = "Man Utd"
-       
+        //the covidences of the model team match
         var confidence : VNConfidence = 0
-        
+        //loops thourgh the models results
         for classification in prediction {
             if classification.confidence > confidence {
+                //sets the convudence var
                 confidence = classification.confidence
+                //sets the team var
                 //team = classification.identifier
-                print("here working \(classification.identifier)")
+                print("prediction  \(classification.confidence) : team \(classification.identifier)")
             }
         }
         
@@ -167,13 +148,13 @@ class ImageRecognitionViewController: UIViewController, AVCapturePhotoCaptureDel
         }else{
             Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.getImageFromCamera), userInfo: nil, repeats: false)
         }
-        
     }
     
+    //fucntion to request the data of the found team from the server
     func requestTeamData(teamName: String){
         let parameters: Parameters = ["name": teamName]
         print("get server request")
-        let url = "http://192.168.0.157:8080/rest/getData/"
+        let url = GlobalVar.teamData
         //request to Django server ---  NB *******Django server Must Be started***********
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
@@ -198,6 +179,7 @@ class ImageRecognitionViewController: UIViewController, AVCapturePhotoCaptureDel
                 
                 
                 print(swiftyJsonVar)
+                //creates a fiture object
                  let fixture = Fixture(
                     homeTeam    : swiftyJsonVar["fixture"]["homeTeam"].rawString()!,
                     awayTeam    : swiftyJsonVar["fixture"]["awayTeam"].rawString()!,
@@ -212,7 +194,7 @@ class ImageRecognitionViewController: UIViewController, AVCapturePhotoCaptureDel
                 //loops through the list of players
                 var x = [Player] ()
                 for p in list{
-                    //print(p["news"])
+                    //creates a player object
                     let named = Player(playerId      : Int(p["playerId"].rawString()!)!,
                                        team          : GlobalVar.currentTeam!,
                                        fName         : p["f_name"].rawString()!,
@@ -235,24 +217,17 @@ class ImageRecognitionViewController: UIViewController, AVCapturePhotoCaptureDel
                     
                     //GlobalVar.currentTeam?.addPlayer(player: named)
                     print("\(GlobalVar.currentTeam?.players?.count)")
-                    
-                    
+
                 }
+                //sets the teams players
                 GlobalVar.currentTeam?.thisPlayers = x
-                print("\(GlobalVar.currentTeam?.players?.count)")
-                print(GlobalVar.currentTeam!.printTeam())
                 self.callSegue(identifier: "teamScreen")
-                
-                
         }
-        
-        
     }
     
     //This method is called to change to the main menu screen
     func callSegue(identifier: String) {
         performSegue(withIdentifier: identifier, sender: self)
-        
     }
     
     //get the document location of a file using a url
@@ -261,7 +236,4 @@ class ImageRecognitionViewController: UIViewController, AVCapturePhotoCaptureDel
         let documentsDirectory = paths[0]
         return documentsDirectory
     }
-    
-    
-
 }

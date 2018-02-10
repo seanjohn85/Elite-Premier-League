@@ -11,10 +11,13 @@ import ARKit
 import SceneKit
 import Alamofire
 import AlamofireImage
+import SwiftyJSON
 
 
 class TeamViewController: UIViewController, ARSCNViewDelegate{
     
+    //creates empty json array for league table data
+    var leagueTable = JSON("empty")
     //link to the ar sceen to add elements
     @IBOutlet weak var sceneKit: ARSCNView!
     //sets the AR configuration
@@ -25,6 +28,7 @@ class TeamViewController: UIViewController, ARSCNViewDelegate{
     var arItem = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        getTable()
         // Set the view's delegate
         sceneKit.delegate = self
         //runs the preset configuration in the scene to track the real world
@@ -98,14 +102,14 @@ class TeamViewController: UIViewController, ARSCNViewDelegate{
         if let crest = GlobalVar.currentTeam?.thisFixture.thisHomeTeam{
             print("Home team \(crest)")
             //adds the crest to the fixtures plane
-            fixtureNode.addChildNode(addCrest(crestName : crest, x : -0.68, y : 0.45))
+            fixtureNode.addChildNode(addImage(imageName : crest, x : -0.68, y : 0.45))
         }
         //ensures the fixtures contains an away team
         if let crest = GlobalVar.currentTeam?.thisFixture.thisAwayTeam{
             print("away team \(crest)")
             //adds the crest to the fixtures plane
             //adds the crest to the node pram as a child
-            fixtureNode.addChildNode(addCrest(crestName : crest, x :0.68, y : 0.45))
+            fixtureNode.addChildNode(addImage(imageName : crest, x :0.68, y : 0.45))
             // getPlayerImageFromServer(/*player : Player*/)
         }
         //cretes a node to hold the team names
@@ -144,7 +148,7 @@ class TeamViewController: UIViewController, ARSCNViewDelegate{
     //the players planes will be created and added here
     func players(){
         //the plane to show the fixures
-        let playerNode = SCNNode(geometry : SCNPlane(width: 3, height: 2.5))
+        let playerNode = SCNNode(geometry : SCNPlane(width: 3.5, height: 2.2))
         //sets it to green
         playerNode.geometry?.firstMaterial?.diffuse.contents  = UIColor(red: 0.0 / 255.0, green: 255.0 / 255.0, blue: 133.0 / 255.0, alpha: 0.8)
         //positions it in the center of the x and y of the world with -5 meeters away from the user in the z axsis
@@ -152,31 +156,43 @@ class TeamViewController: UIViewController, ARSCNViewDelegate{
         //named node to be identifed for removal
         playerNode.name = "playerNode"
         self.sceneKit.scene.rootNode.addChildNode(playerNode)
+        getPlayerImageFromServer(player : getNextPlayer())
     }
     
     //the players planes will be created and added here
     func table(){
+        //the plane to show the fixures
+        let tabelNode = SCNNode(geometry : SCNPlane(width: 3.5, height: 2.2))
+        //sets it to green
+        tabelNode.geometry?.firstMaterial?.diffuse.contents  = UIColor(red: 0.0 / 255.0, green: 255.0 / 255.0, blue: 133.0 / 255.0, alpha: 0.8)
+        //positions it in the center of the x and y of the world with -5 meeters away from the user in the z axsis
+        tabelNode.position = SCNVector3(0, 0, -5)
+        //named node to be identifed for removal
+        tabelNode.name = "tabelNode"
+        self.sceneKit.scene.rootNode.addChildNode(tabelNode)
         
     }
     
     //function to add a crest to the fixtures plane
-    func addCrest(crestName : String, x : Double, y : Double) -> SCNNode{
+    func addImage(imageName : String, x : Double, y : Double) -> SCNNode{
         //crests a new node
-        let crestNode = SCNNode(geometry : SCNPlane(width: 0.7, height: 0.7))
+        let imageNode = SCNNode(geometry : SCNPlane(width: 0.7, height: 0.7))
         //appends the crest image to the node palne
-        crestNode.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "\(crestName)Crest")
+        imageNode.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "\(imageName)Crest")
         //positions the crest using the given the x and y pos prams
-        crestNode.position = SCNVector3(x, y, 0.1)
-        return crestNode
+        imageNode.position = SCNVector3(x, y, 0.1)
+        return imageNode
         
     }
     
-    
-    func addImagePlane(){
-        
-    }
-    
-    func addTextToNode(){
+    func addImage(image : UIImage, w : Double, h : Double, x : Double, y : Double) -> SCNNode{
+        //crests a new node
+        let imageNode = SCNNode(geometry : SCNPlane(width: CGFloat(w), height: CGFloat(h)))
+        //appends the crest image to the node palne
+        imageNode.geometry?.firstMaterial?.diffuse.contents = image
+        //positions the crest using the given the x and y pos prams
+        imageNode.position = SCNVector3(x, y, 0.1)
+        return imageNode
         
     }
     
@@ -207,25 +223,25 @@ class TeamViewController: UIViewController, ARSCNViewDelegate{
         label.drawHierarchy(in: label.bounds, afterScreenUpdates: true)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return image!;
+        return image!
     }
     
     
-    func getPlayerImageFromServer(/*player : Player*/){
-        
-        if self.currentPlayer == GlobalVar.currentTeam?.players!.count{
-            self.currentPlayer == 0
-        }
-        print(GlobalVar.currentTeam?.players?[currentPlayer].returnDetails())
-        
-        //checks if there is a player
-        guard let named = GlobalVar.currentTeam?.players?[self.currentPlayer].imageLocation() else {
-            //exits fuction as the pleyer doesnt exist
-            return
-        }
-        
+    func convertViewToImage(view : UIView) -> UIImage{
+        //converts the view to a UIIMage
+        UIGraphicsBeginImageContext(view.frame.size)
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, 0)
+        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        //returns a ui image created from the view
+        return image!
+    }
+    
+    //function to get a players image from the server
+    func getPlayerImageFromServer(player : Player){
         //the url of the image
-        let url = "\(GlobalVar.imagesUrl)/\(named)"
+        let url = "\(GlobalVar.imagesUrl)/\(player.imageLocation())"
         //let url = "http://192.168.0.157:8080/static/images/1/9808.png"
         ///server request to download the image
         
@@ -238,41 +254,39 @@ class TeamViewController: UIViewController, ARSCNViewDelegate{
             
             if let image = response.result.value {
                 print("image downloaded: \(image)")
-                let crestNode = SCNNode(geometry : SCNPlane(width: 0.7, height: 0.7))
-                //appends the crest image to the node palne
-                crestNode.geometry?.firstMaterial?.diffuse.contents = image
-                    //positions the crest using the given the x and y pos prams
-                crestNode.position = SCNVector3(0.68, 0.45, 0.1)
-                //adds the crest to the node pram as a child
-                self.sceneKit.scene.rootNode.childNode(withName: "playerNode", recursively: true)?.addChildNode(crestNode)
+                //uses the image as a pram to create
+                self.addPlayerToPlane(image : image, player : player)
             }
         }
     }
     
+    //fuction to check when the user taps the screen
     @objc func tapped(sender: UIGestureRecognizer){
         print("tapped")
+        //checks id a ar element is been touched by the user
         let sceneTappendOn = sender.view as! SCNView
         let touchCoord = sender.location(in: sceneTappendOn)
-        
         let hitTest = sceneTappendOn.hitTest(touchCoord)
         if hitTest.isEmpty{
             print("not tocuhing a node")
         }else{
             //doesnt need to be unwrapped as will not
             let res = hitTest.first!
+            //when the menu nod eis pressed
             if res.node.name == "menu" {
                 print("men")
+                //change to the next plane
                 changeARPlane()
-            }else if res.node.name == "playerNode" {
+                //if its the players plane and its touched change to next player
+            }else if res.node.name == "playerNode" || res.node.parent?.name == "playerNode"{
                 print("change player")
-                getPlayerImageFromServer()
+                //gets the next players image from the server
+                getPlayerImageFromServer(player : getNextPlayer())
             }
-            print(res.node.name ?? "no name")
-
         }
     }
     
-
+    //used to loop through the 3 different ar options on this screen and move to next option and remove the previous node
     func changeARPlane(){
         if arItem == 0{
             //remove the fixture node
@@ -290,17 +304,106 @@ class TeamViewController: UIViewController, ARSCNViewDelegate{
             arItem = 2
         }else if arItem == 2{
             //remove the fixture node
-            //self.sceneKit.scene.rootNode.childNode(withName: "fixtureNode", recursively: true)?.removeFromParentNode()
+            self.sceneKit.scene.rootNode.childNode(withName: "tabelNode", recursively: true)?.removeFromParentNode()
             //show the players plane
             self.fixture()
             //moves the menu to the next phase
             arItem = 0
         }
+    }
+    
+    //used to fill a plane with a new player
+    func addPlayerToPlane(image : UIImage, player: Player){
+        //removes previous players details from the player node
+        self.sceneKit.scene.rootNode.childNode(withName: "playerNode", recursively: true)?.enumerateChildNodes { (node, stop) in
+            node.removeFromParentNode() }
+        //adds the crest to the node pram as a child
+        self.sceneKit.scene.rootNode.childNode(withName: "playerNode", recursively: true)?.addChildNode(addImage(image : image, w : 1.3, h : 1.3, x : -0.85, y : 0.25))
+        //results node
+        let playerName = SCNNode(geometry : SCNPlane(width: 1.3, height: 0.50))
+        //results label
+        let name = labelGenerator(width: 800, height : 100, textColour :  UIColor(red: 56.0 / 255.0, green: 0 / 255.0, blue: 60.0 / 255.0, alpha: 1), bgColour : UIColor(red: 0.0 / 255.0, green: 255.0 / 255.0, blue: 133.0 / 255.0, alpha: 0), size : 70, text : player.returnDetails())
+        //adds the results label to the node
+        playerName.geometry?.firstMaterial?.diffuse.contents = convertLabelToImage(label : name)
+        //postions the node
+        playerName.position = SCNVector3(-0.85, -0.70, 0.1)
+        //adds the node as a child node
+        self.sceneKit.scene.rootNode.childNode(withName: "playerNode", recursively: true)?.addChildNode(playerName)
+        //lets the saves and clean shest label
+        if player.thisPos == 1{
+            print("goalkeeper")
+            self.sceneKit.scene.rootNode.childNode(withName: "playerNode", recursively: true)?.addChildNode(statNodeGen(name : "Saves", stat : String(player.thisSaves), x : 0.80, y  : 0.75))
+            self.sceneKit.scene.rootNode.childNode(withName: "playerNode", recursively: true)?.addChildNode(statNodeGen(name : "Clean Sheets", stat : String(player.thisCleanSheets), x : 0.80, y  : 0.40))
+            //for outfield players sets the goals and assits labels
+        }else{
+            self.sceneKit.scene.rootNode.childNode(withName: "playerNode", recursively: true)?.addChildNode(statNodeGen(name : "Goals", stat : String(player.thisGoals), x : 0.80, y  : 0.75))
+            self.sceneKit.scene.rootNode.childNode(withName: "playerNode", recursively: true)?.addChildNode(statNodeGen(name : "Assits", stat : String(player.thisAssists), x : 0.80, y  : 0.40))
+        }
+        
+        //adds the node as a child node for red and yellow cards
+        self.sceneKit.scene.rootNode.childNode(withName: "playerNode", recursively: true)?.addChildNode(statNodeGen(name : "Yellow Cards", stat : String(player.thisYellow), x : 0.80, y  : 0.05))
+        self.sceneKit.scene.rootNode.childNode(withName: "playerNode", recursively: true)?.addChildNode(statNodeGen(name : "Red Cards", stat : String(player.thisRed), x : 0.80, y  : -0.30))
+        //self.sceneKit.scene.rootNode.childNode(withName: "playerNode", recursively: true)?.addChildNode(statNodeGen(name : "", stat : "", x : 0.80, y  : -0.70))
+    }
+    
+    //creates nodes using the stats custom view for player stats
+    func statNodeGen(name : String, stat : String, x : Double, y  : Double) -> SCNNode{
+        //creats a stats view object
+        let view = StatsView(frame: CGRect(x: CGFloat(0), y: CGFloat(0),
+                                           width: 550, height: 100))
+        //sets the text lables on the view
+        view.nameLabel.text = name
+        view.nameLabel.adjustsFontSizeToFitWidth = true
+        view.statLabel.text = stat
+        view.nameLabel.adjustsFontSizeToFitWidth = true
+        
+        //creates a custom node
+        let stat = SCNNode(geometry : SCNPlane(width: 1.5, height: 0.25))
+        //adds the cucsom views image as material to the node
+        stat.geometry?.firstMaterial?.diffuse.contents = convertViewToImage(view : view)
+        //postions the node
+        stat.position = SCNVector3(x, y, 0.1)
+        //returns the node
+        return stat
+    }
+    
+
+    //function to get the next player
+    func getNextPlayer() -> Player{
+        //when the curent palyer is the last player reset to thecounter to 0
+        if self.currentPlayer == (GlobalVar.currentTeam?.players!.count)! - 1{
+            self.currentPlayer = 0
+        }
+        //gets the next player
+        let player = (GlobalVar.currentTeam?.players[currentPlayer])!
+        //increment player counter
+        self.currentPlayer += 1
+        //returns the player
+        return player
         
     }
-
     
     
+    //gets the up to date league table from mashape.com
+    func getTable(){
+        //request to api to get the league table data
+        Alamofire.request(GlobalVar.tabelURL, headers: GlobalVar.TableHeaders).response { response in
+            // full http response including error codes
+            debugPrint(response)
+            print("This number should match the nummber in the django terminal \(response.data!)")
+            //gets the json array only
+            }.validate { request, response, data in
+                // Custom evaluation closure now includes data (allows you to parse data to dig out error messages if necessary)
+                return .success
+            }
+            .responseJSON { response in
+                let swiftyJsonVar = JSON(response.result.value!)
+                //debugPrint(response)
+                print(swiftyJsonVar["records"][0])
+                self.leagueTable = swiftyJsonVar["records"]
+                print(swiftyJsonVar["records"].count)
+        }
+    }
 }
 
 //function to convert deg

@@ -121,6 +121,74 @@ public class Player{
         }
     }
     
+    var thisSaves : Int{
+        get
+        {
+            return saves
+        }
+        set
+        {
+            self.saves = newValue
+        }
+        
+    }
+    
+    var thisCleanSheets : Int{
+        get
+        {
+            return cleanSheets
+        }
+        set
+        {
+            self.cleanSheets = newValue
+        }
+        
+    }
+    
+    var thisGoals : Int{
+        get
+        {
+            return goals
+        }
+        set
+        {
+            self.goals = newValue
+        }
+    }
+    
+    var thisAssists : Int{
+        get
+        {
+            return assits
+        }
+        set
+        {
+            self.assits = newValue
+        }
+    }
+    
+    
+    var thisYellow : Int{
+        get
+        {
+            return yellowCards
+        }
+        set
+        {
+            self.yellowCards = newValue
+        }
+    }
+    var thisRed : Int{
+        get
+        {
+            return redCards
+        }
+        set
+        {
+            self.redCards = newValue
+        }
+    }
+    
     //the players photo can be stored when retrieved from the server
     var thisimage: UIImage {
         get {

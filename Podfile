@@ -3,9 +3,11 @@
 
 target 'Elite Premier League' do
   pod 'Alamofire', '~> 4.5'
+  pod 'PureLayout'
   pod 'AlamofireImage'
   pod 'SwiftyJSON'
   use_frameworks!
+
 
   # Pods for Elite Premier League
 
