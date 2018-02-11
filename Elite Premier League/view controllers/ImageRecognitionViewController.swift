@@ -1,20 +1,15 @@
 //
 //  ImageRecognitionViewController.swift
 //  Elite Premier League
-//
+//  This class uses a CNN mopdel to idetify a Pl teams cresta nd requests data from a server on the team
 //  Created by JOHN KENNY on 28/01/2018.
 //  Copyright © 2018 JOHN KENNY. All rights reserved.
 //
 
 import UIKit
-
 import AVFoundation
-
 import Vision
-
 import Alamofire
-
-
 import SwiftyJSON
 
 class ImageRecognitionViewController: UIViewController, AVCapturePhotoCaptureDelegate {

@@ -6,6 +6,7 @@ target 'Elite Premier League' do
   pod 'PureLayout'
   pod 'AlamofireImage'
   pod 'SwiftyJSON'
+  pod 'Each', '~> 1.2'
   use_frameworks!
 
 

@@ -26,6 +26,9 @@ class TeamViewController: UIViewController, ARSCNViewDelegate{
     var currentPlayer = 0
     // this is used to detect what ar plane is currently shown.... 0 is the fixtures plane
     var arItem = 0
+    //view table top of bottom
+    var tableTop = true
+    //when the view loads all requetred resources set up
     override func viewDidLoad() {
         super.viewDidLoad()
         getTable()
@@ -33,15 +36,12 @@ class TeamViewController: UIViewController, ARSCNViewDelegate{
         sceneKit.delegate = self
         //runs the preset configuration in the scene to track the real world
         sceneKit.session.run(configuration)
-        
         //loads the fixture plane
         fixture()
         //loades the menu node
         addMenu()
-        
         //when box is tapped
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
-        
         self.sceneKit.addGestureRecognizer(tapGestureRecognizer)
     }
     
@@ -49,7 +49,6 @@ class TeamViewController: UIViewController, ARSCNViewDelegate{
     override func viewDidAppear(_ animated: Bool) {
         //test print
         print("fixture details \(String(describing: GlobalVar.currentTeam?.thisFixture.thisHomeTeam)) \(GlobalVar.currentTeam?.thisFixture.thisAwayTeam ?? "no away team") \(String(describing: GlobalVar.currentTeam?.thisFixture.thisDate)) \(GlobalVar.currentTeam?.thisFixture.thisAwayGoals ?? 0) \(String(describing: GlobalVar.currentTeam?.thisFixture.thisHomeGoals))")
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,7 +73,6 @@ class TeamViewController: UIViewController, ARSCNViewDelegate{
         let forever = SCNAction.repeatForever(action)
         //adds the roatation animation to the menu node
         menuNode.runAction(forever)
-        
     }
     
     //the fixture plane will be created and added here
@@ -162,7 +160,7 @@ class TeamViewController: UIViewController, ARSCNViewDelegate{
     //the players planes will be created and added here
     func table(){
         //the plane to show the fixures
-        let tabelNode = SCNNode(geometry : SCNPlane(width: 3.5, height: 2.2))
+        let tabelNode = SCNNode(geometry : SCNPlane(width: 3.5, height: 2.8))
         //sets it to green
         tabelNode.geometry?.firstMaterial?.diffuse.contents  = UIColor(red: 0.0 / 255.0, green: 255.0 / 255.0, blue: 133.0 / 255.0, alpha: 0.8)
         //positions it in the center of the x and y of the world with -5 meeters away from the user in the z axsis
@@ -170,6 +168,53 @@ class TeamViewController: UIViewController, ARSCNViewDelegate{
         //named node to be identifed for removal
         tabelNode.name = "tabelNode"
         self.sceneKit.scene.rootNode.addChildNode(tabelNode)
+        //pobulates the league table
+        populateTable()
+
+    }
+    
+    //populates the table with the teams
+    func populateTable(){
+        var yPos = 0.80
+        if tableTop == true {
+            //genertates the top of the table
+            for i in 1...10 {
+                createTableRow(yPos : yPos, tablePos : i)
+                yPos = yPos - 0.20
+            }
+            tableTop = false
+        }else{
+            //genertates the bottom of the table
+            for i in 11...20 {
+                createTableRow(yPos : yPos, tablePos : i)
+                yPos = yPos - 0.20
+            }
+            tableTop = true
+        }
+    }
+    
+    func createTableRow(yPos : Double, tablePos : Int){
+        //creats a stats view object
+        let view = LeagueTableRow(frame: CGRect(x: CGFloat(0), y: CGFloat(0),
+                                                width: 1175, height: 54))
+        //set the labels of the  row from the json recieved from the server
+        //let gd = Int(leagueTable[tablePos-1]["goalsFor"].rawString()!)! - Int(leagueTable[tablePos-1]["goalsAgainst"].rawString()!)!
+        view.positionLabel.text     = "\(tablePos)"
+        view.teamNameLabel.text     = "\(leagueTable[tablePos-1]["team"])"
+        view.playedLabel.text       = "\(leagueTable[tablePos-1]["played"])"
+        view.wonLabel.text          = "\(leagueTable[tablePos-1]["win"])"
+        view.drawnLabel.text        = "\(leagueTable[tablePos-1]["draw"])"
+        view.lossLabel.text         = "\(leagueTable[tablePos-1]["loss"])"
+        // view.gdLabel.text           = "\(gd)"
+        view.ptsLabel.text          =  "\(leagueTable[tablePos-1]["points"])"
+        //creates a custom node
+        let row = SCNNode(geometry : SCNPlane(width: 3, height: 0.20))
+        //adds the custom views image as material to the node
+        row.geometry?.firstMaterial?.diffuse.contents = convertViewToImage(view : view)
+        //postions the node
+        row.position = SCNVector3(0, yPos, 0.1)
+        
+        self.sceneKit.scene.rootNode.childNode(withName: "tabelNode", recursively: true)?.addChildNode(row)
         
     }
     
@@ -339,7 +384,6 @@ class TeamViewController: UIViewController, ARSCNViewDelegate{
             self.sceneKit.scene.rootNode.childNode(withName: "playerNode", recursively: true)?.addChildNode(statNodeGen(name : "Goals", stat : String(player.thisGoals), x : 0.80, y  : 0.75))
             self.sceneKit.scene.rootNode.childNode(withName: "playerNode", recursively: true)?.addChildNode(statNodeGen(name : "Assits", stat : String(player.thisAssists), x : 0.80, y  : 0.40))
         }
-        
         //adds the node as a child node for red and yellow cards
         self.sceneKit.scene.rootNode.childNode(withName: "playerNode", recursively: true)?.addChildNode(statNodeGen(name : "Yellow Cards", stat : String(player.thisYellow), x : 0.80, y  : 0.05))
         self.sceneKit.scene.rootNode.childNode(withName: "playerNode", recursively: true)?.addChildNode(statNodeGen(name : "Red Cards", stat : String(player.thisRed), x : 0.80, y  : -0.30))
@@ -356,7 +400,6 @@ class TeamViewController: UIViewController, ARSCNViewDelegate{
         view.nameLabel.adjustsFontSizeToFitWidth = true
         view.statLabel.text = stat
         view.nameLabel.adjustsFontSizeToFitWidth = true
-        
         //creates a custom node
         let stat = SCNNode(geometry : SCNPlane(width: 1.5, height: 0.25))
         //adds the cucsom views image as material to the node
@@ -380,16 +423,15 @@ class TeamViewController: UIViewController, ARSCNViewDelegate{
         self.currentPlayer += 1
         //returns the player
         return player
-        
     }
-    
     
     //gets the up to date league table from mashape.com
     func getTable(){
+        print("downloading table")
         //request to api to get the league table data
         Alamofire.request(GlobalVar.tabelURL, headers: GlobalVar.TableHeaders).response { response in
             // full http response including error codes
-            debugPrint(response)
+            debugPrint("here s \(response)")
             print("This number should match the nummber in the django terminal \(response.data!)")
             //gets the json array only
             }.validate { request, response, data in
