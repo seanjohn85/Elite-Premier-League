@@ -149,7 +149,7 @@ class ImageRecognitionViewController: UIViewController, AVCapturePhotoCaptureDel
     func requestTeamData(teamName: String){
         let parameters: Parameters = ["name": teamName]
         print("get server request")
-        let url = GlobalVar.teamData
+        let url = "http://192.168.0.157:8080/rest/getData/"
         //request to Django server ---  NB *******Django server Must Be started***********
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
