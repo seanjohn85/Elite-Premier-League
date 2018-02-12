@@ -7,6 +7,7 @@ target 'Elite Premier League' do
   pod 'AlamofireImage'
   pod 'SwiftyJSON'
   pod 'Each', '~> 1.2'
+  pod 'SCLAlertView', :git => 'https://github.com/vikmeup/SCLAlertView-Swift.git'
   use_frameworks!
 
 

@@ -13,7 +13,7 @@ struct GlobalVar{
     //this needs to be changed to acess
     static let serverAddress = "http://192.168.0.157:8080/"
     //where the player images are located on the server
-    static let teamData = "\(serverAddress)rest/getData/"
+    static let teamData = "http://192.168.0.157:8080/rest/getData/"
     ///when a team is regonised it will be stored here
     static var currentTeam : Team?
     

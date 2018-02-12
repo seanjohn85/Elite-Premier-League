@@ -193,6 +193,18 @@
                                     <action selector="pressPlay:" destination="fbA-Dk-Bgg" eventType="touchUpInside" id="5hi-YA-ii4"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUV-5p-Hqu">
+                                <rect key="frame" x="40" y="64" width="36" height="36.5"/>
+                                <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="40"/>
+                                <color key="textColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0 " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dp6-Cm-O6R">
+                                <rect key="frame" x="812" y="64" width="172" height="36.5"/>
+                                <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="40"/>
+                                <color key="textColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -201,10 +213,14 @@
                             <constraint firstItem="qPA-fY-ebo" firstAttribute="bottom" secondItem="84e-QA-SCy" secondAttribute="bottom" id="HHe-CF-Cjn"/>
                             <constraint firstItem="qPA-fY-ebo" firstAttribute="bottom" secondItem="84e-QA-SCy" secondAttribute="bottom" id="IFy-am-TtA"/>
                             <constraint firstItem="qPA-fY-ebo" firstAttribute="top" secondItem="iee-ym-Vgj" secondAttribute="bottom" id="VgS-uN-4rz"/>
+                            <constraint firstItem="Dp6-Cm-O6R" firstAttribute="top" secondItem="iee-ym-Vgj" secondAttribute="bottom" constant="20" id="Wgj-82-FZj"/>
                             <constraint firstItem="qPA-fY-ebo" firstAttribute="top" secondItem="iee-ym-Vgj" secondAttribute="bottom" id="YZV-Pa-K6o"/>
+                            <constraint firstItem="RUV-5p-Hqu" firstAttribute="top" secondItem="iee-ym-Vgj" secondAttribute="bottom" constant="20" id="afU-rq-FMn"/>
                             <constraint firstItem="qPA-fY-ebo" firstAttribute="trailing" secondItem="84e-QA-SCy" secondAttribute="trailing" id="bk1-7S-Ff7"/>
+                            <constraint firstItem="RUV-5p-Hqu" firstAttribute="leading" secondItem="84e-QA-SCy" secondAttribute="leading" constant="40" id="bwQ-nn-31P"/>
                             <constraint firstItem="qPA-fY-ebo" firstAttribute="leading" secondItem="84e-QA-SCy" secondAttribute="leading" id="eOh-Z8-eli"/>
                             <constraint firstItem="nYx-pL-IxZ" firstAttribute="leading" secondItem="84e-QA-SCy" secondAttribute="leading" constant="40" id="fv3-Ke-zFG"/>
+                            <constraint firstItem="84e-QA-SCy" firstAttribute="trailing" secondItem="Dp6-Cm-O6R" secondAttribute="trailing" constant="40" id="lK3-F7-712"/>
                             <constraint firstItem="iee-ym-Vgj" firstAttribute="trailing" secondItem="qPA-fY-ebo" secondAttribute="trailing" id="nZ1-dw-aZO"/>
                             <constraint firstItem="iee-ym-Vgj" firstAttribute="leading" secondItem="qPA-fY-ebo" secondAttribute="leading" id="rVd-6M-fJ6"/>
                             <constraint firstItem="iee-ym-Vgj" firstAttribute="top" secondItem="YHd-cf-W1A" secondAttribute="top" id="t6z-tw-c22"/>
@@ -213,7 +229,10 @@
                         <viewLayoutGuide key="safeArea" id="84e-QA-SCy"/>
                     </view>
                     <connections>
+                        <outlet property="playBtn" destination="nYx-pL-IxZ" id="oMG-wo-r76"/>
                         <outlet property="sceneView" destination="qPA-fY-ebo" id="gck-Sd-3NS"/>
+                        <outlet property="score" destination="Dp6-Cm-O6R" id="6KA-qX-Xuk"/>
+                        <outlet property="timer" destination="RUV-5p-Hqu" id="wzo-LK-rDS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="86X-nc-LjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

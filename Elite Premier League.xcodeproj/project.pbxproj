@@ -27,6 +27,7 @@
 		C9566006202F444800A5180B /* LeagueTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9566005202F444800A5180B /* LeagueTableRow.swift */; };
 		C9566008202FC82700A5180B /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C9566007202FC82700A5180B /* art.scnassets */; };
 		C9A41ADD2029E30700B3221B /* PogbaMiniGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A41ADC2029E30700B3221B /* PogbaMiniGameViewController.swift */; };
+		C9B56758203240FC0055249B /* imback.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C9B56757203240FC0055249B /* imback.mp3 */; };
 		C9C5F0C220273C7600A9F3AD /* PremierLeague.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C941CD83201E2FC30046A974 /* PremierLeague.ttf */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		C9566005202F444800A5180B /* LeagueTableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueTableRow.swift; sourceTree = "<group>"; };
 		C9566007202FC82700A5180B /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		C9A41ADC2029E30700B3221B /* PogbaMiniGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PogbaMiniGameViewController.swift; sourceTree = "<group>"; };
+		C9B56757203240FC0055249B /* imback.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = imback.mp3; sourceTree = "<group>"; };
 		F381E7331962B634EF88F3FA /* Pods-Elite Premier League.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elite Premier League.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Elite Premier League/Pods-Elite Premier League.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,6 +141,7 @@
 		C941CD6E201E13100046A974 /* Elite Premier League */ = {
 			isa = PBXGroup;
 			children = (
+				C9B56756203240F10055249B /* Sounds */,
 				C9566007202FC82700A5180B /* art.scnassets */,
 				C9565FFC202F3A7900A5180B /* AssetGen */,
 				C9565FFB202F3A5E00A5180B /* Planes */,
@@ -179,6 +182,14 @@
 			children = (
 			);
 			path = AssetGen;
+			sourceTree = "<group>";
+		};
+		C9B56756203240F10055249B /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				C9B56757203240FC0055249B /* imback.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		F490697B8605FAC85BA4F0AF /* Frameworks */ = {
@@ -258,6 +269,7 @@
 				C941CD7A201E13100046A974 /* LaunchScreen.storyboard in Resources */,
 				C941CD77201E13100046A974 /* Assets.xcassets in Resources */,
 				C941CD75201E13100046A974 /* Main.storyboard in Resources */,
+				C9B56758203240FC0055249B /* imback.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +302,7 @@
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Each/Each.framework",
 				"${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -298,6 +311,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Each.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PureLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
