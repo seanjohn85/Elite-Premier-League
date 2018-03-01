@@ -8,11 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A808EABD0B60A55C88537E68 /* Pods_Elite_Premier_League.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3DBF8256119198DB3576979 /* Pods_Elite_Premier_League.framework */; };
-		C9239A392048C3270027DDF3 /* TeamParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9239A332048C3270027DDF3 /* TeamParent.swift */; };
-		C9239A3A2048C3270027DDF3 /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9239A342048C3270027DDF3 /* PlayerNode.swift */; };
-		C9239A3B2048C3270027DDF3 /* FixtureNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9239A352048C3270027DDF3 /* FixtureNode.swift */; };
-		C9239A3D2048C3270027DDF3 /* MenuNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9239A372048C3270027DDF3 /* MenuNode.swift */; };
-		C9239A3E2048C3270027DDF3 /* TableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9239A382048C3270027DDF3 /* TableNode.swift */; };
 		C9270803202133EC000CB201 /* crestIdeniferCNN.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C9270802202133EC000CB201 /* crestIdeniferCNN.mlmodel */; };
 		C927080520228E29000CB201 /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C927080420228E29000CB201 /* TeamViewController.swift */; };
 		C927080B2023E0E1000CB201 /* Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = C927080A2023E0E1000CB201 /* Fixture.swift */; };
@@ -31,6 +26,18 @@
 		C9566004202F3EF200A5180B /* LeagueTableRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9566003202F3EF200A5180B /* LeagueTableRow.xib */; };
 		C9566006202F444800A5180B /* LeagueTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9566005202F444800A5180B /* LeagueTableRow.swift */; };
 		C9566008202FC82700A5180B /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C9566007202FC82700A5180B /* art.scnassets */; };
+		C974197F2044DB4E00335FA1 /* CNN2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C974197E2044DB4E00335FA1 /* CNN2.mlmodel */; };
+		C99E8314203DD4EE0030D2CB /* CNN.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C99E8313203DD4ED0030D2CB /* CNN.mlmodel */; };
+		C9A0670A203D9B2500CD9DC5 /* MenuNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A06709203D9B2500CD9DC5 /* MenuNode.swift */; };
+		C9A0670C203D9DE500CD9DC5 /* FixtureNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0670B203D9DE500CD9DC5 /* FixtureNode.swift */; };
+		C9A0670E203DA10600CD9DC5 /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0670D203DA10600CD9DC5 /* PlayerNode.swift */; };
+		C9A06710203DA11500CD9DC5 /* TableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0670F203DA11500CD9DC5 /* TableNode.swift */; };
+		C9A06712203DA15700CD9DC5 /* ImageGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A06711203DA15700CD9DC5 /* ImageGen.swift */; };
+		C9A06716203EF0A200CD9DC5 /* NodeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A06715203EF0A200CD9DC5 /* NodeLabel.swift */; };
+		C9A2360320339EE5009754E8 /* CrestIdeniferCNNGrayScale30.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C9A2360220339EE5009754E8 /* CrestIdeniferCNNGrayScale30.mlmodel */; };
+		C9A236052034FC28009754E8 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A236042034FC28009754E8 /* MainScreenViewController.swift */; };
+		C9A23638203A05DB009754E8 /* TeamsARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A23637203A05DB009754E8 /* TeamsARViewController.swift */; };
+		C9A2363C203A0F20009754E8 /* TeamParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A2363B203A0F20009754E8 /* TeamParent.swift */; };
 		C9A41ADD2029E30700B3221B /* PogbaMiniGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A41ADC2029E30700B3221B /* PogbaMiniGameViewController.swift */; };
 		C9B56758203240FC0055249B /* imback.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C9B56757203240FC0055249B /* imback.mp3 */; };
 		C9C5F0C220273C7600A9F3AD /* PremierLeague.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C941CD83201E2FC30046A974 /* PremierLeague.ttf */; };
@@ -39,11 +46,6 @@
 /* Begin PBXFileReference section */
 		417204426604B89AD19658CD /* Pods-Elite Premier League.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elite Premier League.release.xcconfig"; path = "Pods/Target Support Files/Pods-Elite Premier League/Pods-Elite Premier League.release.xcconfig"; sourceTree = "<group>"; };
 		B3DBF8256119198DB3576979 /* Pods_Elite_Premier_League.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Elite_Premier_League.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C9239A332048C3270027DDF3 /* TeamParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamParent.swift; sourceTree = "<group>"; };
-		C9239A342048C3270027DDF3 /* PlayerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
-		C9239A352048C3270027DDF3 /* FixtureNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixtureNode.swift; sourceTree = "<group>"; };
-		C9239A372048C3270027DDF3 /* MenuNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuNode.swift; sourceTree = "<group>"; };
-		C9239A382048C3270027DDF3 /* TableNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableNode.swift; sourceTree = "<group>"; };
 		C9270802202133EC000CB201 /* crestIdeniferCNN.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = crestIdeniferCNN.mlmodel; sourceTree = "<group>"; };
 		C927080420228E29000CB201 /* TeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
 		C927080A2023E0E1000CB201 /* Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixture.swift; sourceTree = "<group>"; };
@@ -65,6 +67,18 @@
 		C9566003202F3EF200A5180B /* LeagueTableRow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeagueTableRow.xib; sourceTree = "<group>"; };
 		C9566005202F444800A5180B /* LeagueTableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueTableRow.swift; sourceTree = "<group>"; };
 		C9566007202FC82700A5180B /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		C974197E2044DB4E00335FA1 /* CNN2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CNN2.mlmodel; sourceTree = "<group>"; };
+		C99E8313203DD4ED0030D2CB /* CNN.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CNN.mlmodel; sourceTree = "<group>"; };
+		C9A06709203D9B2500CD9DC5 /* MenuNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuNode.swift; sourceTree = "<group>"; };
+		C9A0670B203D9DE500CD9DC5 /* FixtureNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureNode.swift; sourceTree = "<group>"; };
+		C9A0670D203DA10600CD9DC5 /* PlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
+		C9A0670F203DA11500CD9DC5 /* TableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableNode.swift; sourceTree = "<group>"; };
+		C9A06711203DA15700CD9DC5 /* ImageGen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGen.swift; sourceTree = "<group>"; };
+		C9A06715203EF0A200CD9DC5 /* NodeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeLabel.swift; sourceTree = "<group>"; };
+		C9A2360220339EE5009754E8 /* CrestIdeniferCNNGrayScale30.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CrestIdeniferCNNGrayScale30.mlmodel; sourceTree = "<group>"; };
+		C9A236042034FC28009754E8 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
+		C9A23637203A05DB009754E8 /* TeamsARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsARViewController.swift; sourceTree = "<group>"; };
+		C9A2363B203A0F20009754E8 /* TeamParent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamParent.swift; sourceTree = "<group>"; };
 		C9A41ADC2029E30700B3221B /* PogbaMiniGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PogbaMiniGameViewController.swift; sourceTree = "<group>"; };
 		C9B56757203240FC0055249B /* imback.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = imback.mp3; sourceTree = "<group>"; };
 		F381E7331962B634EF88F3FA /* Pods-Elite Premier League.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elite Premier League.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Elite Premier League/Pods-Elite Premier League.debug.xcconfig"; sourceTree = "<group>"; };
@@ -113,8 +127,11 @@
 		C92708082023AD51000CB201 /* MLModels */ = {
 			isa = PBXGroup;
 			children = (
+				C974197E2044DB4E00335FA1 /* CNN2.mlmodel */,
+				C99E8313203DD4ED0030D2CB /* CNN.mlmodel */,
 				C9270802202133EC000CB201 /* crestIdeniferCNN.mlmodel */,
 				C941CD8C201E62700046A974 /* crestIdenifer3.mlmodel */,
+				C9A2360220339EE5009754E8 /* CrestIdeniferCNNGrayScale30.mlmodel */,
 			);
 			path = MLModels;
 			sourceTree = "<group>";
@@ -122,6 +139,8 @@
 		C92708092023AD66000CB201 /* view controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C9A23637203A05DB009754E8 /* TeamsARViewController.swift */,
+				C9A236042034FC28009754E8 /* MainScreenViewController.swift */,
 				C941CD71201E13100046A974 /* MenuViewController.swift */,
 				C941CD84201E32B80046A974 /* ImageRecognitionViewController.swift */,
 				C927080420228E29000CB201 /* TeamViewController.swift */,
@@ -183,11 +202,11 @@
 		C9565FFB202F3A5E00A5180B /* Planes */ = {
 			isa = PBXGroup;
 			children = (
-				C9239A352048C3270027DDF3 /* FixtureNode.swift */,
-				C9239A372048C3270027DDF3 /* MenuNode.swift */,
-				C9239A342048C3270027DDF3 /* PlayerNode.swift */,
-				C9239A382048C3270027DDF3 /* TableNode.swift */,
-				C9239A332048C3270027DDF3 /* TeamParent.swift */,
+				C9A2363B203A0F20009754E8 /* TeamParent.swift */,
+				C9A06709203D9B2500CD9DC5 /* MenuNode.swift */,
+				C9A0670B203D9DE500CD9DC5 /* FixtureNode.swift */,
+				C9A0670D203DA10600CD9DC5 /* PlayerNode.swift */,
+				C9A0670F203DA11500CD9DC5 /* TableNode.swift */,
 			);
 			path = Planes;
 			sourceTree = "<group>";
@@ -195,6 +214,8 @@
 		C9565FFC202F3A7900A5180B /* AssetGen */ = {
 			isa = PBXGroup;
 			children = (
+				C9A06711203DA15700CD9DC5 /* ImageGen.swift */,
+				C9A06715203EF0A200CD9DC5 /* NodeLabel.swift */,
 			);
 			path = AssetGen;
 			sourceTree = "<group>";
@@ -360,23 +381,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9566006202F444800A5180B /* LeagueTableRow.swift in Sources */,
+				C9A06710203DA11500CD9DC5 /* TableNode.swift in Sources */,
 				C941CD87201E33FD0046A974 /* Player.swift in Sources */,
+				C99E8314203DD4EE0030D2CB /* CNN.mlmodel in Sources */,
+				C974197F2044DB4E00335FA1 /* CNN2.mlmodel in Sources */,
 				C941CD72201E13100046A974 /* MenuViewController.swift in Sources */,
+				C9A2360320339EE5009754E8 /* CrestIdeniferCNNGrayScale30.mlmodel in Sources */,
 				C941CD8D201E62700046A974 /* crestIdenifer3.mlmodel in Sources */,
+				C9A06716203EF0A200CD9DC5 /* NodeLabel.swift in Sources */,
+				C9A236052034FC28009754E8 /* MainScreenViewController.swift in Sources */,
+				C9A2363C203A0F20009754E8 /* TeamParent.swift in Sources */,
 				C94958E62020F83800CD1982 /* GlobalVar.swift in Sources */,
 				C941CD85201E32B80046A974 /* ImageRecognitionViewController.swift in Sources */,
 				C941CD8B201E4C320046A974 /* Team.swift in Sources */,
+				C9A0670C203D9DE500CD9DC5 /* FixtureNode.swift in Sources */,
+				C9A0670E203DA10600CD9DC5 /* PlayerNode.swift in Sources */,
 				C9A41ADD2029E30700B3221B /* PogbaMiniGameViewController.swift in Sources */,
+				C9A23638203A05DB009754E8 /* TeamsARViewController.swift in Sources */,
+				C9A0670A203D9B2500CD9DC5 /* MenuNode.swift in Sources */,
 				C9270803202133EC000CB201 /* crestIdeniferCNN.mlmodel in Sources */,
-				C9239A3B2048C3270027DDF3 /* FixtureNode.swift in Sources */,
 				C9565FF7202D038900A5180B /* StatsView.swift in Sources */,
-				C9239A392048C3270027DDF3 /* TeamParent.swift in Sources */,
 				C927080B2023E0E1000CB201 /* Fixture.swift in Sources */,
 				C927080520228E29000CB201 /* TeamViewController.swift in Sources */,
+				C9A06712203DA15700CD9DC5 /* ImageGen.swift in Sources */,
 				C941CD70201E13100046A974 /* AppDelegate.swift in Sources */,
-				C9239A3E2048C3270027DDF3 /* TableNode.swift in Sources */,
-				C9239A3D2048C3270027DDF3 /* MenuNode.swift in Sources */,
-				C9239A3A2048C3270027DDF3 /* PlayerNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -213,7 +213,6 @@ class TeamViewController: UIViewController, ARSCNViewDelegate{
         row.geometry?.firstMaterial?.diffuse.contents = convertViewToImage(view : view)
         //postions the node
         row.position = SCNVector3(0, yPos, 0.1)
-        
         self.sceneKit.scene.rootNode.childNode(withName: "tabelNode", recursively: true)?.addChildNode(row)
         
     }

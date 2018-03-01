@@ -103,7 +103,7 @@ class ImageRecognitionViewController: UIViewController, AVCapturePhotoCaptureDel
             try? data.write(to: fileName)
             //feed the image into the model as input use its url
             //set up the model
-            let model = try! VNCoreMLModel(for: crestIdeniferCNN().model)
+            let model = try! VNCoreMLModel(for: crestIdenifer3().model)
             //run the model & get results
             let request = VNCoreMLRequest(model: model, completionHandler: results)
             let handler = VNImageRequestHandler(url: fileName)
@@ -119,7 +119,7 @@ class ImageRecognitionViewController: UIViewController, AVCapturePhotoCaptureDel
             fatalError("could not get any output")
         }
         //used to hold the team the modle identifies
-        var  team = "Man Utd"
+        var  team = ""
         //the covidences of the model team match
         var confidence : VNConfidence = 0
         //loops thourgh the models results
@@ -128,13 +128,13 @@ class ImageRecognitionViewController: UIViewController, AVCapturePhotoCaptureDel
                 //sets the convudence var
                 confidence = classification.confidence
                 //sets the team var
-                //team = classification.identifier
+                team = classification.identifier
                 print("prediction  \(classification.confidence) : team \(classification.identifier)")
             }
         }
         
         //if its found a match send a request to the server
-        if (confidence > 0.1){
+        if (confidence > 0.99){
             print("i think its \(team) im \(confidence) sure!!")
             //requests the teams data from the server
             requestTeamData(teamName: team)
@@ -214,6 +214,7 @@ class ImageRecognitionViewController: UIViewController, AVCapturePhotoCaptureDel
                     print("\(GlobalVar.currentTeam?.players?.count)")
 
                 }
+                
                 //sets the teams players
                 GlobalVar.currentTeam?.thisPlayers = x
                 self.callSegue(identifier: "teamScreen")
@@ -230,5 +231,18 @@ class ImageRecognitionViewController: UIViewController, AVCapturePhotoCaptureDel
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentsDirectory = paths[0]
         return documentsDirectory
+    }
+}
+
+extension UIImage {
+    var noir: UIImage {
+        let context = CIContext(options: nil)
+        let currentFilter = CIFilter(name: "CIPhotoEffectNoir")!
+        currentFilter.setValue(CIImage(image: self), forKey: kCIInputImageKey)
+        let output = currentFilter.outputImage!
+        let cgImage = context.createCGImage(output, from: output.extent)!
+        let processedImage = UIImage(cgImage: cgImage, scale: scale, orientation: imageOrientation)
+        
+        return processedImage
     }
 }

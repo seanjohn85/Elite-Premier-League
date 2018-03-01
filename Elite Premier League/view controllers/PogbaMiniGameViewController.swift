@@ -91,10 +91,11 @@ class PogbaMiniGameViewController: UIViewController, ARSCNViewDelegate  {
     
     //used to add the 3d m0del
     func addNode(){
+        
         let pogba = SCNScene(named: "art.scnassets/pogba2.scn")
         let pogbaNode = pogba?.rootNode.childNode(withName: "pogbs", recursively : false)
         //x y z in metres of world origin
-        pogbaNode?.position = SCNVector3(randomNumbers(firstNum: -1, secondNum: 1), randomNumbers(firstNum: -0.5, secondNum: 0.5), randomNumbers(firstNum: -1, secondNum: 1))
+        pogbaNode?.position = SCNVector3(GlobalVar.randomNumbers(firstNum: -1, secondNum: 1), GlobalVar.randomNumbers(firstNum: -0.5, secondNum: 0.5), GlobalVar.randomNumbers(firstNum: -1, secondNum: 1))
         //adds the model to the scene
         self.sceneView.scene.rootNode.addChildNode(pogbaNode!)
     }
@@ -125,10 +126,7 @@ class PogbaMiniGameViewController: UIViewController, ARSCNViewDelegate  {
     }
     
     
-    //generate a random number
-    func randomNumbers(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat {
-        return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
-    }
+    
     
     //countdown timer
     func setTimer(){
