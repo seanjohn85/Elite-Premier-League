@@ -66,6 +66,21 @@ public class Player{
     }
     
     //getters and setters
+    
+    var thisNews : String{
+        get
+        {
+            if let new = self.news{
+                return new
+            }
+            return ""
+        }
+        set
+        {
+            self.news = newValue
+        }
+    }
+    
     var thisFName : String{
         get
         {

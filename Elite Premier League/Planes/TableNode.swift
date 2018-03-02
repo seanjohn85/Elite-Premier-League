@@ -44,7 +44,6 @@ class TableNode: SCNNode {
         var yPos = 0.80
         if tableTop == true {
             
-            
             //genertates the top of the table
             for i in 1...10 {
                 createTableRow(yPos : yPos, tablePos : i)

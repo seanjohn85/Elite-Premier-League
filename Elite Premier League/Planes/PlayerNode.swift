@@ -95,6 +95,26 @@ class PlayerNode: SCNNode {
         self.addChildNode(statNodeGen(name : "Yellow Cards", stat : String(player.thisYellow), x : 0.80, y  : 0.05))
         self.addChildNode(statNodeGen(name : "Red Cards", stat : String(player.thisRed), x : 0.80, y  : -0.30))
         //self.sceneKit.scene.rootNode.childNode(withName: "playerNode", recursively: true)?.addChildNode(statNodeGen(name : "", stat : "", x : 0.80, y  : -0.70))
+        
+        //check if the player has any news
+        if !player.thisNews.isEmpty{
+            showNews(news : player.thisNews)
+        }
+    }
+    
+    //shows player news
+    private func showNews(news : String){
+        //create a plane to house the date
+        let newsNode = SCNNode(geometry : SCNPlane(width: 2, height: 0.2))
+        newsNode.position = SCNVector3(0.80, -0.70, 0.1)
+        //creates the datelabel
+        let newsLabel = NodeLabel(frame: CGRect(x: CGFloat(0), y: CGFloat(0), width: CGFloat(300), height: CGFloat(150)))
+        //uses the custom lales function to colour the label and text
+        newsLabel.labelGenerator(width: 300, height : 100, textColour : GlobalVar.navy, bgColour : GlobalVar.clear, size : 10, text : news)
+        //converts the lable to an image and uses the image as the nodes texture
+        newsNode.geometry?.firstMaterial?.diffuse.contents = newsLabel.convertLabelToImage()
+        //adds the date node as a child of the
+        self.addChildNode(newsNode)
     }
     
     
@@ -140,8 +160,6 @@ class PlayerNode: SCNNode {
         animate()
     }
     
-    
-    
     //animate model
     func animate(){
         let spin = CABasicAnimation(keyPath: "position")
@@ -162,7 +180,7 @@ class PlayerNode: SCNNode {
         set
         {
             self.players = newValue
-            //self.addFixture()
+            //gets next plars image from the server
             getPlayerImageFromServer(player : getNextPlayer())
         }
     }

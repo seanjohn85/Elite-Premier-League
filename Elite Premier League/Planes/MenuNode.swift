@@ -12,8 +12,7 @@ import ARKit
 
 class MenuNode: SCNNode {
     
-    
-    
+
     init(geometry: SCNGeometry) {
         super.init()
         self.geometry = geometry
@@ -46,11 +45,5 @@ class MenuNode: SCNNode {
         self.runAction(forever)
     }
     
-    
-    
 }
 
-//function to convert deg
-/*extension Int {
-    var degree2Rad: Double { return Double(self) * .pi/180}
-}*/

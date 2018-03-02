@@ -216,6 +216,10 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate {
                                            yellowCards   : Int(p["yellow_cards"].rawString()!)!,
                                            redCards      : Int(p["red_cards"].rawString()!)!)
                         print(named.returnDetails())
+                        //checks if the player has any news
+                        if !p["news"].rawString()!.isEmpty{
+                            named.thisNews = p["news"].rawString()!
+                        }
                         //adds each player to the teams list of players
                         players.append(named)
                         
