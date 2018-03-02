@@ -16,7 +16,7 @@ import SCLAlertView
 
 class PogbaMiniGameViewController: UIViewController, ARSCNViewDelegate  {
     //audio player
-    var player: AVAudioPlayer?
+    private var player: AVAudioPlayer?
     //ar scence link
     @IBOutlet var sceneView: ARSCNView!
     //text tables
@@ -24,10 +24,10 @@ class PogbaMiniGameViewController: UIViewController, ARSCNViewDelegate  {
     
     @IBOutlet weak var timer: UILabel!
     //to keep the score and count
-    var countdown = 10
-    var scoreCount = 0
+    private var countdown = 10
+    private var scoreCount = 0
     //timer every second
-    var time = Each(1).seconds
+    private var time = Each(1).seconds
     //links to the play button
     @IBOutlet weak var playBtn: UIButton!
     
@@ -90,7 +90,7 @@ class PogbaMiniGameViewController: UIViewController, ARSCNViewDelegate  {
     }
     
     //used to add the 3d m0del
-    func addNode(){
+    private func addNode(){
         
         let pogba = SCNScene(named: "art.scnassets/pogba2.scn")
         let pogbaNode = pogba?.rootNode.childNode(withName: "pogbs", recursively : false)
@@ -101,7 +101,7 @@ class PogbaMiniGameViewController: UIViewController, ARSCNViewDelegate  {
     }
     
     //animate model
-    func pogimate(node: SCNNode){
+    private func pogimate(node: SCNNode){
         let spin = CABasicAnimation(keyPath: "position")
         spin.fromValue = node.presentation.position
         spin.toValue = SCNVector3(node.presentation.position.x - 0.2 ,node.presentation.position.y - 0.2,node.presentation.position.z - 2)
@@ -119,17 +119,19 @@ class PogbaMiniGameViewController: UIViewController, ARSCNViewDelegate  {
     
     //when the paly boutton is pressed
     @IBAction func pressPlay(_ sender: Any) {
-        self.setTimer()
-        self.addNode()
+        startGame()
         playBtn.isHidden = true
-        
     }
     
     
+    //start game
     
-    
+    private func startGame(){
+        self.setTimer()
+        self.addNode()
+    }
     //countdown timer
-    func setTimer(){
+    private func setTimer(){
         self.time.perform { () -> NextStep in
             self.countdown -= 1
             
@@ -146,13 +148,13 @@ class PogbaMiniGameViewController: UIViewController, ARSCNViewDelegate  {
     }
     
     //restart counter
-    func restartClock(){
+    private func restartClock(){
         self.countdown = 10
         self.timer.text = String(self.countdown)
     }
 
     //arelt to allow the user to return to the main menu or play again
-    func gameOverAlert(){
+    private func gameOverAlert(){
         //used to create alert apparance
         let appearance = SCLAlertView.SCLAppearance(kCircleIconHeight: 60.0, kTitleFont: UIFont(name: "Premier League", size: 20)!,
                                                     kTextFont: UIFont(name: "Premier League", size: 14)!,
@@ -168,11 +170,12 @@ class PogbaMiniGameViewController: UIViewController, ARSCNViewDelegate  {
         //adds the buttons
         let homeBtn = alert.addButton("Home") {
             //send the user back to the home screen
+            self.quitGame()
         }
         
         let againBtn = alert.addButton("Play Again") {
             //restart game
-            
+            self.restart()
             //dismiss alert
             alert.dismiss(animated: true, completion: nil)
         }
@@ -184,7 +187,7 @@ class PogbaMiniGameViewController: UIViewController, ARSCNViewDelegate  {
     }
     
     //play sound
-    func imBack(){
+    private func imBack(){
         //trys to get the audio rescourse or exits this function
         guard let url = Bundle.main.url(forResource: "imback", withExtension: "mp3") else { return }
         //creates an audio session
@@ -202,5 +205,28 @@ class PogbaMiniGameViewController: UIViewController, ARSCNViewDelegate  {
         } catch let error {
             print(error.localizedDescription)
         }
+    }
+    
+    
+    //quit game bring user back to menu
+    private func quitGame(){
+        performSegue(withIdentifier: "quitGame", sender: self)
+    }
+    
+    //restart game
+    private func restart(){
+        //reset score
+        score.text = "Score: 0"
+        scoreCount = 0
+        //stop timer
+        self.time.stop()
+        //restore timer
+        self.restartClock()
+        //remove missed pogba nodes
+        sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
+            node.removeFromParentNode()
+        }
+        //restart game
+        startGame()
     }
 }

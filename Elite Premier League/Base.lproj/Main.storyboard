@@ -351,11 +351,12 @@
                         <outlet property="sceneView" destination="qPA-fY-ebo" id="gck-Sd-3NS"/>
                         <outlet property="score" destination="Dp6-Cm-O6R" id="6KA-qX-Xuk"/>
                         <outlet property="timer" destination="RUV-5p-Hqu" id="wzo-LK-rDS"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="quitGame" id="m7e-ki-mSW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="86X-nc-LjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.6953125" y="906.25"/>
+            <point key="canvasLocation" x="104" y="1209"/>
         </scene>
     </scenes>
     <resources>
@@ -364,6 +365,6 @@
         <image name="play" width="410" height="410"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uDx-bO-9Ub"/>
+        <segue reference="m7e-ki-mSW"/>
     </inferredMetricsTieBreakers>
 </document>
