@@ -282,6 +282,7 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate, BWWalkthroughV
         // Dispose of any resources that can be recreated.
     }
     
+    //opens the help walkthrough menu
     @IBAction func helpBtn(_ sender: Any) {
         // Get view controllers and build the walkthrough
         let stb = UIStoryboard(name: "TeamARWalkthrough", bundle: nil)
@@ -290,7 +291,21 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate, BWWalkthroughV
         // Attach the pages to the master
         walkthrough.delegate = self
         walkthrough.add(viewController: stb.instantiateViewController(withIdentifier: "TeamARWalkthrough1"))
-        
+        walkthrough.add(viewController: stb.instantiateViewController(withIdentifier: "TeamARWalkthrough1-1"))
+        walkthrough.add(viewController: stb.instantiateViewController(withIdentifier: "TeamARWalkthrough2"))
+        walkthrough.add(viewController: stb.instantiateViewController(withIdentifier: "TeamARWalkthrough3"))
+        walkthrough.add(viewController: stb.instantiateViewController(withIdentifier: "TeamARWalkthrough3-1"))
+        walkthrough.add(viewController: stb.instantiateViewController(withIdentifier: "TeamARWalkthrough4"))
+        walkthrough.add(viewController: stb.instantiateViewController(withIdentifier: "TeamARWalkthrough4-1"))
+        walkthrough.add(viewController: stb.instantiateViewController(withIdentifier: "TeamARWalkthrough4-2"))
+        walkthrough.add(viewController: stb.instantiateViewController(withIdentifier: "TeamARWalkthrough4-3"))
+        walkthrough.add(viewController: stb.instantiateViewController(withIdentifier: "TeamARWalkthrough4-4"))
+        walkthrough.add(viewController: stb.instantiateViewController(withIdentifier: "TeamARWalkthrough5"))
+        walkthrough.add(viewController: stb.instantiateViewController(withIdentifier: "TeamARWalkthrough5-1"))
+        walkthrough.add(viewController: stb.instantiateViewController(withIdentifier: "TeamARWalkthrough5-2"))
+        walkthrough.add(viewController: stb.instantiateViewController(withIdentifier: "TeamARWalkthrough5-3"))
+        walkthrough.add(viewController: stb.instantiateViewController(withIdentifier: "TeamARWalkthrough6"))
+        walkthrough.add(viewController: stb.instantiateViewController(withIdentifier: "TeamARWalkthrough7"))
         self.present(walkthrough, animated: true, completion: nil)
     
         
