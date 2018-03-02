@@ -37,10 +37,10 @@ struct GlobalVar{
     
     //colours
     static let clear    = UIColor(red: 0.0 / 255.0, green: 255.0 / 255.0, blue: 133.0 / 255.0, alpha: 0)
-    static let navy     = UIColor(red: 56.0 / 255.0, green: 0.0 / 255.0, blue: 60.0 / 255.0, alpha: 0)
-    static let blue     = UIColor(red: 4.0 / 255.0, green: 245.0 / 255.0, blue: 255.0 / 255.0, alpha: 0)
-    static let green    = UIColor(red: 0.0 / 255.0, green: 255.0 / 255.0, blue: 133.0 / 255.0, alpha: 0)
-    static let pink     = UIColor(red: 233.0 / 255.0, green: 0.0 / 255.0, blue: 82.0 / 255.0, alpha: 0)
+    static let navy     = UIColor(red: 56.0 / 255.0, green: 0.0 / 255.0, blue: 60.0 / 255.0, alpha: 1)
+    static let blue     = UIColor(red: 4.0 / 255.0, green: 245.0 / 255.0, blue: 255.0 / 255.0, alpha: 1)
+    static let green    = UIColor(red: 0.0 / 255.0, green: 255.0 / 255.0, blue: 133.0 / 255.0, alpha: 1)
+    static let pink     = UIColor(red: 233.0 / 255.0, green: 0.0 / 255.0, blue: 82.0 / 255.0, alpha: 1)
     
     static let mainColours = [pink, green, blue]
     
