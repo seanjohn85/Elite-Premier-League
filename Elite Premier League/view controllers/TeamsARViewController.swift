@@ -74,7 +74,7 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate {
         }
     }
     
-    
+    //pass the image tho the model
     private func extractImage(recognizer : UIGestureRecognizer){
         
         let sceneRecognizer = recognizer.view as! ARSCNView
@@ -106,7 +106,6 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate {
         if !teamFound{
             analyiseImage(image: pixelBufImage)
         }
-        
     }
     
     //creates a vision request to analiyze the image

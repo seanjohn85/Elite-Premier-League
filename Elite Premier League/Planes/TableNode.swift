@@ -12,6 +12,8 @@ import ARKit
 import SwiftyJSON
 
 class TableNode: SCNNode {
+    
+    private var colour = GlobalVar.green
     //view table top of bottom
     private var tableTop = true
 
@@ -23,13 +25,12 @@ class TableNode: SCNNode {
         super.init()
         self.geometry = geometry
         //set up fixture node
-        setup()
     }
     
-    private func setup(){
-        
-        //sets it to green
-        self.geometry?.firstMaterial?.diffuse.contents  = UIColor(red: 0.0 / 255.0, green: 255.0 / 255.0, blue: 133.0 / 255.0, alpha: 0.8)
+    func setup(newColour : UIColor){
+        self.colour = newColour
+        //sets it to colour
+        self.geometry?.firstMaterial?.diffuse.contents  = colour.withAlphaComponent(0.8)
         //positions it in the center of the x and y of the parent Node with 0.1 meeters away from the user in the z axsis
         self.position = SCNVector3(0, 0, 0.1)
         //named node to be identifed for removal

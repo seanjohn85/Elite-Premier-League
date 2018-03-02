@@ -13,7 +13,7 @@ import SwiftyJSON
 
 class TeamParent: SCNNode {
     
-    
+    var colour = GlobalVar.green
     //creates empty json array for league table data
     var leagueTable = JSON("empty")
     private var arItem = 0
@@ -23,7 +23,14 @@ class TeamParent: SCNNode {
         super.init()
         self.geometry = geometry
         //sets node to transparent
-        self.geometry?.firstMaterial?.diffuse.contents  = UIColor(red: 0.0 / 255.0, green: 255.0 / 255.0, blue: 133.0 / 255.0, alpha: 0)
+        self.geometry?.firstMaterial?.diffuse.contents  = GlobalVar.clear
+        //sets the colour of this
+        setColour()
+    }
+    
+    //sets a random colour for child nodes
+    private func setColour(){
+        colour = GlobalVar.mainColours[Int(arc4random_uniform(UInt32(GlobalVar.mainColours.count)))]
     }
     
     
@@ -62,6 +69,7 @@ class TeamParent: SCNNode {
     private func addFixture(){
         let fixtureNode = FixtureNode()
         if let nodeTeam = self.team {
+            fixtureNode.setup(newColour : colour)
             fixtureNode.addContent(team: nodeTeam)
             self.addChildNode(fixtureNode)
         }
@@ -71,6 +79,7 @@ class TeamParent: SCNNode {
     private func addPlayersNode(){
         let playerNode = PlayerNode()
         if let nodePlayers = self.team?.players {
+            playerNode.setup(newColour : colour)
             playerNode.thisPlayers = nodePlayers
             self.addChildNode(playerNode)
         }
@@ -80,6 +89,7 @@ class TeamParent: SCNNode {
     private func addTabelNode(){
         let tabelNode = TableNode()
         tabelNode.leagueTable = self.leagueTable
+        tabelNode.setup(newColour : colour)
         tabelNode.populateTable()
         self.addChildNode(tabelNode)
 

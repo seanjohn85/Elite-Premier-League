@@ -15,6 +15,8 @@ import SwiftyJSON
 
 class PlayerNode: SCNNode {
     
+    private var colour = GlobalVar.green
+    
     private var players : [Player]?
 
     //used to track current player object in the players array
@@ -23,13 +25,12 @@ class PlayerNode: SCNNode {
     init(geometry: SCNGeometry = SCNPlane(width: 3.5, height: 2.2)) {
         super.init()
         self.geometry = geometry
-        //set up fixture node
-        setup()
     }
     
-    private func setup(){
+    func setup(newColour : UIColor){
+        self.colour = newColour
         //sets it to green
-        self.geometry?.firstMaterial?.diffuse.contents  = UIColor(red: 0.0 / 255.0, green: 255.0 / 255.0, blue: 133.0 / 255.0, alpha: 0.8)
+        self.geometry?.firstMaterial?.diffuse.contents  = colour.withAlphaComponent(0.8)
         //positions it in the center of the x and y of the parent Node with 0.1 meeters away from the user in the z axsis
         self.position = SCNVector3(0, 0, 0.1)
         //named node to be identifed for removal
@@ -73,7 +74,7 @@ class PlayerNode: SCNNode {
         //results label
         
         let name = NodeLabel(frame: CGRect(x: CGFloat(0), y: CGFloat(0), width: CGFloat(800), height: CGFloat(100)))
-        name.labelGenerator(width: 800, height : 100, textColour :  UIColor(red: 56.0 / 255.0, green: 0 / 255.0, blue: 60.0 / 255.0, alpha: 1), bgColour : UIColor(red: 0.0 / 255.0, green: 255.0 / 255.0, blue: 133.0 / 255.0, alpha: 0), size : 70, text : player.returnDetails())
+        name.labelGenerator(width: 800, height : 100, textColour :  GlobalVar.navy, bgColour : GlobalVar.clear, size : 70, text : player.returnDetails())
         //adds the results label to the node
         playerName.geometry?.firstMaterial?.diffuse.contents = name.convertLabelToImage()
         //postions the node
@@ -133,9 +134,8 @@ class PlayerNode: SCNNode {
         return stat
     }
     
-    
+    //get a new player
     func nextPlayer(){
-        
         getPlayerImageFromServer(player : getNextPlayer())
         animate()
     }

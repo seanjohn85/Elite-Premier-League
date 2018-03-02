@@ -12,18 +12,20 @@ import ARKit
 
 class FixtureNode: SCNNode {
     
+    private var colour = GlobalVar.green
+    
     //this will be used to create an invisable parent node object, all elemts related to this team will
     init(geometry: SCNGeometry = SCNPlane(width: 3, height: 2.5)) {
         super.init()
         self.geometry = geometry
-        //set up fixture node
-        setup()
-    }
-    
-    private func setup(){
         
+    }
+
+    //used to set up a fixture node
+    func setup(newColour : UIColor){
+        self.colour = newColour
         //sets it to green
-        self.geometry?.firstMaterial?.diffuse.contents  = UIColor(red: 0.0 / 255.0, green: 255.0 / 255.0, blue: 133.0 / 255.0, alpha: 0.8)
+        self.geometry?.firstMaterial?.diffuse.contents  = colour.withAlphaComponent(0.8)
         //positions it in the center of the x and y of the parent Node with 0.1 meeters away from the user in the z axsis
         self.position = SCNVector3(0, 0, 0.1)
         //named node to be identifed for removal
@@ -49,7 +51,7 @@ class FixtureNode: SCNNode {
         //creates the datelabel
         let dateLabel = NodeLabel(frame: CGRect(x: CGFloat(0), y: CGFloat(0), width: CGFloat(300), height: CGFloat(100)))
         //uses the custom lales function to colour the label and text
-        dateLabel.labelGenerator(width: 300, height : 100, textColour : UIColor(red: 56.0 / 255.0, green: 0.0 / 255.0, blue: 60 / 255.0, alpha: 1), bgColour : GlobalVar.clear, size : 40, text : date)
+        dateLabel.labelGenerator(width: 300, height : 100, textColour : GlobalVar.navy, bgColour : GlobalVar.clear, size : 40, text : date)
         //converts the lable to an image and uses the image as the nodes texture
         dateNode.geometry?.firstMaterial?.diffuse.contents = dateLabel.convertLabelToImage()
         //adds the date node as a child of the
@@ -69,7 +71,7 @@ class FixtureNode: SCNNode {
         let teamNames = SCNNode(geometry : SCNPlane(width: 2.98, height: 0.4))
         let teamsLabel = NodeLabel(frame: CGRect(x: CGFloat(0), y: CGFloat(0), width: CGFloat(800), height: CGFloat(100)))
         //creats a label with the team names
-        teamsLabel.labelGenerator(width: 800, height : 100, textColour : UIColor(red: 255.0 / 255.0, green: 255.0 / 255.0, blue: 255.0 / 255.0, alpha: 1), bgColour : UIColor(red: 56.0 / 255.0, green: 0 / 255.0, blue: 60.0 / 255.0, alpha: 1), size : 60, text : "\(team.thisFixture.thisHomeTeam)    V   \(team.thisFixture.thisAwayTeam) ")
+        teamsLabel.labelGenerator(width: 800, height : 100, textColour : .white, bgColour : GlobalVar.navy, size : 60, text : "\(team.thisFixture.thisHomeTeam)    V   \(team.thisFixture.thisAwayTeam) ")
         //adds the lable to the ndoe
         teamNames.geometry?.firstMaterial?.diffuse.contents = teamsLabel.convertLabelToImage()
         //postions the node
@@ -84,7 +86,7 @@ class FixtureNode: SCNNode {
         let prediction = SCNNode(geometry : SCNPlane(width: 1.5, height: 0.4))
         //prediction label
         let predictionLabel = NodeLabel(frame: CGRect(x: CGFloat(0), y: CGFloat(0), width: CGFloat(800), height: CGFloat(100)))
-        predictionLabel.labelGenerator(width: 800, height : 100, textColour : UIColor(red: 255.0 / 255.0, green: 255.0 / 255.0, blue: 255.0 / 255.0, alpha: 1), bgColour : UIColor(red: 0.0 / 255.0, green: 255.0 / 255.0, blue: 133.0 / 255.0, alpha: 0), size : 60, text : "Prediction:")
+        predictionLabel.labelGenerator(width: 800, height : 100, textColour : .white, bgColour : GlobalVar.clear, size : 60, text : "Prediction:")
         //adds the label to the node
         prediction.geometry?.firstMaterial?.diffuse.contents = predictionLabel.convertLabelToImage()
         //postions the node
@@ -95,7 +97,7 @@ class FixtureNode: SCNNode {
         let predictionRes = SCNNode(geometry : SCNPlane(width: 1.5, height: 0.4))
         //results label
         let predictionResLabel = NodeLabel(frame: CGRect(x: CGFloat(0), y: CGFloat(0), width: CGFloat(800), height: CGFloat(100)))
-        predictionResLabel.labelGenerator(width: 800, height : 100, textColour :  UIColor(red: 56.0 / 255.0, green: 0 / 255.0, blue: 60.0 / 255.0, alpha: 1), bgColour : UIColor(red: 0.0 / 255.0, green: 255.0 / 255.0, blue: 133.0 / 255.0, alpha: 0), size : 60, text : "\(team.thisFixture.thisHomeGoals) - \(team.thisFixture.thisAwayGoals)")
+        predictionResLabel.labelGenerator(width: 800, height : 100, textColour :  GlobalVar.navy, bgColour : GlobalVar.clear, size : 60, text : "\(team.thisFixture.thisHomeGoals) - \(team.thisFixture.thisAwayGoals)")
         //adds the results label to the node
         predictionRes.geometry?.firstMaterial?.diffuse.contents = predictionResLabel.convertLabelToImage()
         //postions the node
