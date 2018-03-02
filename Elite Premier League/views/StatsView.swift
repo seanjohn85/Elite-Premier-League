@@ -10,6 +10,9 @@ import UIKit
 
 class StatsView: UIView {
     
+    @IBOutlet weak var image: UIImageView!
+    
+    
     @IBOutlet var view: UIView!
     
     @IBOutlet weak var nameLabel: UILabel!

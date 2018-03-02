@@ -211,7 +211,7 @@ class ImageRecognitionViewController: UIViewController, AVCapturePhotoCaptureDel
                     x.append(named)
                     
                     //GlobalVar.currentTeam?.addPlayer(player: named)
-                    print("\(GlobalVar.currentTeam?.players?.count)")
+                    print("\(String(describing: GlobalVar.currentTeam?.players?.count))")
 
                 }
                 

@@ -16,6 +16,8 @@ import SwiftyJSON
 
 class TeamsARViewController: UIViewController, ARSCNViewDelegate {
     
+    
+    
     @IBOutlet weak var inforBar: UILabel!
     //used to check if a crest is been checked
     private var teamFound = false
@@ -64,7 +66,9 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate {
                 parent.changeARPlane()
                 //if its the players plane and its touched change to next player
             }else if res.node.name == "playerNode"{
-                
+                //gets the next players image from the server
+                let parent = res.node as! PlayerNode
+                parent.nextPlayer()
             }else if res.node.parent?.name == "playerNode"{
                 print("change player")
                 //gets the next players image from the server
@@ -124,7 +128,7 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate {
     //a vision requestion event handler
     func results(request: VNRequest, error : Error?){
         //if cant get an output exit this fuction to avoid the app crashing
-        guard let prediction = request.results as? [VNClassificationObservation] else{
+        guard (request.results as? [VNClassificationObservation]) != nil else{
             fatalError("could not get any output")
         }
         
@@ -224,7 +228,7 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate {
                         players.append(named)
                         
                         //GlobalVar.currentTeam?.addPlayer(player: named)
-                        print("\(currentTeam?.players?.count)")
+                        print("\(String(describing: currentTeam?.players?.count))")
                         
                     }
                     //sets the teams players

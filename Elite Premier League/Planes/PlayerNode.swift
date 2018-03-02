@@ -40,6 +40,9 @@ class PlayerNode: SCNNode {
     
     //function to get a players image from the server
     func getPlayerImageFromServer(player : Player){
+        if (player.image != nil){
+            addPlayerToPlane(player: player)
+        }
         //the url of the image
         let url = "\(GlobalVar.imagesUrl)/\(player.imageLocation())"
         //let url = "http://192.168.0.157:8080/static/images/1/9808.png"
@@ -55,20 +58,20 @@ class PlayerNode: SCNNode {
             if let image = response.result.value {
                 print("image downloaded: \(image)")
                 //uses the image as a pram to create
-                self.addPlayerToPlane(image : image, player : player)
+                player.thisimage = image
+                self.addPlayerToPlane(player : player)
             }
         }
     }
     
-    
     //used to fill a plane with a new player
-    func addPlayerToPlane(image : UIImage, player: Player){
+    func addPlayerToPlane(player: Player){
         //removes previous players details from the player node
         self.enumerateChildNodes { (node, stop) in
             node.removeFromParentNode() }
         //adds the crest to the node pram as a child
         
-        self.addChildNode(GlobalVar.addImage(image : image, w : 1.3, h : 1.3, x : -0.85, y : 0.25))
+        self.addChildNode(GlobalVar.addImage(image : player.thisimage, w : 1.3, h : 1.3, x : -0.85, y : 0.25))
         //results node
         let playerName = SCNNode(geometry : SCNPlane(width: 1.3, height: 0.50))
         //results label
@@ -143,6 +146,7 @@ class PlayerNode: SCNNode {
         view.nameLabel.adjustsFontSizeToFitWidth = true
         view.statLabel.text = stat
         view.nameLabel.adjustsFontSizeToFitWidth = true
+        view.image.image = UIImage(named: name)
         //creates a custom node
         let stat = SCNNode(geometry : SCNPlane(width: 1.5, height: 0.25))
         //adds the cucsom views image as material to the node

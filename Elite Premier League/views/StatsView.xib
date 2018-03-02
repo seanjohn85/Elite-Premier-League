@@ -17,6 +17,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StatsView" customModule="Elite_Premier_League" customModuleProvider="target">
             <connections>
+                <outlet property="image" destination="fPV-d1-0uw" id="tt2-2X-KZC"/>
                 <outlet property="nameLabel" destination="B6x-se-8hw" id="K04-pF-xvi"/>
                 <outlet property="statLabel" destination="8Am-cX-UKM" id="uFN-Na-Ind"/>
                 <outlet property="view" destination="iN0-l3-epB" id="KTI-NZ-35e"/>
@@ -30,7 +31,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Yellow Cards" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B6x-se-8hw">
                     <rect key="frame" x="20" y="26" width="349" height="49"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="50"/>
+                    <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="46"/>
                     <color key="textColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -41,6 +42,10 @@
                     <color key="textColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Red Cards" translatesAutoresizingMaskIntoConstraints="NO" id="fPV-d1-0uw">
+                    <rect key="frame" x="366" y="13" width="72" height="73"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -48,4 +53,7 @@
             <point key="canvasLocation" x="121" y="-229"/>
         </view>
     </objects>
+    <resources>
+        <image name="Red Cards" width="306" height="288"/>
+    </resources>
 </document>

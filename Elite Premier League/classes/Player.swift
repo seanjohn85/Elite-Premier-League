@@ -32,7 +32,7 @@ public class Player{
     private var yellowCards : Int
     private var redCards : Int
     private var news : String?
-    private var image : UIImage!
+    var image : UIImage!
     
     ///constructor for player objects
     init (playerId : Int, team : Team, fName : String, lName : String, pos : Int, goals : Int, assits : Int, saves : Int, number : Int, cleanSheets : Int, ownGoals : Int, penoSaved : Int, penoMissed : Int, photoURL : String, yellowCards : Int, redCards : Int){
