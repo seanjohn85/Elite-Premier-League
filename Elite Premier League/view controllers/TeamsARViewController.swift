@@ -13,8 +13,9 @@ import CoreML
 import Vision
 import Alamofire
 import SwiftyJSON
+import BWWalkthrough
 
-class TeamsARViewController: UIViewController, ARSCNViewDelegate {
+class TeamsARViewController: UIViewController, ARSCNViewDelegate, BWWalkthroughViewControllerDelegate  {
     
     
     
@@ -280,5 +281,25 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func helpBtn(_ sender: Any) {
+        // Get view controllers and build the walkthrough
+        let stb = UIStoryboard(name: "TeamARWalkthrough", bundle: nil)
+        let walkthrough = stb.instantiateViewController(withIdentifier: "TeamARWalkthrough") as! BWWalkthroughViewController
+        
+        // Attach the pages to the master
+        walkthrough.delegate = self
+        walkthrough.add(viewController: stb.instantiateViewController(withIdentifier: "TeamARWalkthrough1"))
+        
+        self.present(walkthrough, animated: true, completion: nil)
+    
+        
+    }
+    //close the walktrhough
+    func walkthroughCloseButtonPressed() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 
 }
+

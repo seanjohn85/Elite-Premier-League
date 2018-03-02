@@ -156,6 +156,12 @@
                                                 <segue destination="BYZ-38-t0r" kind="show" id="uDx-bO-9Ub"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" image="Question" id="7UV-tc-qr6">
+                                            <color key="tintColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="helpBtn:" destination="cV6-Hp-NXJ" id="bUC-Vl-dGd"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -438,6 +444,7 @@
     <resources>
         <image name="Homebtn" width="50" height="63"/>
         <image name="PLLogo" width="804" height="1332"/>
+        <image name="Question" width="60" height="76"/>
         <image name="play" width="410" height="410"/>
     </resources>
     <inferredMetricsTieBreakers>

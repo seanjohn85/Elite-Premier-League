@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0920"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4A1BE8B9C3ECF77E30D9A105E3EB3949"
+               BlueprintIdentifier = "C60DB4A60B40B0BE61B2A84B739B9692"
                BuildableName = "Pods_Elite_Premier_League.framework"
                BlueprintName = "Pods-Elite Premier League"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4A1BE8B9C3ECF77E30D9A105E3EB3949"
+            BlueprintIdentifier = "C60DB4A60B40B0BE61B2A84B739B9692"
             BuildableName = "Pods_Elite_Premier_League.framework"
             BlueprintName = "Pods-Elite Premier League"
             ReferencedContainer = "container:Pods.xcodeproj">
