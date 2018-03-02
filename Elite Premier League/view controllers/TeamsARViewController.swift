@@ -15,6 +15,9 @@ import Alamofire
 import SwiftyJSON
 
 class TeamsARViewController: UIViewController, ARSCNViewDelegate {
+    
+    @IBOutlet weak var inforBar: UILabel!
+    
 
     private var teamFoun = false
     //connection to the ar scene module
@@ -159,77 +162,83 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate {
                 return .success
             }
             .responseJSON { response in
-                let swiftyJsonVar = JSON(response.result.value!)
-                //debugPrint(response)
-                print(swiftyJsonVar["team"])
-                //update the team using the current teams details
-                currentTeam  = Team(name : swiftyJsonVar["team"]["name"].rawString()!,code : Int(swiftyJsonVar["team"]["code" ].rawString()!)!,
-                                              defHome   : Int(swiftyJsonVar["team"]["strength_defence_home" ].rawString()!)!,
-                                              attHome   : Int(swiftyJsonVar["team"]["strength_attack_home"].rawString()!)!,
-                                              home      : Int(swiftyJsonVar["team"]["strength_overall_home" ].rawString()!)!,
-                                              defAway   : Int(swiftyJsonVar["team"]["strength_defence_away"].rawString()!)!,
-                                              attAway   : Int(swiftyJsonVar["team"]["strength_attack_away" ].rawString()!)!,
-                                              away      : Int(swiftyJsonVar["team"]["strength_overall_away" ].rawString()!)!)
-                
-                
-                print(swiftyJsonVar)
-                //creates a fiture object
-                let fixture = Fixture(
-                    homeTeam    : swiftyJsonVar["fixture"]["homeTeam"].rawString()!,
-                    awayTeam    : swiftyJsonVar["fixture"]["awayTeam"].rawString()!,
-                    date        : swiftyJsonVar["fixture"]["date"].rawString()!,
-                    homeGoals   : Int(swiftyJsonVar["fixture"]["homeGoals"].rawString()!)!,
-                    awayGoals   : Int(swiftyJsonVar["fixture"]["awayGoals"].rawString()!)!)
-                print(swiftyJsonVar["table"])
-                currentTeam?.thisFixture = fixture
-                print("players")
-                //creates a list of players from the json
-                let list: Array<JSON> = swiftyJsonVar["players"].arrayValue
-                //loops through the list of players
-                var players = [Player] ()
-                for p in list{
-                    //creates a player object
-                    let named = Player(playerId      : Int(p["playerId"].rawString()!)!,
-                                       team          : currentTeam!,
-                                       fName         : p["f_name"].rawString()!,
-                                       lName         : p["l_name"].rawString()!,
-                                       pos           : Int(p["pos"].rawString()!)!,
-                                       goals         : Int(p["goals"].rawString()!)!,
-                                       assits        : Int(p["assits"].rawString()!)!,
-                                       saves         : Int(p["saves"].rawString()!)!,
-                                       number        : Int(p["number"].rawString()!)!,
-                                       cleanSheets   : Int(p["clean_sheets"].rawString()!)!,
-                                       ownGoals      : Int(p["own_goals"].rawString()!)!,
-                                       penoSaved     : Int(p["penalties_saved"].rawString()!)!,
-                                       penoMissed    : Int(p["penalties_missed"].rawString()!)!,
-                                       photoURL      : p["photo"].rawString()!,
-                                       yellowCards   : Int(p["yellow_cards"].rawString()!)!,
-                                       redCards      : Int(p["red_cards"].rawString()!)!)
-                    print(named.returnDetails())
-                    //adds each player to the teams list of players
-                    players.append(named)
+                //if there was a response
+                if ((response.result.value) != nil) {
                     
-                    //GlobalVar.currentTeam?.addPlayer(player: named)
-                    print("\(currentTeam?.players?.count)")
+                    let swiftyJsonVar = JSON(response.result.value!)
+                    //debugPrint(response)
+                    print(swiftyJsonVar["team"])
+                    //update the team using the current teams details
+                    currentTeam  = Team(name : swiftyJsonVar["team"]["name"].rawString()!,code : Int(swiftyJsonVar["team"]["code" ].rawString()!)!,
+                                                  defHome   : Int(swiftyJsonVar["team"]["strength_defence_home" ].rawString()!)!,
+                                                  attHome   : Int(swiftyJsonVar["team"]["strength_attack_home"].rawString()!)!,
+                                                  home      : Int(swiftyJsonVar["team"]["strength_overall_home" ].rawString()!)!,
+                                                  defAway   : Int(swiftyJsonVar["team"]["strength_defence_away"].rawString()!)!,
+                                                  attAway   : Int(swiftyJsonVar["team"]["strength_attack_away" ].rawString()!)!,
+                                                  away      : Int(swiftyJsonVar["team"]["strength_overall_away" ].rawString()!)!)
                     
+                    
+                    print(swiftyJsonVar)
+                    //creates a fiture object
+                    let fixture = Fixture(
+                        homeTeam    : swiftyJsonVar["fixture"]["homeTeam"].rawString()!,
+                        awayTeam    : swiftyJsonVar["fixture"]["awayTeam"].rawString()!,
+                        date        : swiftyJsonVar["fixture"]["date"].rawString()!,
+                        homeGoals   : Int(swiftyJsonVar["fixture"]["homeGoals"].rawString()!)!,
+                        awayGoals   : Int(swiftyJsonVar["fixture"]["awayGoals"].rawString()!)!)
+                    print(swiftyJsonVar["table"])
+                    currentTeam?.thisFixture = fixture
+                    print("players")
+                    //creates a list of players from the json
+                    let list: Array<JSON> = swiftyJsonVar["players"].arrayValue
+                    //loops through the list of players
+                    var players = [Player] ()
+                    for p in list{
+                        //creates a player object
+                        let named = Player(playerId      : Int(p["playerId"].rawString()!)!,
+                                           team          : currentTeam!,
+                                           fName         : p["f_name"].rawString()!,
+                                           lName         : p["l_name"].rawString()!,
+                                           pos           : Int(p["pos"].rawString()!)!,
+                                           goals         : Int(p["goals"].rawString()!)!,
+                                           assits        : Int(p["assits"].rawString()!)!,
+                                           saves         : Int(p["saves"].rawString()!)!,
+                                           number        : Int(p["number"].rawString()!)!,
+                                           cleanSheets   : Int(p["clean_sheets"].rawString()!)!,
+                                           ownGoals      : Int(p["own_goals"].rawString()!)!,
+                                           penoSaved     : Int(p["penalties_saved"].rawString()!)!,
+                                           penoMissed    : Int(p["penalties_missed"].rawString()!)!,
+                                           photoURL      : p["photo"].rawString()!,
+                                           yellowCards   : Int(p["yellow_cards"].rawString()!)!,
+                                           redCards      : Int(p["red_cards"].rawString()!)!)
+                        print(named.returnDetails())
+                        //adds each player to the teams list of players
+                        players.append(named)
+                        
+                        //GlobalVar.currentTeam?.addPlayer(player: named)
+                        print("\(currentTeam?.players?.count)")
+                        
+                    }
+                    //sets the teams players
+                    currentTeam?.thisPlayers = players
+                    
+                    //create a parent node and add its child nodes
+                    let parentNode = TeamParent()
+                    parentNode.thisTeam = currentTeam!
+                    parentNode.leagueTable = swiftyJsonVar["table"]
+                    
+                    //postions relative to the scanned crest
+                    //let z = self.hitTestResult.worldTransform.columns.3.z - Float(GlobalVar.randomNumbers(firstNum: -6, secondNum: -4))
+                    parentNode.position = SCNVector3(self.hitTestResult.worldTransform.columns.3.x,self.hitTestResult.worldTransform.columns.3.y, Float(GlobalVar.randomNumbers(firstNum: -6, secondNum: -4)))
+                    //adds the menu top the parent
+                    parentNode.addChildNode(self.addMenu(team : parentNode.thisTeam.thisName))
+                    //parentNode.addChildNode(self.addFixture(team: parentNode.team!))
+                    //adds the node to the scene
+                    self.sceneView.scene.rootNode.addChildNode(parentNode)
+                }else{
+                    self.inforBar.text = "Could not connect to the server please check your internet connection"
                 }
-                //sets the teams players
-                currentTeam?.thisPlayers = players
-                
-                //create a parent node and add its child nodes
-                let parentNode = TeamParent()
-                parentNode.thisTeam = currentTeam!
-                parentNode.leagueTable = swiftyJsonVar["table"]
-                
-                //postions relative to the scanned crest
-                //let z = self.hitTestResult.worldTransform.columns.3.z - Float(GlobalVar.randomNumbers(firstNum: -6, secondNum: -4))
-                parentNode.position = SCNVector3(self.hitTestResult.worldTransform.columns.3.x,self.hitTestResult.worldTransform.columns.3.y, Float(GlobalVar.randomNumbers(firstNum: -6, secondNum: -4)))
-                //adds the menu top the parent
-                parentNode.addChildNode(self.addMenu(team : parentNode.thisTeam.thisName))
-                //parentNode.addChildNode(self.addFixture(team: parentNode.team!))
-                //adds the node to the scene
-                self.sceneView.scene.rootNode.addChildNode(parentNode)
-        }
+            }
     }
     //this fuction is used to add the sphere menu node
     func addMenu(team : String) -> SCNNode{

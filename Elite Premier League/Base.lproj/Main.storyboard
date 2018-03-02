@@ -162,6 +162,16 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iia-l7-9hK">
                                 <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                             </arscnView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Postion a crest with your camer and tap it on the screen" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4mE-UC-xVA">
+                                <rect key="frame" x="0.0" y="924" width="768" height="100"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="miE-XN-J1P"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="26"/>
+                                <color key="textColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="1" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -169,19 +179,23 @@
                             <constraint firstItem="WJ3-x7-O8g" firstAttribute="leading" secondItem="Iia-l7-9hK" secondAttribute="leading" id="C3r-4t-hsc"/>
                             <constraint firstItem="a1K-XE-1SM" firstAttribute="bottom" secondItem="Iia-l7-9hK" secondAttribute="bottom" id="PZo-cP-B4S"/>
                             <constraint firstItem="Iia-l7-9hK" firstAttribute="top" secondItem="WJ3-x7-O8g" secondAttribute="bottom" id="g4f-1Y-OgW"/>
+                            <constraint firstItem="a1K-XE-1SM" firstAttribute="bottom" secondItem="4mE-UC-xVA" secondAttribute="bottom" id="jJz-yw-0Qc"/>
                             <constraint firstItem="a1K-XE-1SM" firstAttribute="trailing" secondItem="Iia-l7-9hK" secondAttribute="trailing" id="nC3-hM-YDg"/>
                             <constraint firstItem="WJ3-x7-O8g" firstAttribute="trailing" secondItem="Iia-l7-9hK" secondAttribute="trailing" id="qWE-u9-bYq"/>
+                            <constraint firstItem="4mE-UC-xVA" firstAttribute="leading" secondItem="a1K-XE-1SM" secondAttribute="leading" id="sMH-Qj-i8z"/>
+                            <constraint firstItem="a1K-XE-1SM" firstAttribute="trailing" secondItem="4mE-UC-xVA" secondAttribute="trailing" id="tNV-Yv-T39"/>
                             <constraint firstItem="Iia-l7-9hK" firstAttribute="leading" secondItem="a1K-XE-1SM" secondAttribute="leading" id="z1e-Ga-WGK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="a1K-XE-1SM"/>
                     </view>
                     <connections>
+                        <outlet property="inforBar" destination="4mE-UC-xVA" id="KwS-K6-xHD"/>
                         <outlet property="sceneView" destination="Iia-l7-9hK" id="IMa-cH-e7A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C3b-7t-bLW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-608" y="162"/>
+            <point key="canvasLocation" x="-886" y="237"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -427,6 +441,6 @@
         <image name="play" width="410" height="410"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="DFC-im-gCY"/>
+        <segue reference="uDx-bO-9Ub"/>
     </inferredMetricsTieBreakers>
 </document>
