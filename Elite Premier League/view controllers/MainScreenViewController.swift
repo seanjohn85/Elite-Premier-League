@@ -16,9 +16,7 @@ class MainScreenViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet weak var sceneView: ARSCNView!
     //sets the AR configuration
     let configuration = ARWorldTrackingConfiguration()
-    private let model = CNN2()
-    
-    
+
     private var visionRequests = [VNRequest]()
     
     private var hitTestResult : ARHitTestResult!
@@ -75,7 +73,7 @@ class MainScreenViewController: UIViewController, ARSCNViewDelegate {
     //creates a vision request to analiyze the image
     private func analyiseImage(image : CVPixelBuffer){
         //converts the model to a vuison model
-        let visionModel =  try! VNCoreMLModel(for: model.model)
+        let visionModel =  try! VNCoreMLModel(for: GlobalVar.model.model)
         
         let request = VNCoreMLRequest(model: visionModel){ request, error
             in

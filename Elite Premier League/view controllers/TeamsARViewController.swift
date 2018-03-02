@@ -16,10 +16,9 @@ import SwiftyJSON
 
 class TeamsARViewController: UIViewController, ARSCNViewDelegate {
 
+    private var teamFoun = false
     //connection to the ar scene module
     @IBOutlet weak var sceneView: ARSCNView!
-    //model varibles
-    private let model = CNN2()
     private var visionRequests = [VNRequest]()
     //used to hold the points in the world where the screen was pressed
     private var hitTestResult : ARHitTestResult!
@@ -108,7 +107,7 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate {
     //creates a vision request to analiyze the image
     private func analyiseImage(image : CVPixelBuffer){
         //converts the model to a vuison model
-        let visionModel =  try! VNCoreMLModel(for: model.model)
+        let visionModel =  try! VNCoreMLModel(for: GlobalVar.model.model)
         
         let request = VNCoreMLRequest(model: visionModel, completionHandler: results)
         request.imageCropAndScaleOption = .scaleFill
@@ -147,10 +146,8 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate {
     func requestTeamData(teamName: String){
         let parameters: Parameters = ["name": teamName]
         print("get server request")
-        let url = "http://192.168.0.157:8080/rest/getData/"
+        let url = GlobalVar.teamData
         var currentTeam : Team?
-        //creates empty json array for league table data
-        var leagueTable = JSON("empty")
         //request to Django server ---  NB *******Django server Must Be started***********
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
@@ -183,14 +180,13 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate {
                     date        : swiftyJsonVar["fixture"]["date"].rawString()!,
                     homeGoals   : Int(swiftyJsonVar["fixture"]["homeGoals"].rawString()!)!,
                     awayGoals   : Int(swiftyJsonVar["fixture"]["awayGoals"].rawString()!)!)
-                leagueTable = swiftyJsonVar["table"]
                 print(swiftyJsonVar["table"])
                 currentTeam?.thisFixture = fixture
                 print("players")
                 //creates a list of players from the json
                 let list: Array<JSON> = swiftyJsonVar["players"].arrayValue
                 //loops through the list of players
-                var x = [Player] ()
+                var players = [Player] ()
                 for p in list{
                     //creates a player object
                     let named = Player(playerId      : Int(p["playerId"].rawString()!)!,
@@ -211,14 +207,14 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate {
                                        redCards      : Int(p["red_cards"].rawString()!)!)
                     print(named.returnDetails())
                     //adds each player to the teams list of players
-                    x.append(named)
+                    players.append(named)
                     
                     //GlobalVar.currentTeam?.addPlayer(player: named)
                     print("\(currentTeam?.players?.count)")
                     
                 }
                 //sets the teams players
-                currentTeam?.thisPlayers = x
+                currentTeam?.thisPlayers = players
                 
                 //create a parent node and add its child nodes
                 let parentNode = TeamParent()

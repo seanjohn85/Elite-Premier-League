@@ -71,7 +71,7 @@ class FixtureNode: SCNNode {
         //creats a label with the team names
         teamsLabel.labelGenerator(width: 800, height : 100, textColour : UIColor(red: 255.0 / 255.0, green: 255.0 / 255.0, blue: 255.0 / 255.0, alpha: 1), bgColour : UIColor(red: 56.0 / 255.0, green: 0 / 255.0, blue: 60.0 / 255.0, alpha: 1), size : 60, text : "\(team.thisFixture.thisHomeTeam)    V   \(team.thisFixture.thisAwayTeam) ")
         //adds the lable to the ndoe
-        teamNames.geometry?.firstMaterial?.diffuse.contents = teamsLabel
+        teamNames.geometry?.firstMaterial?.diffuse.contents = teamsLabel.convertLabelToImage()
         //postions the node
         teamNames.position = SCNVector3(0, -0.35, 0.04)
         //adds the node as a child to the main fixtures plane

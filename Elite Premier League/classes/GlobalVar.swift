@@ -11,9 +11,17 @@ import Alamofire
 import UIKit
 import SceneKit
 
+import CoreML
+
+
 struct GlobalVar{
+
+    //cnn model
+    //model varibles
+    static let model = CNN2()
     
     
+
     //this needs to be changed to access http://192.168.0.157:8080/
     static let serverAddress = "http://192.168.0.157:8080/"
     //where the player images are located on the server
@@ -28,7 +36,13 @@ struct GlobalVar{
                                   "Accept": "application/json"]
     
     //colours
-    static let clear = UIColor(red: 0.0 / 255.0, green: 255.0 / 255.0, blue: 133.0 / 255.0, alpha: 0)
+    static let clear    = UIColor(red: 0.0 / 255.0, green: 255.0 / 255.0, blue: 133.0 / 255.0, alpha: 0)
+    static let navy     = UIColor(red: 56.0 / 255.0, green: 0.0 / 255.0, blue: 60.0 / 255.0, alpha: 0)
+    static let blue     = UIColor(red: 4.0 / 255.0, green: 245.0 / 255.0, blue: 255.0 / 255.0, alpha: 0)
+    static let green    = UIColor(red: 0.0 / 255.0, green: 255.0 / 255.0, blue: 133.0 / 255.0, alpha: 0)
+    static let pink     = UIColor(red: 233.0 / 255.0, green: 0.0 / 255.0, blue: 82.0 / 255.0, alpha: 0)
+    
+    static let mainColours = [pink, green, blue]
     
     
     //global methods used in the project by different classes

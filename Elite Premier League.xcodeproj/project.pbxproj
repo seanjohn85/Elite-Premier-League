@@ -139,11 +139,10 @@
 		C92708092023AD66000CB201 /* view controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C97EC0CB2048CB1C00BD85F4 /* Unused */,
 				C9A23637203A05DB009754E8 /* TeamsARViewController.swift */,
 				C9A236042034FC28009754E8 /* MainScreenViewController.swift */,
 				C941CD71201E13100046A974 /* MenuViewController.swift */,
-				C941CD84201E32B80046A974 /* ImageRecognitionViewController.swift */,
-				C927080420228E29000CB201 /* TeamViewController.swift */,
 				C9A41ADC2029E30700B3221B /* PogbaMiniGameViewController.swift */,
 			);
 			path = "view controllers";
@@ -218,6 +217,15 @@
 				C9A06715203EF0A200CD9DC5 /* NodeLabel.swift */,
 			);
 			path = AssetGen;
+			sourceTree = "<group>";
+		};
+		C97EC0CB2048CB1C00BD85F4 /* Unused */ = {
+			isa = PBXGroup;
+			children = (
+				C941CD84201E32B80046A974 /* ImageRecognitionViewController.swift */,
+				C927080420228E29000CB201 /* TeamViewController.swift */,
+			);
+			path = Unused;
 			sourceTree = "<group>";
 		};
 		C9B56756203240F10055249B /* Sounds */ = {
