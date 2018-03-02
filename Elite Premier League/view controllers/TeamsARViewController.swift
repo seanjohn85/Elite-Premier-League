@@ -17,9 +17,8 @@ import SwiftyJSON
 class TeamsARViewController: UIViewController, ARSCNViewDelegate {
     
     @IBOutlet weak var inforBar: UILabel!
-    
-
-    private var teamFoun = false
+    //used to check if a crest is been checked
+    private var teamFound = false
     //connection to the ar scene module
     @IBOutlet weak var sceneView: ARSCNView!
     private var visionRequests = [VNRequest]()
@@ -71,7 +70,6 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate {
                 //gets the next players image from the server
                 let parent = res.node.parent as! PlayerNode
                 parent.nextPlayer()
-                //getPlayerImageFromServer(player : getNextPlayer())
             }
         }
     }
@@ -91,6 +89,7 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate {
         let hitTestResults = sceneRecognizer.hitTest(touchLoaction, types: .featurePoint)
         
         if hitTestResults.isEmpty{
+            self.inforBar.text = "Issue with image. Please ensure camera is still and in focus and try again."
             print("nothing in hittest")
             return
         }
@@ -103,15 +102,18 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate {
         self.hitTestResult = hitTestResult
         //image from current frame
         let pixelBufImage = currentframe.capturedImage
+        //check the image with the vison model
+        if !teamFound{
+            analyiseImage(image: pixelBufImage)
+        }
         
-        analyiseImage(image: pixelBufImage)
     }
     
     //creates a vision request to analiyze the image
     private func analyiseImage(image : CVPixelBuffer){
         //converts the model to a vuison model
         let visionModel =  try! VNCoreMLModel(for: GlobalVar.model.model)
-        
+        //creates a vision request with the model
         let request = VNCoreMLRequest(model: visionModel, completionHandler: results)
         request.imageCropAndScaleOption = .scaleFill
         let handler = VNImageRequestHandler(cvPixelBuffer: image, orientation: .upMirrored, options: [:])
@@ -126,21 +128,24 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate {
         guard let prediction = request.results as? [VNClassificationObservation] else{
             fatalError("could not get any output")
         }
-        //used to hold the team the modle identifies
-        //var  team = "Man Utd"
         
         guard let observ = request.results else {
             return
         }
-        
+        teamFound = true
+        //gets the first result from the cnn
         let ob = observ.first as! VNClassificationObservation
-        
         print("\(ob.identifier) - Confidence: \(ob.confidence)")
-        if ob.confidence > 0.10{
-            print("here")
+        //only get the team data if the convidence is high
+        if ob.confidence > 0.60{
+            print("match ")
+            //gets the teams dat from the server
             requestTeamData(teamName: ob.identifier)
         }
-        //self.displayName(text : "Name \(ob.identifier) & confidence \(ob.confidence)")
+        else{
+            self.inforBar.text = "I'm not sure of this team. Please check the camera focus and ensure the crest is fully on screen."
+            teamFound = false
+        }
     }
     
     
@@ -235,8 +240,11 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate {
                     //parentNode.addChildNode(self.addFixture(team: parentNode.team!))
                     //adds the node to the scene
                     self.sceneView.scene.rootNode.addChildNode(parentNode)
+                    self.teamFound = false
                 }else{
+                    //issue connecting to server
                     self.inforBar.text = "Could not connect to the server please check your internet connection"
+                    self.teamFound = false
                 }
             }
     }
