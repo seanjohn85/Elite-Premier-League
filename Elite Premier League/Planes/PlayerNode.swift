@@ -168,7 +168,7 @@ class PlayerNode: SCNNode {
     func animate(){
         let spin = CABasicAnimation(keyPath: "position")
         spin.fromValue = self.presentation.position
-        spin.toValue = SCNVector3(self.presentation.position.x - 0.2 ,self.presentation.position.y - 0.2,self.presentation.position.z - 15)
+        spin.toValue = SCNVector3(self.presentation.position.x - 0.2 ,self.presentation.position.y - 0.2,self.presentation.position.z - 25)
         spin.duration = 0.5
         spin.repeatCount = 1
         //smooth animate back to current pos

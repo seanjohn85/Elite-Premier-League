@@ -46,6 +46,7 @@ class TableNode: SCNNode {
             
             //genertates the top of the table
             for i in 1...10 {
+                topBar(name: "Top")
                 createTableRow(yPos : yPos, tablePos : i)
                 yPos = yPos - 0.20
             }
@@ -53,6 +54,7 @@ class TableNode: SCNNode {
         }else{
             //genertates the bottom of the table
             for i in 11...20 {
+                topBar(name: "Bottom")
                 createTableRow(yPos : yPos, tablePos : i)
                 yPos = yPos - 0.20
             }
@@ -60,11 +62,51 @@ class TableNode: SCNNode {
         }
     }
     
+    private func topBar(name : String){
+        //creats a stats view object
+        let view = LeagueTableRow(frame: CGRect(x: CGFloat(0), y: CGFloat(0),
+                                                width: 1195, height: 54))
+        view.changeColour(textColour: colour, bGColour: GlobalVar.navy)
+        //set the labels of the  row from the json recieved from the server
+        view.positionLabel.text     = ""
+        view.dotLabel.text          = ""
+        view.teamNameLabel.text     = "\(name)"
+        view.playedLabel.text       = "P"
+        view.wonLabel.text          = "W"
+        view.drawnLabel.text        = "D"
+        view.lossLabel.text         = "L"
+        view.gdLabel.text           = "GD"
+        view.ptsLabel.text          =  "PTS"
+        //creates a custom node
+        let row = SCNNode(geometry : SCNPlane(width: 3, height: 0.20))
+        
+        //adds the custom views image as material to the node
+        row.geometry?.firstMaterial?.diffuse.contents = GlobalVar.convertViewToImage(view : view)
+        //postions the node
+        row.position = SCNVector3(0, 1.0, 0.1)
+        self.addChildNode(row)
+    }
     
+    
+    func changeTable(){
+        //removes all table elemnts
+        self.enumerateChildNodes { (node, stop) in
+            node.removeFromParentNode() }
+        //repoplutates new data
+        populateTable()
+    }
+    
+    
+    
+    //creates the rows of the table in ar using the row view
     private func createTableRow(yPos : Double, tablePos : Int){
         //creats a stats view object
         let view = LeagueTableRow(frame: CGRect(x: CGFloat(0), y: CGFloat(0),
-                                                width: 1175, height: 54))
+                                                width: 1195, height: 54))
+        //change colours for the top 4 and bottom 3
+        if tablePos <= 4 || tablePos >= 18{
+            view.changeColour(textColour: .white, bGColour: colour)
+        }
         //set the labels of the  row from the json recieved from the server
         //let gd = Int(leagueTable[tablePos-1]["goalsFor"].rawString()!)! - Int(leagueTable[tablePos-1]["goalsAgainst"].rawString()!)!
         view.positionLabel.text     = "\(tablePos)"
@@ -73,7 +115,7 @@ class TableNode: SCNNode {
         view.wonLabel.text          = "\(leagueTable[tablePos-1]["win"])"
         view.drawnLabel.text        = "\(leagueTable[tablePos-1]["draw"])"
         view.lossLabel.text         = "\(leagueTable[tablePos-1]["loss"])"
-        // view.gdLabel.text           = "\(gd)"
+        view.gdLabel.text           = "\(leagueTable[tablePos-1]["gd"])"
         view.ptsLabel.text          =  "\(leagueTable[tablePos-1]["points"])"
         //creates a custom node
         let row = SCNNode(geometry : SCNPlane(width: 3, height: 0.20))
@@ -83,7 +125,6 @@ class TableNode: SCNNode {
         //postions the node
         row.position = SCNVector3(0, yPos, 0.1)
         self.addChildNode(row)
-        
     }
     
     // SCNNode objects require this 

@@ -74,6 +74,15 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate {
                 //gets the next players image from the server
                 let parent = res.node.parent as! PlayerNode
                 parent.nextPlayer()
+            }else if res.node.name == "tabelNode"{
+                //gets the next players image from the server
+                let parent = res.node as! TableNode
+                parent.changeTable()
+            }else if res.node.parent?.name == "tabelNode"{
+                print("change fixture")
+                //gets the next players image from the server
+                let parent = res.node.parent as! TableNode
+                parent.changeTable()
             }
         }
     }
@@ -226,6 +235,7 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate {
                         }
                         //adds each player to the teams list of players
                         players.append(named)
+                        print(swiftyJsonVar)
                         
                         //GlobalVar.currentTeam?.addPlayer(player: named)
                         print("\(String(describing: currentTeam?.players?.count))")
@@ -248,6 +258,7 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate {
                     //adds the node to the scene
                     self.sceneView.scene.rootNode.addChildNode(parentNode)
                     self.teamFound = false
+                    self.inforBar.isHidden = true
                 }else{
                     //issue connecting to server
                     self.inforBar.text = "Could not connect to the server please check your internet connection"
