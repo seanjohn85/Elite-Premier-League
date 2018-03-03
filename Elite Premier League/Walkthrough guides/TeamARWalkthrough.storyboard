@@ -1036,7 +1036,7 @@
     </scenes>
     <resources>
         <image name="Left" width="100" height="100"/>
-        <image name="Man UtdCrest" width="1200" height="1216"/>
+        <image name="Man UtdCrest" width="1000" height="1000"/>
         <image name="PLLogo" width="804" height="1332"/>
         <image name="Right" width="100" height="100"/>
         <image name="Sample" width="336" height="344"/>
