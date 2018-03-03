@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad10_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="PremierLeague.ttf">
+            <string>PremierLeague</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Walkthrough View Controller-->
+        <scene sceneID="Ktr-RS-FUp">
+            <objects>
+                <viewController storyboardIdentifier="MGWalkthrough" id="tdI-fY-3nv" customClass="BWWalkthroughViewController" customModule="BWWalkthrough" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QeA-99-dSs"/>
+                        <viewControllerLayoutGuide type="bottom" id="5oQ-0m-sBk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9hY-4e-BL3">
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Tg1-Rc-I1U">
+                                <rect key="frame" x="397.5" y="263" width="39" height="37"/>
+                                <color key="pageIndicatorTintColor" red="0.015686274510000001" green="0.96078431369999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0I-DL-y3d">
+                                <rect key="frame" x="749" y="30" width="65" height="33"/>
+                                <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="23"/>
+                                <state key="normal" title="CLOSE">
+                                    <color key="titleColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="close:" destination="tdI-fY-3nv" eventType="touchUpInside" id="IzB-J6-EnJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0X-tK-zDO" userLabel="Prev">
+                                <rect key="frame" x="4" y="992" width="100" height="100"/>
+                                <state key="normal" image="Left">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextPage" destination="tdI-fY-3nv" eventType="touchUpInside" id="1k7-hg-vzW"/>
+                                    <action selector="prevPage" destination="tdI-fY-3nv" eventType="touchUpInside" id="P1Q-4m-kLk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zsy-sa-riW" userLabel="Next">
+                                <rect key="frame" x="714" y="992" width="100" height="100"/>
+                                <state key="normal" image="Right">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextPage" destination="tdI-fY-3nv" eventType="touchUpInside" id="sW1-rd-yty"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="A0I-DL-y3d" secondAttribute="centerX" id="D19-qV-7f7"/>
+                            <constraint firstItem="5oQ-0m-sBk" firstAttribute="top" secondItem="Zsy-sa-riW" secondAttribute="bottom" constant="20" id="Eob-m9-RYk"/>
+                            <constraint firstItem="5oQ-0m-sBk" firstAttribute="top" secondItem="A0I-DL-y3d" secondAttribute="bottom" constant="20" id="O84-Qg-fe4"/>
+                            <constraint firstItem="QeA-99-dSs" firstAttribute="top" secondItem="Tg1-Rc-I1U" secondAttribute="bottom" constant="-280" id="R5h-WN-S8p"/>
+                            <constraint firstItem="5oQ-0m-sBk" firstAttribute="top" secondItem="m0X-tK-zDO" secondAttribute="bottom" constant="20" id="RqF-fb-htH"/>
+                            <constraint firstAttribute="centerX" secondItem="Tg1-Rc-I1U" secondAttribute="centerX" id="U4g-rn-6yW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="A0I-DL-y3d" secondAttribute="trailing" id="fhH-84-Tbs"/>
+                            <constraint firstItem="m0X-tK-zDO" firstAttribute="leading" secondItem="9hY-4e-BL3" secondAttribute="leadingMargin" constant="-16" id="qOq-xV-Qu6"/>
+                            <constraint firstItem="A0I-DL-y3d" firstAttribute="top" secondItem="QeA-99-dSs" secondAttribute="bottom" constant="10" id="xD5-2X-wDB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Zsy-sa-riW" secondAttribute="trailing" id="xka-bJ-bpq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="keh-nu-lhx"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="D19-qV-7f7"/>
+                                <exclude reference="O84-Qg-fe4"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="closeButton" destination="A0I-DL-y3d" id="Tvh-bI-Ndg"/>
+                        <outlet property="nextButton" destination="Zsy-sa-riW" id="aaa-NB-F64"/>
+                        <outlet property="pageControl" destination="Tg1-Rc-I1U" id="z9w-LI-RgX"/>
+                        <outlet property="prevButton" destination="m0X-tK-zDO" id="PDG-u1-cho"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cIa-JZ-0x9" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="17" y="-853"/>
+        </scene>
+        <!--Animate View Controller-->
+        <scene sceneID="Qss-gE-vZf">
+            <objects>
+                <viewController storyboardIdentifier="mg4" id="5Qu-FR-h0M" customClass="AnimateViewController" customModule="Elite_Premier_League" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="X3b-TM-9Sb"/>
+                        <viewControllerLayoutGuide type="bottom" id="nsM-BH-MIQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MvW-6O-t0T">
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MGWalk2" translatesAutoresizingMaskIntoConstraints="NO" id="u8i-8i-tY5">
+                                <rect key="frame" x="20" y="20" width="794" height="1092"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pogba" translatesAutoresizingMaskIntoConstraints="NO" id="6cd-R9-QvB">
+                                <rect key="frame" x="217" y="356" width="400" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="8ND-ih-QIe"/>
+                                    <constraint firstAttribute="height" constant="400" id="LYl-8k-26y"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap me to increase your score if time runs out the game is over" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pB4-to-zit">
+                                <rect key="frame" x="100" y="196" width="634" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="X8J-zi-fjy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="25"/>
+                                <color key="textColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quick only 4 seconds left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Roi-wj-jKQ">
+                                <rect key="frame" x="100" y="856" width="634" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="W1s-Rn-TDJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="30"/>
+                                <color key="textColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6cd-R9-QvB" firstAttribute="top" secondItem="pB4-to-zit" secondAttribute="bottom" constant="80" id="00M-bW-yHX"/>
+                            <constraint firstItem="pB4-to-zit" firstAttribute="leading" secondItem="MvW-6O-t0T" secondAttribute="leadingMargin" constant="80" id="0kw-09-qe0"/>
+                            <constraint firstItem="6cd-R9-QvB" firstAttribute="centerY" secondItem="MvW-6O-t0T" secondAttribute="centerY" id="5Ew-dF-hWw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pB4-to-zit" secondAttribute="trailing" constant="80" id="9aD-bg-4w3"/>
+                            <constraint firstItem="u8i-8i-tY5" firstAttribute="leading" secondItem="MvW-6O-t0T" secondAttribute="leadingMargin" id="BFy-Qp-vYf"/>
+                            <constraint firstItem="u8i-8i-tY5" firstAttribute="top" secondItem="X3b-TM-9Sb" secondAttribute="bottom" id="Edj-RA-QKr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Roi-wj-jKQ" secondAttribute="trailing" constant="80" id="GLN-jS-lYE"/>
+                            <constraint firstItem="6cd-R9-QvB" firstAttribute="centerX" secondItem="MvW-6O-t0T" secondAttribute="centerX" id="IQ0-ZE-Uum"/>
+                            <constraint firstItem="Roi-wj-jKQ" firstAttribute="top" secondItem="6cd-R9-QvB" secondAttribute="bottom" constant="100" id="bLB-X1-Kop"/>
+                            <constraint firstItem="nsM-BH-MIQ" firstAttribute="top" secondItem="u8i-8i-tY5" secondAttribute="bottom" id="han-0U-MVG"/>
+                            <constraint firstItem="Roi-wj-jKQ" firstAttribute="leading" secondItem="MvW-6O-t0T" secondAttribute="leadingMargin" constant="80" id="tCF-Yb-yRK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="u8i-8i-tY5" secondAttribute="trailing" id="uY1-FI-KOM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SOh-xC-mvu"/>
+                    </view>
+                    <connections>
+                        <outlet property="iamge" destination="6cd-R9-QvB" id="SMS-3C-SnH"/>
+                        <outlet property="subText" destination="Roi-wj-jKQ" id="szM-k6-Ub5"/>
+                        <outlet property="titleLab" destination="pB4-to-zit" id="Cbh-bu-lBL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Aq-u4-kY4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2706" y="-853"/>
+        </scene>
+        <!--Animate View Controller-->
+        <scene sceneID="br9-wZ-vB1">
+            <objects>
+                <viewController storyboardIdentifier="mg2" id="gHb-Sk-s6h" customClass="AnimateViewController" customModule="Elite_Premier_League" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="azP-OO-U2T"/>
+                        <viewControllerLayoutGuide type="bottom" id="zOI-3n-9ok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="E66-eA-LeY">
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" translatesAutoresizingMaskIntoConstraints="NO" id="f4f-4B-hDp">
+                                <rect key="frame" x="217" y="356" width="400" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="PDW-ZS-bzs"/>
+                                    <constraint firstAttribute="width" constant="400" id="nqw-4B-9WL"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the play button to begin the game " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FR1-lq-r8O">
+                                <rect key="frame" x="100" y="176" width="634" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="BIR-2h-BTB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="26"/>
+                                <color key="textColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The counter will start and the play button will disappear when the play button is pressed" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IfS-Pp-KOq">
+                                <rect key="frame" x="100" y="264" width="634" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="KQC-jJ-xAD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="24"/>
+                                <color key="textColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u37-wR-DTk">
+                                <rect key="frame" x="0.0" y="919" width="834" height="193"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The play button located at the bottom of the screen and will not be diplayed when the game is in progress " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vhx-zj-d28">
+                                        <rect key="frame" x="50" y="23" width="734" height="147"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="147" id="yCY-wA-qIP"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="23"/>
+                                        <color key="textColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1176470588" green="0.12941176469999999" blue="0.13725490200000001" alpha="0.28000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Vhx-zj-d28" firstAttribute="leading" secondItem="u37-wR-DTk" secondAttribute="leading" constant="50" id="1m9-sV-f0Z"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vhx-zj-d28" secondAttribute="trailing" constant="50" id="GmC-FU-Nt0"/>
+                                    <constraint firstAttribute="centerY" secondItem="Vhx-zj-d28" secondAttribute="centerY" id="bZz-K7-qD9"/>
+                                    <constraint firstAttribute="height" constant="193" id="sq9-vh-DJr"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="IfS-Pp-KOq" secondAttribute="trailing" constant="80" id="1ME-GZ-A5Q"/>
+                            <constraint firstItem="IfS-Pp-KOq" firstAttribute="leading" secondItem="E66-eA-LeY" secondAttribute="leadingMargin" constant="80" id="3x1-Up-Rnw"/>
+                            <constraint firstItem="zOI-3n-9ok" firstAttribute="top" secondItem="u37-wR-DTk" secondAttribute="bottom" id="6jW-JQ-sZb"/>
+                            <constraint firstItem="FR1-lq-r8O" firstAttribute="leading" secondItem="E66-eA-LeY" secondAttribute="leadingMargin" constant="80" id="L0J-8k-oKd"/>
+                            <constraint firstAttribute="trailing" secondItem="u37-wR-DTk" secondAttribute="trailing" id="Pdn-6n-Xz8"/>
+                            <constraint firstItem="f4f-4B-hDp" firstAttribute="top" secondItem="FR1-lq-r8O" secondAttribute="bottom" constant="100" id="Ukz-90-zPZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FR1-lq-r8O" secondAttribute="trailing" constant="80" id="Xxt-A0-kPA"/>
+                            <constraint firstItem="u37-wR-DTk" firstAttribute="leading" secondItem="E66-eA-LeY" secondAttribute="leading" id="aat-pq-1VR"/>
+                            <constraint firstItem="f4f-4B-hDp" firstAttribute="centerY" secondItem="E66-eA-LeY" secondAttribute="centerY" id="bf0-XX-BaY"/>
+                            <constraint firstItem="f4f-4B-hDp" firstAttribute="centerX" secondItem="E66-eA-LeY" secondAttribute="centerX" id="uSE-6i-NCr"/>
+                            <constraint firstItem="IfS-Pp-KOq" firstAttribute="top" secondItem="FR1-lq-r8O" secondAttribute="bottom" constant="8" id="xcp-Lk-2Ab"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="J8G-PP-kQ8"/>
+                    </view>
+                    <connections>
+                        <outlet property="iamge" destination="f4f-4B-hDp" id="LtJ-gb-A5Y"/>
+                        <outlet property="subText" destination="IfS-Pp-KOq" id="fit-vt-Xoh"/>
+                        <outlet property="titleLab" destination="FR1-lq-r8O" id="SBm-dz-iGC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CkR-Ld-HiH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1353" y="-853"/>
+        </scene>
+        <!--Walkthrough Page View Controller-->
+        <scene sceneID="D7c-4i-l0N">
+            <objects>
+                <viewController storyboardIdentifier="mg1" id="1c6-VC-ir4" customClass="BWWalkthroughPageViewController" customModule="BWWalkthrough" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pgQ-XF-VXM"/>
+                        <viewControllerLayoutGuide type="bottom" id="1oc-wp-903"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9Ca-5d-xnR">
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MGWalk1" translatesAutoresizingMaskIntoConstraints="NO" id="7ky-K1-IYu">
+                                <rect key="frame" x="20" y="20" width="794" height="1092"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The game screen contains a timer top left. the score top right and a play burron bottom left to start the game" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9eU-8Q-rBo">
+                                <rect key="frame" x="60" y="481" width="714" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="mxe-Qi-NO0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="30"/>
+                                <color key="textColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="9eU-8Q-rBo" firstAttribute="leading" secondItem="9Ca-5d-xnR" secondAttribute="leading" constant="60" id="3jT-T9-NQX"/>
+                            <constraint firstItem="9eU-8Q-rBo" firstAttribute="centerY" secondItem="9Ca-5d-xnR" secondAttribute="centerY" id="Ak0-HG-7az"/>
+                            <constraint firstAttribute="trailing" secondItem="9eU-8Q-rBo" secondAttribute="trailing" constant="60" id="Feh-XW-Xcn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7ky-K1-IYu" secondAttribute="trailing" id="MhS-ts-Li3"/>
+                            <constraint firstItem="7ky-K1-IYu" firstAttribute="top" secondItem="pgQ-XF-VXM" secondAttribute="bottom" id="g26-dI-BH6"/>
+                            <constraint firstItem="7ky-K1-IYu" firstAttribute="leading" secondItem="9Ca-5d-xnR" secondAttribute="leadingMargin" id="tvM-zD-47A"/>
+                            <constraint firstItem="9eU-8Q-rBo" firstAttribute="centerX" secondItem="9Ca-5d-xnR" secondAttribute="centerX" id="wO8-7x-3mb"/>
+                            <constraint firstItem="1oc-wp-903" firstAttribute="top" secondItem="7ky-K1-IYu" secondAttribute="bottom" id="wZB-P3-J49"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="I71-ei-HqN"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qng-1M-SJ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="689.92805755395693" y="-853.05755395683457"/>
+        </scene>
+        <!--Animate View Controller-->
+        <scene sceneID="XtU-g9-cnI">
+            <objects>
+                <viewController storyboardIdentifier="mg6" id="nLX-nu-Yvr" customClass="AnimateViewController" customModule="Elite_Premier_League" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dig-Kl-tRW"/>
+                        <viewControllerLayoutGuide type="bottom" id="820-Uc-tMD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="a4f-5F-yS5">
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PLLogo" translatesAutoresizingMaskIntoConstraints="NO" id="4JT-s6-TDv">
+                                <rect key="frame" x="217" y="356" width="400" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="25d-x5-wYL"/>
+                                    <constraint firstAttribute="width" constant="400" id="oIO-VN-BF1"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to quit the game just press the home button to return home" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPX-gZ-nzR">
+                                <rect key="frame" x="100" y="176" width="634" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="dw3-2K-mbX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="26"/>
+                                <color key="textColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tap to return home" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRi-XJ-wk0">
+                                <rect key="frame" x="100" y="264" width="634" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="M8o-w2-WhC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="24"/>
+                                <color key="textColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I2k-2g-Qck">
+                                <rect key="frame" x="0.0" y="919" width="834" height="193"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the premier league logo (top left) on any screen to remove all ar elements and return to the main menu" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqZ-dm-BM0">
+                                        <rect key="frame" x="50" y="23" width="734" height="147"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="147" id="TPw-mR-TUl"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="23"/>
+                                        <color key="textColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1176470588" green="0.12941176469999999" blue="0.13725490200000001" alpha="0.28000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="dqZ-dm-BM0" secondAttribute="centerY" id="6Ys-3e-WDd"/>
+                                    <constraint firstAttribute="height" constant="193" id="Tob-aJ-rnu"/>
+                                    <constraint firstItem="dqZ-dm-BM0" firstAttribute="leading" secondItem="I2k-2g-Qck" secondAttribute="leading" constant="50" id="cvk-YG-C7R"/>
+                                    <constraint firstAttribute="trailing" secondItem="dqZ-dm-BM0" secondAttribute="trailing" constant="50" id="gpE-Qb-Ofd"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="xRi-XJ-wk0" firstAttribute="top" secondItem="zPX-gZ-nzR" secondAttribute="bottom" constant="8" id="1NB-or-iJL"/>
+                            <constraint firstItem="4JT-s6-TDv" firstAttribute="top" secondItem="zPX-gZ-nzR" secondAttribute="bottom" constant="100" id="D6H-Ln-Ghw"/>
+                            <constraint firstAttribute="trailing" secondItem="I2k-2g-Qck" secondAttribute="trailing" id="INA-Vq-rHj"/>
+                            <constraint firstItem="xRi-XJ-wk0" firstAttribute="leading" secondItem="a4f-5F-yS5" secondAttribute="leadingMargin" constant="80" id="Kdb-NP-DUN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zPX-gZ-nzR" secondAttribute="trailing" constant="80" id="ea2-FH-2mz"/>
+                            <constraint firstItem="4JT-s6-TDv" firstAttribute="centerY" secondItem="a4f-5F-yS5" secondAttribute="centerY" id="fdW-fI-qry"/>
+                            <constraint firstItem="820-Uc-tMD" firstAttribute="top" secondItem="I2k-2g-Qck" secondAttribute="bottom" id="hu7-cR-QQZ"/>
+                            <constraint firstItem="I2k-2g-Qck" firstAttribute="leading" secondItem="a4f-5F-yS5" secondAttribute="leading" id="l0W-g0-4Wf"/>
+                            <constraint firstItem="4JT-s6-TDv" firstAttribute="centerX" secondItem="a4f-5F-yS5" secondAttribute="centerX" id="mfc-59-Mik"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xRi-XJ-wk0" secondAttribute="trailing" constant="80" id="n75-Xq-dbi"/>
+                            <constraint firstItem="zPX-gZ-nzR" firstAttribute="leading" secondItem="a4f-5F-yS5" secondAttribute="leadingMargin" constant="80" id="nDW-TU-Pzj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pxb-72-KvV"/>
+                    </view>
+                    <connections>
+                        <outlet property="iamge" destination="4JT-s6-TDv" id="ejd-kv-Jvd"/>
+                        <outlet property="subText" destination="xRi-XJ-wk0" id="0wP-dl-rQx"/>
+                        <outlet property="titleLab" destination="zPX-gZ-nzR" id="cih-Fm-WCr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8MC-Fn-bCU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4019" y="-853"/>
+        </scene>
+        <!--Animate View Controller-->
+        <scene sceneID="1T6-wx-mUP">
+            <objects>
+                <viewController storyboardIdentifier="mg3" id="KpU-3b-EMR" customClass="AnimateViewController" customModule="Elite_Premier_League" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oOD-Fp-eyl"/>
+                        <viewControllerLayoutGuide type="bottom" id="cZE-Sl-Y3b"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Sha-cu-H9n">
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pogba" translatesAutoresizingMaskIntoConstraints="NO" id="7MP-c6-vPe">
+                                <rect key="frame" x="217" y="356" width="400" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="B1g-DA-IvA"/>
+                                    <constraint firstAttribute="width" constant="400" id="T2X-jt-z1G"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When the game starts pogba will be placed in ar. Your mission find pogba!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q63-uO-eoC">
+                                <rect key="frame" x="100" y="176" width="634" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="c46-zC-CF2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="26"/>
+                                <color key="textColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap me to increase your score" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFj-K1-bql">
+                                <rect key="frame" x="100" y="264" width="634" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Mmq-XA-Ip2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="24"/>
+                                <color key="textColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SaA-9T-31a">
+                                <rect key="frame" x="0.0" y="919" width="834" height="193"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wSF-mj-o2t">
+                                        <rect key="frame" x="50" y="23" width="734" height="147"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="147" id="WB8-Lj-HJR"/>
+                                        </constraints>
+                                        <string key="text">When the game starts you have 10 seconds to find pogba. Each time you find pogba the timer will restart and a new pobga will be placed in ar. </string>
+                                        <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="23"/>
+                                        <color key="textColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1176470588" green="0.12941176469999999" blue="0.13725490200000001" alpha="0.28000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="wSF-mj-o2t" firstAttribute="leading" secondItem="SaA-9T-31a" secondAttribute="leading" constant="50" id="1cr-8e-lwU"/>
+                                    <constraint firstAttribute="height" constant="193" id="N8T-Jg-GRD"/>
+                                    <constraint firstAttribute="centerY" secondItem="wSF-mj-o2t" secondAttribute="centerY" id="NQA-0g-Yge"/>
+                                    <constraint firstAttribute="trailing" secondItem="wSF-mj-o2t" secondAttribute="trailing" constant="50" id="ljJ-p0-vn1"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="TFj-K1-bql" firstAttribute="top" secondItem="Q63-uO-eoC" secondAttribute="bottom" constant="8" id="1ef-fo-C4G"/>
+                            <constraint firstItem="7MP-c6-vPe" firstAttribute="centerX" secondItem="Sha-cu-H9n" secondAttribute="centerX" id="9sc-PN-skB"/>
+                            <constraint firstAttribute="trailing" secondItem="SaA-9T-31a" secondAttribute="trailing" id="FKk-vD-lBe"/>
+                            <constraint firstItem="cZE-Sl-Y3b" firstAttribute="top" secondItem="SaA-9T-31a" secondAttribute="bottom" id="GQ3-3a-aOV"/>
+                            <constraint firstItem="TFj-K1-bql" firstAttribute="leading" secondItem="Sha-cu-H9n" secondAttribute="leadingMargin" constant="80" id="P4D-S3-t7v"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TFj-K1-bql" secondAttribute="trailing" constant="80" id="XCp-CN-ULd"/>
+                            <constraint firstItem="SaA-9T-31a" firstAttribute="leading" secondItem="Sha-cu-H9n" secondAttribute="leading" id="Xpy-fw-B8e"/>
+                            <constraint firstItem="7MP-c6-vPe" firstAttribute="centerY" secondItem="Sha-cu-H9n" secondAttribute="centerY" id="b6A-a4-Cel"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Q63-uO-eoC" secondAttribute="trailing" constant="80" id="ihH-i3-kzU"/>
+                            <constraint firstItem="Q63-uO-eoC" firstAttribute="leading" secondItem="Sha-cu-H9n" secondAttribute="leadingMargin" constant="80" id="lBg-Pe-5wC"/>
+                            <constraint firstItem="7MP-c6-vPe" firstAttribute="top" secondItem="Q63-uO-eoC" secondAttribute="bottom" constant="100" id="uDL-D2-3IR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RHk-Vy-IzM"/>
+                    </view>
+                    <connections>
+                        <outlet property="iamge" destination="7MP-c6-vPe" id="in9-Vk-cZH"/>
+                        <outlet property="subText" destination="TFj-K1-bql" id="9SH-Tp-Ic4"/>
+                        <outlet property="titleLab" destination="Q63-uO-eoC" id="WLa-rg-q0n"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Bh-A0-dda" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2017" y="-853"/>
+        </scene>
+        <!--Walkthrough Page View Controller-->
+        <scene sceneID="2Ur-QE-a9B">
+            <objects>
+                <viewController storyboardIdentifier="mg5" id="FOt-3V-d2x" customClass="BWWalkthroughPageViewController" customModule="BWWalkthrough" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ljE-XO-dRE"/>
+                        <viewControllerLayoutGuide type="bottom" id="yVu-WR-UqQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rzn-Zp-qhR">
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MGWalk3" translatesAutoresizingMaskIntoConstraints="NO" id="HME-TL-JKj">
+                                <rect key="frame" x="20" y="20" width="794" height="1092"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DwR-99-s8B">
+                                <rect key="frame" x="0.0" y="919" width="834" height="193"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When the game is over an alert will apear allowing you to start a new game or go back to the main menu." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yf-SK-7uB">
+                                        <rect key="frame" x="50" y="23" width="734" height="147"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="147" id="F0K-Re-Daa"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="23"/>
+                                        <color key="textColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <constraints>
+                                    <constraint firstItem="4yf-SK-7uB" firstAttribute="leading" secondItem="DwR-99-s8B" secondAttribute="leading" constant="50" id="3r4-rY-awV"/>
+                                    <constraint firstAttribute="trailing" secondItem="4yf-SK-7uB" secondAttribute="trailing" constant="50" id="Lra-YK-Wou"/>
+                                    <constraint firstAttribute="centerY" secondItem="4yf-SK-7uB" secondAttribute="centerY" id="Nbc-va-Pqd"/>
+                                    <constraint firstAttribute="height" constant="193" id="dIU-xv-JRS"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="HME-TL-JKj" secondAttribute="trailing" id="0FO-oh-kWe"/>
+                            <constraint firstAttribute="trailing" secondItem="DwR-99-s8B" secondAttribute="trailing" id="BCC-7t-soD"/>
+                            <constraint firstItem="HME-TL-JKj" firstAttribute="top" secondItem="ljE-XO-dRE" secondAttribute="bottom" id="Emq-eo-ziL"/>
+                            <constraint firstItem="DwR-99-s8B" firstAttribute="leading" secondItem="Rzn-Zp-qhR" secondAttribute="leading" id="TNM-3E-SS5"/>
+                            <constraint firstItem="HME-TL-JKj" firstAttribute="leading" secondItem="Rzn-Zp-qhR" secondAttribute="leadingMargin" id="daC-Rq-ewf"/>
+                            <constraint firstItem="yVu-WR-UqQ" firstAttribute="top" secondItem="DwR-99-s8B" secondAttribute="bottom" id="sKn-YM-5zf"/>
+                            <constraint firstItem="yVu-WR-UqQ" firstAttribute="top" secondItem="HME-TL-JKj" secondAttribute="bottom" id="zKC-9b-ZA2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Jb-da-88S"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FcO-P0-bpQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3362" y="-853"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Left" width="100" height="100"/>
+        <image name="MGWalk1" width="1668" height="2164"/>
+        <image name="MGWalk2" width="1668" height="2164"/>
+        <image name="MGWalk3" width="1668" height="2164"/>
+        <image name="PLLogo" width="804" height="1332"/>
+        <image name="Pogba" width="414" height="348"/>
+        <image name="Right" width="100" height="100"/>
+        <image name="play" width="410" height="410"/>
+    </resources>
+</document>

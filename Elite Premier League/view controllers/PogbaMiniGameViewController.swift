@@ -12,9 +12,10 @@ import ARKit
 import Each
 import AVFoundation
 import SCLAlertView
+import BWWalkthrough
 
 
-class PogbaMiniGameViewController: UIViewController, ARSCNViewDelegate  {
+class PogbaMiniGameViewController: UIViewController, ARSCNViewDelegate, BWWalkthroughViewControllerDelegate {
     //audio player
     private var player: AVAudioPlayer?
     //ar scence link
@@ -228,5 +229,29 @@ class PogbaMiniGameViewController: UIViewController, ARSCNViewDelegate  {
         }
         //restart game
         startGame()
+    }
+    
+    
+    
+    @IBAction func helpBtn(_ sender: Any) {
+        // Get view controllers and build the walkthrough
+        let stb = UIStoryboard(name: "MiniGameWalkthrough", bundle: nil)
+        let walkthrough = stb.instantiateViewController(withIdentifier: "MGWalkthrough") as! BWWalkthroughViewController
+        
+        // Attach the pages to the master
+        walkthrough.delegate = self
+        walkthrough.add(viewController: stb.instantiateViewController(withIdentifier: "mg1"))
+        walkthrough.add(viewController: stb.instantiateViewController(withIdentifier: "mg2"))
+        walkthrough.add(viewController: stb.instantiateViewController(withIdentifier: "mg3"))
+        walkthrough.add(viewController: stb.instantiateViewController(withIdentifier: "mg4"))
+        walkthrough.add(viewController: stb.instantiateViewController(withIdentifier: "mg5"))
+        walkthrough.add(viewController: stb.instantiateViewController(withIdentifier: "mg6"))
+        self.present(walkthrough, animated: true, completion: nil)
+        
+    }
+    
+    //close the walktrhough
+    func walkthroughCloseButtonPressed() {
+        self.dismiss(animated: true, completion: nil)
     }
 }

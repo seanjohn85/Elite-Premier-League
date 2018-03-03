@@ -379,6 +379,12 @@
                                                 <segue destination="BYZ-38-t0r" kind="show" id="zNG-DM-NH6"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" image="Question" springLoaded="YES" id="Yac-Qj-SW5">
+                                            <color key="tintColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="helpBtn:" destination="fbA-Dk-Bgg" id="gRY-QK-s2V"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -448,6 +454,6 @@
         <image name="play" width="410" height="410"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uDx-bO-9Ub"/>
+        <segue reference="m7e-ki-mSW"/>
     </inferredMetricsTieBreakers>
 </document>
