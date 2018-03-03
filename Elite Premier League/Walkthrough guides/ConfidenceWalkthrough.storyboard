@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad10_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="PremierLeague.ttf">
+            <string>PremierLeague</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Walkthrough View Controller-->
+        <scene sceneID="lQz-OD-3tt">
+            <objects>
+                <viewController storyboardIdentifier="ConfidenceWalkthrough" id="6EZ-OU-04A" customClass="BWWalkthroughViewController" customModule="BWWalkthrough" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f3d-gm-hfR"/>
+                        <viewControllerLayoutGuide type="bottom" id="w3Y-jm-1F0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Nqt-IU-2PF">
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="cIa-Rt-QZG">
+                                <rect key="frame" x="397.5" y="263" width="39" height="37"/>
+                                <color key="pageIndicatorTintColor" red="0.015686274510000001" green="0.96078431369999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRF-bz-QYR">
+                                <rect key="frame" x="749" y="30" width="65" height="33"/>
+                                <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="23"/>
+                                <state key="normal" title="CLOSE">
+                                    <color key="titleColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="close:" destination="6EZ-OU-04A" eventType="touchUpInside" id="6is-pe-17V"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRg-g1-d4G" userLabel="Prev">
+                                <rect key="frame" x="4" y="992" width="100" height="100"/>
+                                <state key="normal" image="Left">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextPage" destination="6EZ-OU-04A" eventType="touchUpInside" id="vGG-By-9PU"/>
+                                    <action selector="prevPage" destination="6EZ-OU-04A" eventType="touchUpInside" id="QuC-UC-yLl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xj0-kj-dMt" userLabel="Next">
+                                <rect key="frame" x="714" y="992" width="100" height="100"/>
+                                <state key="normal" image="Right">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextPage" destination="6EZ-OU-04A" eventType="touchUpInside" id="gf2-pO-tTW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="f3d-gm-hfR" firstAttribute="top" secondItem="cIa-Rt-QZG" secondAttribute="bottom" constant="-280" id="0Vf-g9-M3e"/>
+                            <constraint firstAttribute="centerX" secondItem="qRF-bz-QYR" secondAttribute="centerX" id="4Rx-TX-nzT"/>
+                            <constraint firstItem="w3Y-jm-1F0" firstAttribute="top" secondItem="qRF-bz-QYR" secondAttribute="bottom" constant="20" id="5wo-10-b1Y"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qRF-bz-QYR" secondAttribute="trailing" id="85Q-vU-gMo"/>
+                            <constraint firstItem="w3Y-jm-1F0" firstAttribute="top" secondItem="mRg-g1-d4G" secondAttribute="bottom" constant="20" id="Cng-d3-WEK"/>
+                            <constraint firstItem="w3Y-jm-1F0" firstAttribute="top" secondItem="Xj0-kj-dMt" secondAttribute="bottom" constant="20" id="PsY-Mq-enb"/>
+                            <constraint firstAttribute="centerX" secondItem="cIa-Rt-QZG" secondAttribute="centerX" id="YHI-qt-Xaq"/>
+                            <constraint firstItem="mRg-g1-d4G" firstAttribute="leading" secondItem="Nqt-IU-2PF" secondAttribute="leadingMargin" constant="-16" id="bBm-Jb-7NU"/>
+                            <constraint firstItem="qRF-bz-QYR" firstAttribute="top" secondItem="f3d-gm-hfR" secondAttribute="bottom" constant="10" id="pwF-Cq-M7K"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Xj0-kj-dMt" secondAttribute="trailing" id="xul-gm-Wuf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OrA-gK-dqb"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="4Rx-TX-nzT"/>
+                                <exclude reference="5wo-10-b1Y"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="closeButton" destination="qRF-bz-QYR" id="kUH-AQ-gV4"/>
+                        <outlet property="nextButton" destination="Xj0-kj-dMt" id="1aN-jT-Va8"/>
+                        <outlet property="pageControl" destination="cIa-Rt-QZG" id="tre-kj-DzD"/>
+                        <outlet property="prevButton" destination="mRg-g1-d4G" id="tNo-Uk-cGk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vlk-hs-5KH" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="17" y="-853"/>
+        </scene>
+        <!--Animate View Controller-->
+        <scene sceneID="l93-Ak-zOX">
+            <objects>
+                <viewController storyboardIdentifier="con1" id="tSI-qP-sP7" customClass="AnimateViewController" customModule="Elite_Premier_League" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gqr-HE-NM9"/>
+                        <viewControllerLayoutGuide type="bottom" id="qrc-sn-Aqo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8FK-e0-wQU">
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ct1" translatesAutoresizingMaskIntoConstraints="NO" id="B0E-hn-oDY">
+                                <rect key="frame" x="20" y="20" width="794" height="1092"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Man UtdCrest" translatesAutoresizingMaskIntoConstraints="NO" id="wf1-Hy-kcv">
+                                <rect key="frame" x="217" y="356" width="400" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="d2x-3g-zrd"/>
+                                    <constraint firstAttribute="height" constant="400" id="s1L-t6-ACb"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use the phone camera to scan a football crest in the app. The majority of the crest should be fully visable on screen." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPB-jn-Pxw">
+                                <rect key="frame" x="100" y="196" width="634" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="bQs-l1-Lh6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="25"/>
+                                <color key="textColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="APP related messages are shown here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htp-Bp-Kx7">
+                                <rect key="frame" x="100" y="826" width="634" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="7dc-05-hN2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="30"/>
+                                <color key="textColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="TPB-jn-Pxw" secondAttribute="trailing" constant="80" id="4Kp-wb-go5"/>
+                            <constraint firstItem="TPB-jn-Pxw" firstAttribute="leading" secondItem="8FK-e0-wQU" secondAttribute="leadingMargin" constant="80" id="61g-MZ-SaH"/>
+                            <constraint firstItem="wf1-Hy-kcv" firstAttribute="centerX" secondItem="8FK-e0-wQU" secondAttribute="centerX" id="GGz-cO-aqD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="B0E-hn-oDY" secondAttribute="trailing" id="Iny-0O-ceN"/>
+                            <constraint firstItem="wf1-Hy-kcv" firstAttribute="centerY" secondItem="8FK-e0-wQU" secondAttribute="centerY" id="JQj-qZ-g16"/>
+                            <constraint firstItem="wf1-Hy-kcv" firstAttribute="top" secondItem="TPB-jn-Pxw" secondAttribute="bottom" constant="80" id="Nrd-N8-IqF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="htp-Bp-Kx7" secondAttribute="trailing" constant="80" id="PAM-5K-D7O"/>
+                            <constraint firstItem="htp-Bp-Kx7" firstAttribute="leading" secondItem="8FK-e0-wQU" secondAttribute="leadingMargin" constant="80" id="T3D-cf-z8F"/>
+                            <constraint firstItem="B0E-hn-oDY" firstAttribute="top" secondItem="gqr-HE-NM9" secondAttribute="bottom" id="aA2-3Y-AlL"/>
+                            <constraint firstItem="htp-Bp-Kx7" firstAttribute="top" secondItem="wf1-Hy-kcv" secondAttribute="bottom" constant="70" id="s2s-Hx-otx"/>
+                            <constraint firstItem="qrc-sn-Aqo" firstAttribute="top" secondItem="B0E-hn-oDY" secondAttribute="bottom" id="vxF-pW-8tY"/>
+                            <constraint firstItem="B0E-hn-oDY" firstAttribute="leading" secondItem="8FK-e0-wQU" secondAttribute="leadingMargin" id="xFC-xU-N8z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fqc-oL-TtJ"/>
+                    </view>
+                    <connections>
+                        <outlet property="iamge" destination="wf1-Hy-kcv" id="vF9-kQ-Sv8"/>
+                        <outlet property="subText" destination="htp-Bp-Kx7" id="SxM-Jn-IfN"/>
+                        <outlet property="titleLab" destination="TPB-jn-Pxw" id="t6O-Bx-mbR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LGs-Yy-krI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="759" y="-853"/>
+        </scene>
+        <!--Animate View Controller-->
+        <scene sceneID="mSf-7k-XFw">
+            <objects>
+                <viewController storyboardIdentifier="con4" id="rPx-gx-O4K" customClass="AnimateViewController" customModule="Elite_Premier_League" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ScK-kS-TeR"/>
+                        <viewControllerLayoutGuide type="bottom" id="0El-yI-mQS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NVR-P8-71a">
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PLLogo" translatesAutoresizingMaskIntoConstraints="NO" id="ZTK-5v-6Ps">
+                                <rect key="frame" x="217" y="356" width="400" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="EQe-sh-gTY"/>
+                                    <constraint firstAttribute="width" constant="400" id="sni-xU-3nq"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="may teams can exsit in one ar world" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bef-I9-3RU">
+                                <rect key="frame" x="100" y="176" width="634" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="eSB-vX-EQw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="26"/>
+                                <color key="textColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tap to return home" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KaV-ud-6v1">
+                                <rect key="frame" x="100" y="264" width="634" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="rKK-QM-Hy6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="24"/>
+                                <color key="textColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bmg-Bd-Ufy">
+                                <rect key="frame" x="0.0" y="919" width="834" height="193"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the premier league logo (top left) on any screen to remove all ar elements and return to the main menu" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJ4-dt-GXo">
+                                        <rect key="frame" x="50" y="23" width="734" height="147"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="147" id="5p1-rL-6EV"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="23"/>
+                                        <color key="textColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1176470588" green="0.12941176469999999" blue="0.13725490200000001" alpha="0.28000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="hJ4-dt-GXo" secondAttribute="trailing" constant="50" id="8Tx-bf-RUW"/>
+                                    <constraint firstAttribute="height" constant="193" id="W2a-Lt-q6a"/>
+                                    <constraint firstAttribute="centerY" secondItem="hJ4-dt-GXo" secondAttribute="centerY" id="ZU5-86-Cfd"/>
+                                    <constraint firstItem="hJ4-dt-GXo" firstAttribute="leading" secondItem="bmg-Bd-Ufy" secondAttribute="leading" constant="50" id="iCJ-Oq-oeA"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="KaV-ud-6v1" firstAttribute="leading" secondItem="NVR-P8-71a" secondAttribute="leadingMargin" constant="80" id="14D-Ff-kuG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bef-I9-3RU" secondAttribute="trailing" constant="80" id="64F-1E-lOy"/>
+                            <constraint firstItem="ZTK-5v-6Ps" firstAttribute="top" secondItem="bef-I9-3RU" secondAttribute="bottom" constant="100" id="8Gu-UX-1Jl"/>
+                            <constraint firstAttribute="trailing" secondItem="bmg-Bd-Ufy" secondAttribute="trailing" id="8S5-Pn-YiJ"/>
+                            <constraint firstItem="0El-yI-mQS" firstAttribute="top" secondItem="bmg-Bd-Ufy" secondAttribute="bottom" id="991-7d-PIo"/>
+                            <constraint firstItem="ZTK-5v-6Ps" firstAttribute="centerY" secondItem="NVR-P8-71a" secondAttribute="centerY" id="AIF-7f-EgN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KaV-ud-6v1" secondAttribute="trailing" constant="80" id="Cbe-Z8-5Xs"/>
+                            <constraint firstItem="bef-I9-3RU" firstAttribute="leading" secondItem="NVR-P8-71a" secondAttribute="leadingMargin" constant="80" id="Tl6-SB-fkU"/>
+                            <constraint firstItem="bmg-Bd-Ufy" firstAttribute="leading" secondItem="NVR-P8-71a" secondAttribute="leading" id="Vtg-Np-cm1"/>
+                            <constraint firstItem="ZTK-5v-6Ps" firstAttribute="centerX" secondItem="NVR-P8-71a" secondAttribute="centerX" id="eLP-MP-RVw"/>
+                            <constraint firstItem="KaV-ud-6v1" firstAttribute="top" secondItem="bef-I9-3RU" secondAttribute="bottom" constant="8" id="ukZ-Sj-RBT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lI7-ag-8EP"/>
+                    </view>
+                    <connections>
+                        <outlet property="iamge" destination="ZTK-5v-6Ps" id="Cr9-Uj-gtv"/>
+                        <outlet property="subText" destination="KaV-ud-6v1" id="iM2-Yj-x6S"/>
+                        <outlet property="titleLab" destination="bef-I9-3RU" id="JDd-QO-eML"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qrr-BB-JSY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2189" y="-853"/>
+        </scene>
+        <!--Animate View Controller-->
+        <scene sceneID="trn-qR-E8n">
+            <objects>
+                <viewController storyboardIdentifier="con2" id="FUG-By-ind" customClass="AnimateViewController" customModule="Elite_Premier_League" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Vbd-8H-kMG"/>
+                        <viewControllerLayoutGuide type="bottom" id="OYH-7r-gPz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4j5-FN-wCj">
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ct1" translatesAutoresizingMaskIntoConstraints="NO" id="Oil-Zc-OWC">
+                                <rect key="frame" x="20" y="20" width="794" height="1092"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TouchedCrest" translatesAutoresizingMaskIntoConstraints="NO" id="MB5-Zm-ILG">
+                                <rect key="frame" x="217" y="356" width="400" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="iMA-6t-Ods"/>
+                                    <constraint firstAttribute="width" constant="400" id="qMY-E6-MB0"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the crest when it is fully in focus as shown below" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25m-uM-hQM">
+                                <rect key="frame" x="100" y="196" width="634" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="s94-K9-mh4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="25"/>
+                                <color key="textColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wait for results to be analyised" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLz-FX-lYn">
+                                <rect key="frame" x="100" y="826" width="634" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="NCn-Rb-N2E"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="30"/>
+                                <color key="textColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="25m-uM-hQM" secondAttribute="trailing" constant="80" id="4We-TD-93T"/>
+                            <constraint firstItem="MB5-Zm-ILG" firstAttribute="centerX" secondItem="4j5-FN-wCj" secondAttribute="centerX" id="51F-fM-2gk"/>
+                            <constraint firstItem="JLz-FX-lYn" firstAttribute="top" secondItem="MB5-Zm-ILG" secondAttribute="bottom" constant="70" id="9iB-Vy-KRe"/>
+                            <constraint firstItem="Oil-Zc-OWC" firstAttribute="leading" secondItem="4j5-FN-wCj" secondAttribute="leadingMargin" id="Brq-ze-Ebb"/>
+                            <constraint firstItem="JLz-FX-lYn" firstAttribute="leading" secondItem="4j5-FN-wCj" secondAttribute="leadingMargin" constant="80" id="ECt-ig-Umz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JLz-FX-lYn" secondAttribute="trailing" constant="80" id="G8l-7L-Gyn"/>
+                            <constraint firstItem="Oil-Zc-OWC" firstAttribute="top" secondItem="Vbd-8H-kMG" secondAttribute="bottom" id="Iqr-gt-AzK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Oil-Zc-OWC" secondAttribute="trailing" id="bqT-KH-JCP"/>
+                            <constraint firstItem="OYH-7r-gPz" firstAttribute="top" secondItem="Oil-Zc-OWC" secondAttribute="bottom" id="h6z-nv-1aU"/>
+                            <constraint firstItem="MB5-Zm-ILG" firstAttribute="top" secondItem="25m-uM-hQM" secondAttribute="bottom" constant="80" id="lLh-Ny-8pp"/>
+                            <constraint firstItem="MB5-Zm-ILG" firstAttribute="centerY" secondItem="4j5-FN-wCj" secondAttribute="centerY" id="rjU-Ax-Plu"/>
+                            <constraint firstItem="25m-uM-hQM" firstAttribute="leading" secondItem="4j5-FN-wCj" secondAttribute="leadingMargin" constant="80" id="wmK-Hy-AXs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="j8m-mx-Mil"/>
+                    </view>
+                    <connections>
+                        <outlet property="iamge" destination="MB5-Zm-ILG" id="ooW-Eb-pK0"/>
+                        <outlet property="subText" destination="JLz-FX-lYn" id="Ghg-zj-KpT"/>
+                        <outlet property="titleLab" destination="25m-uM-hQM" id="rdd-pQ-dGx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QGB-NB-DDh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="759" y="-182"/>
+        </scene>
+        <!--Animate View Controller-->
+        <scene sceneID="PCT-w5-DQC">
+            <objects>
+                <viewController storyboardIdentifier="con3" id="cUl-nl-sqD" customClass="AnimateViewController" customModule="Elite_Premier_League" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="965-gJ-bWK"/>
+                        <viewControllerLayoutGuide type="bottom" id="bVc-ph-hci"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zYw-yJ-dfT">
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ct2" translatesAutoresizingMaskIntoConstraints="NO" id="7Lt-hV-8rc">
+                                <rect key="frame" x="20" y="20" width="794" height="1092"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Man UtdCrest" translatesAutoresizingMaskIntoConstraints="NO" id="0bH-1j-tTi">
+                                <rect key="frame" x="217" y="356" width="400" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="KDq-SX-kFY"/>
+                                    <constraint firstAttribute="width" constant="400" id="LW0-fp-Wcs"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Man Utd confidence 90%" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8H-HS-ZGt">
+                                <rect key="frame" x="100" y="196" width="634" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="mHg-rT-jJ7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="34"/>
+                                <color key="textColor" red="0.91372549020000005" green="0.0" blue="0.32156862749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reluts are shown here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XdZ-mH-ucr">
+                                <rect key="frame" x="100" y="826" width="634" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="XbK-Dd-mj6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PremierLeague" family="Premier League" pointSize="30"/>
+                                <color key="textColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="•" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dm1-U7-qYP">
+                                <rect key="frame" x="377" y="436.5" width="80" height="240"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="201"/>
+                                <color key="textColor" red="0.91372549020000005" green="0.0" blue="0.32156862749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="XdZ-mH-ucr" firstAttribute="top" secondItem="0bH-1j-tTi" secondAttribute="bottom" constant="70" id="2AW-V6-O8Q"/>
+                            <constraint firstItem="0bH-1j-tTi" firstAttribute="centerY" secondItem="zYw-yJ-dfT" secondAttribute="centerY" id="NPy-Lj-FZY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XdZ-mH-ucr" secondAttribute="trailing" constant="80" id="Oln-jq-Hul"/>
+                            <constraint firstItem="0bH-1j-tTi" firstAttribute="centerX" secondItem="zYw-yJ-dfT" secondAttribute="centerX" id="U81-cJ-2PS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7Lt-hV-8rc" secondAttribute="trailing" id="Xf5-tX-iOh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="i8H-HS-ZGt" secondAttribute="trailing" constant="80" id="bbl-jm-AJe"/>
+                            <constraint firstItem="XdZ-mH-ucr" firstAttribute="leading" secondItem="zYw-yJ-dfT" secondAttribute="leadingMargin" constant="80" id="cmh-Oz-Kev"/>
+                            <constraint firstItem="7Lt-hV-8rc" firstAttribute="leading" secondItem="zYw-yJ-dfT" secondAttribute="leadingMargin" id="gut-SK-Rh5"/>
+                            <constraint firstItem="Dm1-U7-qYP" firstAttribute="centerX" secondItem="zYw-yJ-dfT" secondAttribute="centerX" id="ipd-5V-zdK"/>
+                            <constraint firstItem="Dm1-U7-qYP" firstAttribute="centerY" secondItem="zYw-yJ-dfT" secondAttribute="centerY" id="js7-pf-SvB"/>
+                            <constraint firstItem="i8H-HS-ZGt" firstAttribute="leading" secondItem="zYw-yJ-dfT" secondAttribute="leadingMargin" constant="80" id="mxA-fF-qkd"/>
+                            <constraint firstItem="bVc-ph-hci" firstAttribute="top" secondItem="7Lt-hV-8rc" secondAttribute="bottom" id="nfO-9v-xe1"/>
+                            <constraint firstItem="0bH-1j-tTi" firstAttribute="top" secondItem="i8H-HS-ZGt" secondAttribute="bottom" constant="80" id="nnT-07-AAH"/>
+                            <constraint firstItem="7Lt-hV-8rc" firstAttribute="top" secondItem="965-gJ-bWK" secondAttribute="bottom" id="ztH-AI-Zdx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="iBT-N9-eCP"/>
+                    </view>
+                    <connections>
+                        <outlet property="iamge" destination="0bH-1j-tTi" id="CW8-Xo-JSp"/>
+                        <outlet property="subText" destination="XdZ-mH-ucr" id="jRx-JW-DqW"/>
+                        <outlet property="titleLab" destination="i8H-HS-ZGt" id="gs3-mm-Rg6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dKE-Nk-N0r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1488" y="-853"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Left" width="100" height="100"/>
+        <image name="Man UtdCrest" width="1200" height="1216"/>
+        <image name="PLLogo" width="804" height="1332"/>
+        <image name="Right" width="100" height="100"/>
+        <image name="TouchedCrest" width="1200" height="1216"/>
+        <image name="ct1" width="1668" height="2188"/>
+        <image name="ct2" width="1668" height="2188"/>
+    </resources>
+</document>

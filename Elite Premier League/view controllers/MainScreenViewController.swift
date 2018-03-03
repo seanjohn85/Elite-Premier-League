@@ -11,8 +11,9 @@ import ARKit
 import SceneKit
 import Vision
 import VideoToolbox
+import BWWalkthrough
 
-class MainScreenViewController: UIViewController, ARSCNViewDelegate {
+class MainScreenViewController: UIViewController, ARSCNViewDelegate, BWWalkthroughViewControllerDelegate {
     
     //displays las checked image
     @IBOutlet weak var imageView: UIImageView!
@@ -178,6 +179,28 @@ class MainScreenViewController: UIViewController, ARSCNViewDelegate {
         parent.addChildNode(tNode)
         return parent
     }
+    
+    
+    @IBAction func helpBtn(_ sender: Any) {
+        // Get view controllers and build the walkthrough
+        let stb = UIStoryboard(name: "ConfidenceWalkthrough", bundle: nil)
+        let walkthrough = stb.instantiateViewController(withIdentifier: "ConfidenceWalkthrough") as! BWWalkthroughViewController
+        
+        // Attach the pages to the master
+        walkthrough.delegate = self
+        walkthrough.add(viewController: stb.instantiateViewController(withIdentifier: "con1"))
+        walkthrough.add(viewController: stb.instantiateViewController(withIdentifier: "con2"))
+        walkthrough.add(viewController: stb.instantiateViewController(withIdentifier: "con3"))
+        walkthrough.add(viewController: stb.instantiateViewController(withIdentifier: "con4"))
+        self.present(walkthrough, animated: true, completion: nil)
+        
+    }
+    
+    //close the walktrhough
+    func walkthroughCloseButtonPressed() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 

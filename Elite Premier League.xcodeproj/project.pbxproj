@@ -30,6 +30,7 @@
 		C97EC0CE20499AC700BD85F4 /* TeamARWalkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97EC0CD20499AC700BD85F4 /* TeamARWalkthrough.storyboard */; };
 		C97EC0D020499F1400BD85F4 /* AnimateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97EC0CF20499F1400BD85F4 /* AnimateViewController.swift */; };
 		C97EC0D2204A148600BD85F4 /* MiniGameWalkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97EC0D1204A148600BD85F4 /* MiniGameWalkthrough.storyboard */; };
+		C97EC0D4204A1F3B00BD85F4 /* ConfidenceWalkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97EC0D3204A1F3B00BD85F4 /* ConfidenceWalkthrough.storyboard */; };
 		C99E8314203DD4EE0030D2CB /* CNN.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C99E8313203DD4ED0030D2CB /* CNN.mlmodel */; };
 		C9A0670A203D9B2500CD9DC5 /* MenuNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A06709203D9B2500CD9DC5 /* MenuNode.swift */; };
 		C9A0670C203D9DE500CD9DC5 /* FixtureNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0670B203D9DE500CD9DC5 /* FixtureNode.swift */; };
@@ -74,6 +75,7 @@
 		C97EC0CD20499AC700BD85F4 /* TeamARWalkthrough.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TeamARWalkthrough.storyboard; sourceTree = "<group>"; };
 		C97EC0CF20499F1400BD85F4 /* AnimateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateViewController.swift; sourceTree = "<group>"; };
 		C97EC0D1204A148600BD85F4 /* MiniGameWalkthrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MiniGameWalkthrough.storyboard; sourceTree = "<group>"; };
+		C97EC0D3204A1F3B00BD85F4 /* ConfidenceWalkthrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ConfidenceWalkthrough.storyboard; sourceTree = "<group>"; };
 		C99E8313203DD4ED0030D2CB /* CNN.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CNN.mlmodel; sourceTree = "<group>"; };
 		C9A06709203D9B2500CD9DC5 /* MenuNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuNode.swift; sourceTree = "<group>"; };
 		C9A0670B203D9DE500CD9DC5 /* FixtureNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureNode.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 			children = (
 				C97EC0CD20499AC700BD85F4 /* TeamARWalkthrough.storyboard */,
 				C97EC0D1204A148600BD85F4 /* MiniGameWalkthrough.storyboard */,
+				C97EC0D3204A1F3B00BD85F4 /* ConfidenceWalkthrough.storyboard */,
 				C97EC0CF20499F1400BD85F4 /* AnimateViewController.swift */,
 			);
 			path = "Walkthrough guides";
@@ -324,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C97EC0D2204A148600BD85F4 /* MiniGameWalkthrough.storyboard in Resources */,
+				C97EC0D4204A1F3B00BD85F4 /* ConfidenceWalkthrough.storyboard in Resources */,
 				C9565FF9202D03A500A5180B /* StatsView.xib in Resources */,
 				C9C5F0C220273C7600A9F3AD /* PremierLeague.ttf in Resources */,
 				C9566004202F3EF200A5180B /* LeagueTableRow.xib in Resources */,
