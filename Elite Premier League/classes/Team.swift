@@ -9,8 +9,6 @@
 import Foundation
 
 
-import Foundation
-
 //used to create a team object
 
 public class Team{
@@ -85,11 +83,25 @@ public class Team{
     var thisFixture : Fixture{
         get
         {
-            return fixture!
+            guard let fix = fixture else {
+                return Fixture(homeTeam : "", awayTeam : "", date : "", homeGoals : 0, awayGoals: 0)
+            }
+            return fix
         }
         set
         {
             self.fixture = newValue
+        }
+    }
+    
+    var thisAttHome : Int{
+        get
+        {
+            return attHome
+        }
+        set
+        {
+            self.attHome = newValue
         }
     }
 }

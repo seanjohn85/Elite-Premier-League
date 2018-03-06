@@ -17,8 +17,6 @@ import BWWalkthrough
 
 class TeamsARViewController: UIViewController, ARSCNViewDelegate, BWWalkthroughViewControllerDelegate  {
     
-    
-    
     @IBOutlet weak var inforBar: UILabel!
     //used to check if a crest is been checked
     private var teamFound = false
