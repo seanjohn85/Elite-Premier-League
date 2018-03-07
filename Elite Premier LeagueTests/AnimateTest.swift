@@ -1,27 +1,30 @@
 //
-//  TeamParentTest.swift
+//  AnimateTest.swift
 //  Elite Premier LeagueTests
 //
-//  Created by JOHN KENNY on 06/03/2018.
+//  Created by JOHN KENNY on 07/03/2018.
 //  Copyright © 2018 JOHN KENNY. All rights reserved.
 //
 
 import XCTest
+
 @testable import Elite_Premier_League
-import UIKit
-import SceneKit
-import ARKit
+@testable import Pods_Elite_Premier_League
 
 
-class TeamParentTest: XCTestCase {
-     var parent = TeamParent()
+
+class AnimateTest: XCTestCase {
+    let lable = UILabel(frame: CGRect())
+    let avc = AnimateViewController()
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        parent.colour = .blue
-        
-        parent.thisTeam = Team(name : "Team1", code : 1, defHome : 3, attHome : 30, home : 3, defAway : 3, attAway : 30, away : 3)
+        lable.text = "animate"
+        avc.viewDidLoad()
+        avc.titleLab = lable
+        avc.subText = lable
+        avc.walkthroughDidScroll(to: 1.2, offset: 12.3)
     }
     
     override func tearDown() {
@@ -29,24 +32,13 @@ class TeamParentTest: XCTestCase {
         super.tearDown()
     }
     
-    func testColour() {
+    func testLables() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        XCTAssertTrue(parent.colour == .blue)
+        XCTAssertTrue(avc.subText!.text! == "animate")
+        XCTAssertTrue(avc.titleLab!.text! == "animate")
     }
     
-    func testChangePlane() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        parent.changeARPlane()
-        parent.changeARPlane()
-        
-    }
- 
-    func testThisTeam(){
-        XCTAssertTrue(parent.thisTeam.thisName == "Team1")
-    }
-
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {

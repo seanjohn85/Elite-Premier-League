@@ -43,9 +43,9 @@ public class Team{
     }
     
     //add a player to the teams players array
-    func addPlayer(player: Player){
+    /*func addPlayer(player: Player){
         self.players?.append(player)
-    }
+    }*/
     
     ///getters and setters
     var thisPlayers : [Player]{

@@ -25,8 +25,8 @@ class PogbaMiniGameViewController: UIViewController, ARSCNViewDelegate, BWWalkth
     
     @IBOutlet weak var timer: UILabel!
     //to keep the score and count
-    private var countdown = 10
-    private var scoreCount = 0
+    var countdown = 10
+    var scoreCount = 0
     //timer every second
     private var time = Each(1).seconds
     //links to the play button
@@ -91,18 +91,19 @@ class PogbaMiniGameViewController: UIViewController, ARSCNViewDelegate, BWWalkth
     }
     
     //used to add the 3d m0del
-    private func addNode(){
+    func addNode(){
         
         let pogba = SCNScene(named: "art.scnassets/pogba2.scn")
-        let pogbaNode = pogba?.rootNode.childNode(withName: "pogbs", recursively : false)
+        guard let node = pogba?.rootNode.childNode(withName: "pogbs", recursively : false) else {return}
+        let pogbaNode = node
         //x y z in metres of world origin
-        pogbaNode?.position = SCNVector3(GlobalVar.randomNumbers(firstNum: -1, secondNum: 1), GlobalVar.randomNumbers(firstNum: -0.5, secondNum: 0.5), GlobalVar.randomNumbers(firstNum: -1, secondNum: 1))
+        pogbaNode.position = SCNVector3(GlobalVar.randomNumbers(firstNum: -1, secondNum: 1), GlobalVar.randomNumbers(firstNum: -0.5, secondNum: 0.5), GlobalVar.randomNumbers(firstNum: -1, secondNum: 1))
         //adds the model to the scene
-        self.sceneView.scene.rootNode.addChildNode(pogbaNode!)
+        self.sceneView.scene.rootNode.addChildNode(pogbaNode)
     }
     
     //animate model
-    private func pogimate(node: SCNNode){
+    func pogimate(node: SCNNode){
         let spin = CABasicAnimation(keyPath: "position")
         spin.fromValue = node.presentation.position
         spin.toValue = SCNVector3(node.presentation.position.x - 0.2 ,node.presentation.position.y - 0.2,node.presentation.position.z - 2)
@@ -113,11 +114,6 @@ class PogbaMiniGameViewController: UIViewController, ARSCNViewDelegate, BWWalkth
         node.addAnimation(spin, forKey: "position")
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     //when the paly boutton is pressed
     @IBAction func pressPlay(_ sender: Any) {
         startGame()
@@ -127,12 +123,12 @@ class PogbaMiniGameViewController: UIViewController, ARSCNViewDelegate, BWWalkth
     
     //start game
     
-    private func startGame(){
+   func startGame(){
         self.setTimer()
         self.addNode()
     }
     //countdown timer
-    private func setTimer(){
+    func setTimer(){
         self.time.perform { () -> NextStep in
             self.countdown -= 1
             
@@ -149,13 +145,13 @@ class PogbaMiniGameViewController: UIViewController, ARSCNViewDelegate, BWWalkth
     }
     
     //restart counter
-    private func restartClock(){
+    func restartClock(){
         self.countdown = 10
         self.timer.text = String(self.countdown)
     }
 
     //arelt to allow the user to return to the main menu or play again
-    private func gameOverAlert(){
+    func gameOverAlert(){
         //used to create alert apparance
         let appearance = SCLAlertView.SCLAppearance(kCircleIconHeight: 60.0, kTitleFont: UIFont(name: "Premier League", size: 20)!,
                                                     kTextFont: UIFont(name: "Premier League", size: 14)!,
@@ -188,7 +184,7 @@ class PogbaMiniGameViewController: UIViewController, ARSCNViewDelegate, BWWalkth
     }
     
     //play sound
-    private func imBack(){
+    func imBack(){
         //trys to get the audio rescourse or exits this function
         guard let url = Bundle.main.url(forResource: "imback", withExtension: "mp3") else { return }
         //creates an audio session
@@ -210,12 +206,12 @@ class PogbaMiniGameViewController: UIViewController, ARSCNViewDelegate, BWWalkth
     
     
     //quit game bring user back to menu
-    private func quitGame(){
+    func quitGame(){
         performSegue(withIdentifier: "quitGame", sender: self)
     }
     
     //restart game
-    private func restart(){
+    func restart(){
         //reset score
         score.text = "Score: 0"
         scoreCount = 0

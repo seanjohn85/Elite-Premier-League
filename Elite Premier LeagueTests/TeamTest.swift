@@ -25,6 +25,8 @@ class TeamTest: XCTestCase {
         player1 = Player(playerId : 1, team : teams1!, fName : "Gary", lName : "Neville", pos : 2, goals : 1, assits : 1, saves : 0, number : 2, cleanSheets : 5, ownGoals : 1, penoSaved : 0, penoMissed : 0, photoURL : "nev", yellowCards : 8, redCards : 2)
         player2 = Player(playerId : 2, team : teams1!, fName : "Roy", lName : "Keane", pos : 3, goals : 3, assits : 6, saves : 0, number : 16, cleanSheets : 5, ownGoals : 0, penoSaved : 0, penoMissed : 0, photoURL : "roy", yellowCards : 8, redCards : 4)
         teams1?.thisPlayers = [player1!, player2!]
+        
+        teams1?.printTeam()
 
     }
     
@@ -34,16 +36,19 @@ class TeamTest: XCTestCase {
     }
     //test the getable vars from a team
     func testTeamCodes() {
+        teams2?.thisCode = 4
         XCTAssertTrue(teams1?.thisCode == 1)
-        XCTAssertTrue(teams2?.thisCode == 2)
+        XCTAssertTrue(teams2?.thisCode == 4)
     }
     
     func testTeamName() {
-        XCTAssertTrue(teams1?.thisName == "Team1")
+        teams1?.thisName = "new"
+        XCTAssertTrue(teams1?.thisName == "new")
         XCTAssertTrue(teams2?.thisName == "Team2")
     }
     
     func testAttack() {
+        teams2?.thisAttHome = 0
         XCTAssertTrue(teams1!.thisAttHome > teams2!.thisAttHome)
     }
     

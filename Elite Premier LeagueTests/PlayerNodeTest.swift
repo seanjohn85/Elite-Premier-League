@@ -1,5 +1,5 @@
 //
-//  Fixture.swift
+//  PlayerNodeTest.swift
 //  Elite Premier LeagueTests
 //
 //  Created by JOHN KENNY on 06/03/2018.
@@ -7,15 +7,27 @@
 //
 
 import XCTest
-@testable import Elite_Premier_League
 
-class FixtureTest: XCTestCase {
-    var fix : Fixture?
+@testable import Elite_Premier_League
+import UIKit
+import SceneKit
+import ARKit
+import AssetsLibrary
+
+class PlayerNodeTest: XCTestCase {
     
+    var pNode = PlayerNode()
+    var player1 : Player?
+    var team : Team?
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        fix = Fixture(homeTeam : "Test1", awayTeam : "Test2", date : "25/02/18", homeGoals : 2, awayGoals: 2)
+        team = Team(name : "Team1", code : 1, defHome : 3, attHome : 30, home : 3, defAway : 3, attAway : 30, away : 3)
+        player1 = Player(playerId : 1, team : team!, fName : "Gary", lName : "Neville", pos : 2, goals : 1, assits : 1, saves : 0, number : 2, cleanSheets : 5, ownGoals : 1, penoSaved : 0, penoMissed : 0, photoURL : "nev", yellowCards : 8, redCards : 2)
+        player1?.thisimage = #imageLiteral(resourceName: "Man UtdCrest")
+
+        pNode.thisPlayers = [player1!]
+        pNode.setup(newColour: .purple)
     }
     
     override func tearDown() {
@@ -23,39 +35,40 @@ class FixtureTest: XCTestCase {
         super.tearDown()
     }
     
-    func testHomeTeam() {
+    func testColour() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        XCTAssertTrue(((fix?.thisHomeTeam = "Test1") != nil))
-        XCTAssertTrue(fix!.thisHomeTeam == "Test1")
-    }
-    func testAwayTeam() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        XCTAssertTrue(((fix?.thisAwayTeam = "Test2") != nil))
-        XCTAssertTrue(fix!.thisAwayTeam == "Test2")
+        XCTAssertTrue(pNode.colour == .purple)
     }
     
-    func testDate() {
+    func testName() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        XCTAssertTrue(((fix?.thisDate = "25/02/18") != nil))
-        XCTAssertTrue(fix!.thisDate == "25/02/18")
+        XCTAssertTrue(pNode.name == "playerNode")
     }
     
-    func testHomeGoals() {
+    func testPlayer() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        XCTAssertTrue(fix!.thisHomeGoals == 2)
+        XCTAssertTrue(pNode.thisPlayers[0].thisFName == player1?.thisFName)
     }
-    func testAwayGoals() {
+    
+    func testImage() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        XCTAssertTrue(fix!.thisAwayGoals == 2)
-        fix!.thisAwayGoals = 0
-        fix!.thisHomeGoals = 2
-        XCTAssertTrue(fix!.thisAwayGoals < fix!.thisHomeGoals)
+        XCTAssertTrue(pNode.thisPlayers[0].thisimage == #imageLiteral(resourceName: "Man UtdCrest"))
     }
+    
+    func testFunctions() {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        pNode.addPlayerToPlane(player: player1!)
+        pNode.animate()
+        pNode.getPlayerImageFromServer(player: player1!)
+        pNode.statNodeGen(name : "n", stat : "w", x : 1, y  : 1)
+        pNode.showNews(news : "news")
+    }
+    
     
     func testPerformanceExample() {
         // This is an example of a performance test case.

@@ -47,3 +47,7 @@ class MenuNode: SCNNode {
     
 }
 
+//function to convert deg
+extension Int {
+    var degree2Rad: Double { return Double(self) * .pi/180}
+}

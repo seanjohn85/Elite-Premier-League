@@ -9,6 +9,26 @@
 			<key>orderHint</key>
 			<integer>8</integer>
 		</dict>
+		<key>Elite Premier LeagueTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<true/>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>C941CD6B201E13100046A974</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C9498599204ECC11006459B9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>

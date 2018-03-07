@@ -43,60 +43,72 @@ class PlayerTest: XCTestCase {
     
     func testThisNews(){
         XCTAssertTrue(player1!.thisNews == "")
-        XCTAssertTrue(player2!.thisNews == "")
+        player2!.thisNews = "news"
+        XCTAssertTrue(player2!.thisNews == "news")
     }
     
     func testThisFName(){
         XCTAssertTrue(player1!.thisFName == "Gary")
-        XCTAssertTrue(player2!.thisFName == "Roy")
+        player2!.thisFName = "John"
+        XCTAssertTrue(player2!.thisFName == "John")
     }
     
     func testThisLName(){
         XCTAssertTrue(player1!.thisLName == "Neville")
-        XCTAssertTrue(player2!.thisLName == "Keane")
+        player2!.thisLName = "Kenny"
+        XCTAssertTrue(player2!.thisLName == "Kenny")
     }
     
     func testThisTeam(){
         XCTAssertTrue(player1!.thisTeam.thisName == "Team1")
-        XCTAssertTrue(player2!.thisTeam.thisName == "Team1")
+        player2!.thisTeam.thisName = "Team12"
+        XCTAssertTrue(player2!.thisTeam.thisName == "Team12")
     }
     func testThisPlayerId(){
         XCTAssertTrue(player1!.thisPlayerId == 1)
-        XCTAssertTrue(player2!.thisPlayerId == 2)
+        player2!.thisPlayerId = 3
+        XCTAssertTrue(player2!.thisPlayerId == 3)
     }
     func testThisPos(){
         XCTAssertTrue(player1!.thisPos == 2)
-        XCTAssertTrue(player2!.thisPos == 3)
+        player2!.thisPos = 1
+        XCTAssertTrue(player2!.thisPos == 1)
     }
     
     func testThisSaves(){
         XCTAssertTrue(player1!.thisSaves == 0)
-        XCTAssertTrue(player2!.thisSaves == 0)
+        player2!.thisSaves = 5
+        XCTAssertTrue(player2!.thisSaves == 5)
     }
     
     func testThisCleanSheets(){
         XCTAssertTrue(player1!.thisCleanSheets == 5)
-        XCTAssertTrue(player2!.thisCleanSheets == 5)
+        player2!.thisCleanSheets = 3
+        XCTAssertTrue(player2!.thisCleanSheets == 3)
     }
     
     func testThisGoals(){
         XCTAssertTrue(player1!.thisGoals == 1)
-        XCTAssertTrue(player2!.thisGoals == 3)
+        player2!.thisGoals = 0
+        XCTAssertTrue(player2!.thisGoals == 0)
     }
     
     func testThisAssists(){
         XCTAssertTrue(player1!.thisAssists == 1)
-        XCTAssertTrue(player2!.thisAssists == 6)
+        player2!.thisAssists = 0
+        XCTAssertTrue(player2!.thisAssists == 0)
     }
     
     func testThisYellow(){
         XCTAssertTrue(player1!.thisYellow == 8)
-        XCTAssertTrue(player2!.thisYellow == 8)
+        player2!.thisYellow = 4
+        XCTAssertTrue(player2!.thisYellow == 4)
     }
     
     func testThisRed(){
         XCTAssertTrue(player1!.thisRed == 2)
-        XCTAssertTrue(player2!.thisRed == 4)
+        player2!.thisRed = 0
+        XCTAssertTrue(player2!.thisRed == 0)
     }
     
 

@@ -15,7 +15,7 @@ import SwiftyJSON
 
 class PlayerNode: SCNNode {
     
-    private var colour = GlobalVar.green
+    var colour = GlobalVar.green
     
     private var players : [Player]?
 
@@ -106,7 +106,7 @@ class PlayerNode: SCNNode {
     }
     
     //shows player news
-    private func showNews(news : String){
+    func showNews(news : String){
         //create a plane to house the date
         let newsNode = SCNNode(geometry : SCNPlane(width: 2, height: 0.2))
         newsNode.position = SCNVector3(0.80, -0.70, 0.1)
@@ -122,7 +122,7 @@ class PlayerNode: SCNNode {
     
     
     //function to get the next player
-    private func getNextPlayer() -> Player{
+    func getNextPlayer() -> Player{
         //when the curent palyer is the last player reset to thecounter to 0
         if self.currentPlayer == (self.players?.count)! - 1{
             self.currentPlayer = 0
@@ -137,7 +137,7 @@ class PlayerNode: SCNNode {
     
     
     //creates nodes using the stats custom view for player stats
-    private func statNodeGen(name : String, stat : String, x : Double, y  : Double) -> SCNNode{
+    func statNodeGen(name : String, stat : String, x : Double, y  : Double) -> SCNNode{
         //creats a stats view object
         let view = StatsView(frame: CGRect(x: CGFloat(0), y: CGFloat(0),
                                            width: 550, height: 100))

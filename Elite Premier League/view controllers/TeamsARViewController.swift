@@ -121,7 +121,7 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate, BWWalkthroughV
     }
     
     //creates a vision request to analiyze the image
-    private func analyiseImage(image : CVPixelBuffer){
+    func analyiseImage(image : CVPixelBuffer){
         //converts the model to a vuison model
         let visionModel =  try! VNCoreMLModel(for: GlobalVar.model.model)
         //creates a vision request with the model
@@ -134,7 +134,7 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate, BWWalkthroughV
     }
     
     //a vision requestion event handler
-    func results(request: VNRequest, error : Error?){
+    private func results(request: VNRequest, error : Error?){
         //if cant get an output exit this fuction to avoid the app crashing
         guard (request.results as? [VNClassificationObservation]) != nil else{
             fatalError("could not get any output")
@@ -247,10 +247,14 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate, BWWalkthroughV
                     let parentNode = TeamParent()
                     parentNode.thisTeam = currentTeam!
                     parentNode.leagueTable = swiftyJsonVar["table"]
+                    if self.hitTestResult == nil{
+                        parentNode.position = SCNVector3(0, 0, Float(GlobalVar.randomNumbers(firstNum: -6, secondNum: -4)))
+                    }else{
+                        //postions relative to the scanned crest
+                        //let z = self.hitTestResult.worldTransform.columns.3.z - Float(GlobalVar.randomNumbers(firstNum: -6, secondNum: -4))
+                        parentNode.position = SCNVector3(self.hitTestResult.worldTransform.columns.3.x,self.hitTestResult.worldTransform.columns.3.y, Float(GlobalVar.randomNumbers(firstNum: -6, secondNum: -4)))
+                    }
                     
-                    //postions relative to the scanned crest
-                    //let z = self.hitTestResult.worldTransform.columns.3.z - Float(GlobalVar.randomNumbers(firstNum: -6, secondNum: -4))
-                    parentNode.position = SCNVector3(self.hitTestResult.worldTransform.columns.3.x,self.hitTestResult.worldTransform.columns.3.y, Float(GlobalVar.randomNumbers(firstNum: -6, secondNum: -4)))
                     //adds the menu top the parent
                     parentNode.addChildNode(self.addMenu(team : parentNode.thisTeam.thisName))
                     //parentNode.addChildNode(self.addFixture(team: parentNode.team!))
@@ -274,12 +278,7 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate, BWWalkthroughV
         //returns the menu
         return menuNode
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
     //opens the help walkthrough menu
     @IBAction func helpBtn(_ sender: Any) {
         // Get view controllers and build the walkthrough

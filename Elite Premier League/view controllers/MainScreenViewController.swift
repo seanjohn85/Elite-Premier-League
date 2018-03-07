@@ -42,7 +42,7 @@ class MainScreenViewController: UIViewController, ARSCNViewDelegate, BWWalkthrou
     }
     
     //enable the tab gestures
-    private func loadTapGestureRecognizer(){
+    func loadTapGestureRecognizer(){
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
         self.sceneView.addGestureRecognizer(tapGestureRecognizer)
     }
@@ -126,39 +126,47 @@ class MainScreenViewController: UIViewController, ARSCNViewDelegate, BWWalkthrou
     }
     
     //crestes the 3d nodes
-    private func displayName(text : String){
+    func displayName(text : String){
         let node = createTextNode(text : text)
         //positions the text the same loaction as the scaned image
+        guard (self.hitTestResult) != nil else {return}
         node.position = SCNVector3(self.hitTestResult.worldTransform.columns.3.x,self.hitTestResult.worldTransform.columns.3.y, self.hitTestResult.worldTransform.columns.3.z)
         //adds the node to the scene
         sceneView.scene.rootNode.addChildNode(node)
     }
     
     //team labels are set here
-    private func populateLabels(name: String, pos : Int){
+    func populateLabels(name: String, pos : Int){
         //the first team is set here
         if pos == 0 {
             //displays an ar node above the element with the most likely prediction
             self.displayName(text : name)
             //we need to return to the main tread to set a ui object
             DispatchQueue.main.async {
-                self.team1.text = "1. \(name)"
+                if self.team1.text != nil {
+                 self.team1.text = "1. \(name)"
+                }
             }
         }else if pos == 1 {
             //we need to return to the main tread to set a ui object
             DispatchQueue.main.async {
-                self.team2.text = "2. \(name)"
+                if self.team2.text != nil {
+                     self.team2.text = "2. \(name)"
+                }
+               
             }
         }else if pos == 2 {
             //we need to return to the main tread to set a ui object
             DispatchQueue.main.async {
-                self.team3.text = "3. \(name)"
+                if self.team3.text != nil {
+                 self.team3.text = "3. \(name)"
+                }
             }
         }
     }
     
     //creates the text node
-    private func createTextNode(text : String) -> SCNNode{
+    func createTextNode(text : String) -> SCNNode{
         let parent = SCNNode()
         //create a sselecter for the object
         let selectorNode = SCNNode(geometry :SCNSphere(radius: 0.01))

@@ -13,9 +13,9 @@ import SwiftyJSON
 
 class TableNode: SCNNode {
     
-    private var colour = GlobalVar.green
+    var colour = GlobalVar.green
     //view table top of bottom
-    private var tableTop = true
+    var tableTop = true
 
     //creates empty json array for league table data
     var leagueTable = JSON("empty")
@@ -62,7 +62,7 @@ class TableNode: SCNNode {
         }
     }
     
-    private func topBar(name : String){
+    func topBar(name : String){
         //creats a stats view object
         let view = LeagueTableRow(frame: CGRect(x: CGFloat(0), y: CGFloat(0),
                                                 width: 1195, height: 54))
@@ -99,7 +99,7 @@ class TableNode: SCNNode {
     
     
     //creates the rows of the table in ar using the row view
-    private func createTableRow(yPos : Double, tablePos : Int){
+    func createTableRow(yPos : Double, tablePos : Int){
         //creats a stats view object
         let view = LeagueTableRow(frame: CGRect(x: CGFloat(0), y: CGFloat(0),
                                                 width: 1195, height: 54))
