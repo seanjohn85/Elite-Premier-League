@@ -253,13 +253,14 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate, BWWalkthroughV
                         //postions relative to the scanned crest
                         //let z = self.hitTestResult.worldTransform.columns.3.z - Float(GlobalVar.randomNumbers(firstNum: -6, secondNum: -4))
                         parentNode.position = SCNVector3(self.hitTestResult.worldTransform.columns.3.x,self.hitTestResult.worldTransform.columns.3.y, Float(GlobalVar.randomNumbers(firstNum: -6, secondNum: -4)))
+                        //adds the menu top the parent
+                        parentNode.addChildNode(self.addMenu(team : parentNode.thisTeam.thisName))
+                        //parentNode.addChildNode(self.addFixture(team: parentNode.team!))
+                        //adds the node to the scene
+                        self.sceneView.scene.rootNode.addChildNode(parentNode)
                     }
                     
-                    //adds the menu top the parent
-                    parentNode.addChildNode(self.addMenu(team : parentNode.thisTeam.thisName))
-                    //parentNode.addChildNode(self.addFixture(team: parentNode.team!))
-                    //adds the node to the scene
-                    self.sceneView.scene.rootNode.addChildNode(parentNode)
+                    
                     self.teamFound = false
                     self.inforBar.isHidden = true
                 }else{

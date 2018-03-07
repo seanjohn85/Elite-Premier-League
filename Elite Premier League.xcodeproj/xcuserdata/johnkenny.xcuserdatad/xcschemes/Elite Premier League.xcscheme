@@ -39,6 +39,16 @@
                ReferencedContainer = "container:Elite Premier League.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C9D5AC932050737A00CEC2C6"
+               BuildableName = "Elite Premier LeagueUITests.xctest"
+               BlueprintName = "Elite Premier LeagueUITests"
+               ReferencedContainer = "container:Elite Premier League.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

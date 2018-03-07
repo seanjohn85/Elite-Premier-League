@@ -57,10 +57,18 @@
 		C9C5F0C220273C7600A9F3AD /* PremierLeague.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C941CD83201E2FC30046A974 /* PremierLeague.ttf */; };
 		C9D5AC8B204F77BE00CEC2C6 /* AnimateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D5AC8A204F77BE00CEC2C6 /* AnimateTest.swift */; };
 		C9D5AC8F204F7B0400CEC2C6 /* MiniGameTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D5AC8E204F7B0400CEC2C6 /* MiniGameTest.swift */; };
+		C9D5AC972050737B00CEC2C6 /* Elite_Premier_LeagueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D5AC962050737B00CEC2C6 /* Elite_Premier_LeagueUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		C949859F204ECC11006459B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C941CD64201E13100046A974 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C941CD6B201E13100046A974;
+			remoteInfo = "Elite Premier League";
+		};
+		C9D5AC992050737B00CEC2C6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C941CD64201E13100046A974 /* Project object */;
 			proxyType = 1;
@@ -125,6 +133,9 @@
 		C9B56757203240FC0055249B /* imback.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = imback.mp3; sourceTree = "<group>"; };
 		C9D5AC8A204F77BE00CEC2C6 /* AnimateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateTest.swift; sourceTree = "<group>"; };
 		C9D5AC8E204F7B0400CEC2C6 /* MiniGameTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGameTest.swift; sourceTree = "<group>"; };
+		C9D5AC942050737A00CEC2C6 /* Elite Premier LeagueUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Elite Premier LeagueUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9D5AC962050737B00CEC2C6 /* Elite_Premier_LeagueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elite_Premier_LeagueUITests.swift; sourceTree = "<group>"; };
+		C9D5AC982050737B00CEC2C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F381E7331962B634EF88F3FA /* Pods-Elite Premier League.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elite Premier League.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Elite Premier League/Pods-Elite Premier League.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,6 +149,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C9498597204ECC11006459B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9D5AC912050737A00CEC2C6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -203,6 +221,7 @@
 			children = (
 				C941CD6E201E13100046A974 /* Elite Premier League */,
 				C949859B204ECC11006459B9 /* Elite Premier LeagueTests */,
+				C9D5AC952050737B00CEC2C6 /* Elite Premier LeagueUITests */,
 				C941CD6D201E13100046A974 /* Products */,
 				253D8D03373745B642517400 /* Pods */,
 				F490697B8605FAC85BA4F0AF /* Frameworks */,
@@ -214,6 +233,7 @@
 			children = (
 				C941CD6C201E13100046A974 /* Elite Premier League.app */,
 				C949859A204ECC11006459B9 /* Elite Premier LeagueTests.xctest */,
+				C9D5AC942050737A00CEC2C6 /* Elite Premier LeagueUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -313,6 +333,15 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
+		C9D5AC952050737B00CEC2C6 /* Elite Premier LeagueUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C9D5AC962050737B00CEC2C6 /* Elite_Premier_LeagueUITests.swift */,
+				C9D5AC982050737B00CEC2C6 /* Info.plist */,
+			);
+			path = "Elite Premier LeagueUITests";
+			sourceTree = "<group>";
+		};
 		F490697B8605FAC85BA4F0AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,6 +391,24 @@
 			productReference = C949859A204ECC11006459B9 /* Elite Premier LeagueTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		C9D5AC932050737A00CEC2C6 /* Elite Premier LeagueUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9D5AC9D2050737B00CEC2C6 /* Build configuration list for PBXNativeTarget "Elite Premier LeagueUITests" */;
+			buildPhases = (
+				C9D5AC902050737A00CEC2C6 /* Sources */,
+				C9D5AC912050737A00CEC2C6 /* Frameworks */,
+				C9D5AC922050737A00CEC2C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C9D5AC9A2050737B00CEC2C6 /* PBXTargetDependency */,
+			);
+			name = "Elite Premier LeagueUITests";
+			productName = "Elite Premier LeagueUITests";
+			productReference = C9D5AC942050737A00CEC2C6 /* Elite Premier LeagueUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -377,6 +424,11 @@
 						ProvisioningStyle = Automatic;
 					};
 					C9498599204ECC11006459B9 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C941CD6B201E13100046A974;
+					};
+					C9D5AC932050737A00CEC2C6 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 						TestTargetID = C941CD6B201E13100046A974;
@@ -398,6 +450,7 @@
 			targets = (
 				C941CD6B201E13100046A974 /* Elite Premier League */,
 				C9498599204ECC11006459B9 /* Elite Premier LeagueTests */,
+				C9D5AC932050737A00CEC2C6 /* Elite Premier LeagueUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -422,6 +475,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C9498598204ECC11006459B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9D5AC922050737A00CEC2C6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -549,6 +609,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C9D5AC902050737A00CEC2C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9D5AC972050737B00CEC2C6 /* Elite_Premier_LeagueUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -556,6 +624,11 @@
 			isa = PBXTargetDependency;
 			target = C941CD6B201E13100046A974 /* Elite Premier League */;
 			targetProxy = C949859F204ECC11006459B9 /* PBXContainerItemProxy */;
+		};
+		C9D5AC9A2050737B00CEC2C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C941CD6B201E13100046A974 /* Elite Premier League */;
+			targetProxy = C9D5AC992050737B00CEC2C6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -750,6 +823,36 @@
 			};
 			name = Release;
 		};
+		C9D5AC9B2050737B00CEC2C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RX98TCH4D4;
+				INFOPLIST_FILE = "Elite Premier LeagueUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "seanjohn85.github.com.Elite-Premier-LeagueUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Elite Premier League";
+			};
+			name = Debug;
+		};
+		C9D5AC9C2050737B00CEC2C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RX98TCH4D4;
+				INFOPLIST_FILE = "Elite Premier LeagueUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "seanjohn85.github.com.Elite-Premier-LeagueUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Elite Premier League";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -776,6 +879,15 @@
 			buildConfigurations = (
 				C94985A1204ECC11006459B9 /* Debug */,
 				C94985A2204ECC11006459B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9D5AC9D2050737B00CEC2C6 /* Build configuration list for PBXNativeTarget "Elite Premier LeagueUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9D5AC9B2050737B00CEC2C6 /* Debug */,
+				C9D5AC9C2050737B00CEC2C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
