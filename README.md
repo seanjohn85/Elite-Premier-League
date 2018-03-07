@@ -1,8 +1,8 @@
 # Elite-Premier-League
-Front end applciation with core ml cnn model. This is an ios application that identifies EPL teams crest using a CNNs and diplaying the team name in a ar.
-This application also connects to the rest api server https://github.com/seanjohn85/Premier-League/tree/Downloaded-Images/Server%20APP and displays the teams stats, players and makes predictions on the teams next game
+Front-end application with core ml CNN model. This is an ios application that identifies EPL teams crest using a CNN and displaying the team name in ar.
+This application also connects to the rest API server https://github.com/seanjohn85/Premier-League/tree/Downloaded-Images/Server%20APP and displays the teams stats, players and makes predictions on the teams next game
 
-Finally this application includes an AR mini game where pogba in placed in ar and the user has 10 seconds to find the model and touch it to increase their score.
+Finally, this application includes an AR mini-game were Pogba will be placed in ar and the user has 10 seconds to find the model and touch it to increase their score.
 
 ## Elite-Premier-League
 
