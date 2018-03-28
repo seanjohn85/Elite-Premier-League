@@ -34,7 +34,8 @@ class NodeLabel: UILabel {
         //sets the font and text size
         self.font = UIFont (name: "Premier League", size: CGFloat(size))
         //ensures text is adjusted
-        self.adjustsFontSizeToFitWidth = true
+        //self.adjustsFontSizeToFitWidth = true
+        self.adjustsFontForContentSizeCategory = true
     }
     
     //used to convert a uilable to a uiimage as its required to have no background on a plane node

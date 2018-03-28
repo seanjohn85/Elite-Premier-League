@@ -14,16 +14,17 @@ import SceneKit
 import CoreML
 
 
-struct GlobalVar{
+public struct GlobalVar{
 
     //cnn model
     //model varibles
-    static let model = CNN2()
+    //static let model = CNN2()
     
-    
+    static let model = CNN4()
 
     //this needs to be changed to access http://192.168.0.157:8080/
-    static let serverAddress = "http://192.168.0.157:8080/"
+    //static let serverAddress = "http://192.168.0.157:8080/"
+    static let serverAddress = "http://165.227.226.195/"
     //where the player images are located on the server
     static let teamData = "\(serverAddress)rest/getData/"
     ///when a team is regonised it will be stored here

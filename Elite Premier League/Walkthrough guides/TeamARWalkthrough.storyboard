@@ -28,7 +28,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="JJV-op-rSU">
-                                <rect key="frame" x="364.5" y="263" width="39" height="37"/>
+                                <rect key="frame" x="364.5" y="33" width="39" height="37"/>
                                 <color key="pageIndicatorTintColor" red="0.015686274510000001" green="0.96078431369999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="0.24313725489999999" green="0.062745098040000002" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
@@ -74,7 +74,7 @@
                             <constraint firstItem="3Ad-hv-8C6" firstAttribute="leading" secondItem="Xnf-dR-UXp" secondAttribute="leadingMargin" constant="-16" id="js7-xG-bvC"/>
                             <constraint firstItem="VXm-Ru-t4o" firstAttribute="top" secondItem="3Ad-hv-8C6" secondAttribute="bottom" constant="20" id="mv9-pb-u4d"/>
                             <constraint firstItem="VXm-Ru-t4o" firstAttribute="top" secondItem="4oX-Xj-2Xl" secondAttribute="bottom" constant="20" id="o36-qL-A9g"/>
-                            <constraint firstItem="N4y-CV-VgM" firstAttribute="top" secondItem="JJV-op-rSU" secondAttribute="bottom" constant="-280" id="vnH-wR-sp4"/>
+                            <constraint firstItem="N4y-CV-VgM" firstAttribute="top" secondItem="JJV-op-rSU" secondAttribute="bottom" constant="-50" id="vnH-wR-sp4"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -202,7 +202,7 @@
                                 <rect key="frame" x="0.0" y="831" width="768" height="193"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j4Y-sX-FHc">
-                                        <rect key="frame" x="50" y="23" width="668" height="147"/>
+                                        <rect key="frame" x="80" y="23" width="608" height="147"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="147" id="MmU-Om-igG"/>
                                         </constraints>
@@ -214,9 +214,9 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.1176470588" green="0.12941176469999999" blue="0.13725490200000001" alpha="0.28000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="j4Y-sX-FHc" firstAttribute="leading" secondItem="EP2-FI-QVe" secondAttribute="leading" constant="50" id="7z7-vS-74D"/>
+                                    <constraint firstItem="j4Y-sX-FHc" firstAttribute="leading" secondItem="EP2-FI-QVe" secondAttribute="leading" constant="80" id="7z7-vS-74D"/>
                                     <constraint firstAttribute="centerY" secondItem="j4Y-sX-FHc" secondAttribute="centerY" id="SbZ-ok-ocb"/>
-                                    <constraint firstAttribute="trailing" secondItem="j4Y-sX-FHc" secondAttribute="trailing" constant="50" id="WNu-pv-e2G"/>
+                                    <constraint firstAttribute="trailing" secondItem="j4Y-sX-FHc" secondAttribute="trailing" constant="80" id="WNu-pv-e2G"/>
                                     <constraint firstAttribute="height" constant="193" id="rS9-QI-gQW"/>
                                 </constraints>
                             </view>
@@ -332,7 +332,7 @@
                                 <rect key="frame" x="0.0" y="831" width="768" height="193"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The prediction screen is loaded when the system recognises a crest" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Lh-xP-tPo">
-                                        <rect key="frame" x="50" y="23" width="668" height="147"/>
+                                        <rect key="frame" x="80" y="23" width="608" height="147"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="147" id="CDy-wB-FbI"/>
                                         </constraints>
@@ -345,8 +345,8 @@
                                 <constraints>
                                     <constraint firstAttribute="centerY" secondItem="6Lh-xP-tPo" secondAttribute="centerY" id="Lhj-Rs-QTw"/>
                                     <constraint firstAttribute="height" constant="193" id="Zxo-qO-hpV"/>
-                                    <constraint firstItem="6Lh-xP-tPo" firstAttribute="leading" secondItem="Us1-tQ-H79" secondAttribute="leading" constant="50" id="j1m-qH-0eE"/>
-                                    <constraint firstAttribute="trailing" secondItem="6Lh-xP-tPo" secondAttribute="trailing" constant="50" id="nIq-V2-atY"/>
+                                    <constraint firstItem="6Lh-xP-tPo" firstAttribute="leading" secondItem="Us1-tQ-H79" secondAttribute="leading" constant="80" id="j1m-qH-0eE"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Lh-xP-tPo" secondAttribute="trailing" constant="80" id="nIq-V2-atY"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -385,7 +385,7 @@
                                 <rect key="frame" x="0.0" y="831" width="768" height="193"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the menu ball to change the ar element" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XF1-hO-EMc">
-                                        <rect key="frame" x="50" y="23" width="668" height="147"/>
+                                        <rect key="frame" x="80" y="23" width="608" height="147"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="147" id="lv8-vl-lPf"/>
                                         </constraints>
@@ -396,10 +396,10 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.1176470588" green="0.12941176469999999" blue="0.13725490200000001" alpha="0.28000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="XF1-hO-EMc" firstAttribute="leading" secondItem="ePG-K5-TDn" secondAttribute="leading" constant="50" id="05w-Ig-gfn"/>
+                                    <constraint firstItem="XF1-hO-EMc" firstAttribute="leading" secondItem="ePG-K5-TDn" secondAttribute="leading" constant="80" id="05w-Ig-gfn"/>
                                     <constraint firstAttribute="centerY" secondItem="XF1-hO-EMc" secondAttribute="centerY" id="6p9-tt-gk5"/>
                                     <constraint firstAttribute="height" constant="193" id="BKl-cz-ARx"/>
-                                    <constraint firstAttribute="trailing" secondItem="XF1-hO-EMc" secondAttribute="trailing" constant="50" id="gMJ-R6-EsU"/>
+                                    <constraint firstAttribute="trailing" secondItem="XF1-hO-EMc" secondAttribute="trailing" constant="80" id="gMJ-R6-EsU"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -438,7 +438,7 @@
                                 <rect key="frame" x="0.0" y="831" width="768" height="193"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This the player view showing a player and their stats" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9B-GS-Yqs">
-                                        <rect key="frame" x="50" y="23" width="668" height="147"/>
+                                        <rect key="frame" x="80" y="23" width="608" height="147"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="147" id="gCF-0B-SvQ"/>
                                         </constraints>
@@ -449,10 +449,10 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.1176470588" green="0.12941176469999999" blue="0.13725490200000001" alpha="0.28000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="A9B-GS-Yqs" firstAttribute="leading" secondItem="VfV-l6-1QP" secondAttribute="leading" constant="50" id="FUR-6K-maP"/>
+                                    <constraint firstItem="A9B-GS-Yqs" firstAttribute="leading" secondItem="VfV-l6-1QP" secondAttribute="leading" constant="80" id="FUR-6K-maP"/>
                                     <constraint firstAttribute="centerY" secondItem="A9B-GS-Yqs" secondAttribute="centerY" id="V6h-bK-fJT"/>
                                     <constraint firstAttribute="height" constant="193" id="g6L-Bs-Jir"/>
-                                    <constraint firstAttribute="trailing" secondItem="A9B-GS-Yqs" secondAttribute="trailing" constant="50" id="kk4-cw-2Yd"/>
+                                    <constraint firstAttribute="trailing" secondItem="A9B-GS-Yqs" secondAttribute="trailing" constant="80" id="kk4-cw-2Yd"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -491,7 +491,7 @@
                                 <rect key="frame" x="0.0" y="831" width="768" height="193"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the player and the palyer card will animate out with the next player animating in" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dq-fN-pSM">
-                                        <rect key="frame" x="50" y="23" width="668" height="147"/>
+                                        <rect key="frame" x="80" y="23" width="608" height="147"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="147" id="Bot-29-r3b"/>
                                         </constraints>
@@ -503,8 +503,8 @@
                                 <color key="backgroundColor" red="0.1176470588" green="0.12941176469999999" blue="0.13725490200000001" alpha="0.28000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="193" id="SWY-qh-CV2"/>
-                                    <constraint firstItem="0dq-fN-pSM" firstAttribute="leading" secondItem="7X9-ei-UE8" secondAttribute="leading" constant="50" id="XHC-8O-54r"/>
-                                    <constraint firstAttribute="trailing" secondItem="0dq-fN-pSM" secondAttribute="trailing" constant="50" id="h8y-Wa-0VN"/>
+                                    <constraint firstItem="0dq-fN-pSM" firstAttribute="leading" secondItem="7X9-ei-UE8" secondAttribute="leading" constant="80" id="XHC-8O-54r"/>
+                                    <constraint firstAttribute="trailing" secondItem="0dq-fN-pSM" secondAttribute="trailing" constant="80" id="h8y-Wa-0VN"/>
                                     <constraint firstAttribute="centerY" secondItem="0dq-fN-pSM" secondAttribute="centerY" id="kmf-8w-u36"/>
                                 </constraints>
                             </view>
@@ -544,7 +544,7 @@
                                 <rect key="frame" x="0.0" y="831" width="768" height="193"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The goalkeeper card will contain different stats than the outfeild player cards" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYv-R5-9ol">
-                                        <rect key="frame" x="50" y="23" width="668" height="147"/>
+                                        <rect key="frame" x="80" y="23" width="608" height="147"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="147" id="FTt-TY-SVd"/>
                                         </constraints>
@@ -556,9 +556,9 @@
                                 <color key="backgroundColor" red="0.1176470588" green="0.12941176469999999" blue="0.13725490200000001" alpha="0.28000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="centerY" secondItem="KYv-R5-9ol" secondAttribute="centerY" id="28J-xi-gPN"/>
-                                    <constraint firstAttribute="trailing" secondItem="KYv-R5-9ol" secondAttribute="trailing" constant="50" id="5LE-QY-MbC"/>
+                                    <constraint firstAttribute="trailing" secondItem="KYv-R5-9ol" secondAttribute="trailing" constant="80" id="5LE-QY-MbC"/>
                                     <constraint firstAttribute="height" constant="193" id="LNv-pR-OwG"/>
-                                    <constraint firstItem="KYv-R5-9ol" firstAttribute="leading" secondItem="Fm9-fr-9Du" secondAttribute="leading" constant="50" id="X03-r2-Dqc"/>
+                                    <constraint firstItem="KYv-R5-9ol" firstAttribute="leading" secondItem="Fm9-fr-9Du" secondAttribute="leading" constant="80" id="X03-r2-Dqc"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -597,7 +597,7 @@
                                 <rect key="frame" x="0.0" y="831" width="768" height="193"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pressing the goalkeeper card will change to the next player" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vux-HE-NeF">
-                                        <rect key="frame" x="50" y="23" width="668" height="147"/>
+                                        <rect key="frame" x="80" y="23" width="608" height="147"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="147" id="cRW-ib-qvc"/>
                                         </constraints>
@@ -609,8 +609,8 @@
                                 <color key="backgroundColor" red="0.1176470588" green="0.12941176469999999" blue="0.13725490200000001" alpha="0.28000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="193" id="AzB-x6-AMv"/>
-                                    <constraint firstAttribute="trailing" secondItem="vux-HE-NeF" secondAttribute="trailing" constant="50" id="FSg-UI-1IX"/>
-                                    <constraint firstItem="vux-HE-NeF" firstAttribute="leading" secondItem="jcc-4V-6wU" secondAttribute="leading" constant="50" id="KnM-cF-6jY"/>
+                                    <constraint firstAttribute="trailing" secondItem="vux-HE-NeF" secondAttribute="trailing" constant="80" id="FSg-UI-1IX"/>
+                                    <constraint firstItem="vux-HE-NeF" firstAttribute="leading" secondItem="jcc-4V-6wU" secondAttribute="leading" constant="80" id="KnM-cF-6jY"/>
                                     <constraint firstAttribute="centerY" secondItem="vux-HE-NeF" secondAttribute="centerY" id="o0V-zc-hzV"/>
                                 </constraints>
                             </view>
@@ -650,7 +650,7 @@
                                 <rect key="frame" x="0.0" y="831" width="768" height="193"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the meny ball to exit the player card ar view and load the league table" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6H-B5-cRJ">
-                                        <rect key="frame" x="50" y="23" width="668" height="147"/>
+                                        <rect key="frame" x="80" y="23" width="608" height="147"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="147" id="H3i-6I-f95"/>
                                         </constraints>
@@ -662,8 +662,8 @@
                                 <color key="backgroundColor" red="0.1176470588" green="0.12941176469999999" blue="0.13725490200000001" alpha="0.28000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="193" id="Tx9-ms-Wo5"/>
-                                    <constraint firstAttribute="trailing" secondItem="R6H-B5-cRJ" secondAttribute="trailing" constant="50" id="aGc-ua-nyG"/>
-                                    <constraint firstItem="R6H-B5-cRJ" firstAttribute="leading" secondItem="cNT-61-xyp" secondAttribute="leading" constant="50" id="qoO-it-Hz6"/>
+                                    <constraint firstAttribute="trailing" secondItem="R6H-B5-cRJ" secondAttribute="trailing" constant="80" id="aGc-ua-nyG"/>
+                                    <constraint firstItem="R6H-B5-cRJ" firstAttribute="leading" secondItem="cNT-61-xyp" secondAttribute="leading" constant="80" id="qoO-it-Hz6"/>
                                     <constraint firstAttribute="centerY" secondItem="R6H-B5-cRJ" secondAttribute="centerY" id="w2z-x1-Rba"/>
                                 </constraints>
                             </view>
@@ -703,7 +703,7 @@
                                 <rect key="frame" x="0.0" y="831" width="768" height="193"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is how the league table is presented in ar. the top 10 teams will always be shown first." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPv-ew-cGz">
-                                        <rect key="frame" x="50" y="23" width="668" height="147"/>
+                                        <rect key="frame" x="80" y="23" width="608" height="147"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="147" id="7x8-0P-H4p"/>
                                         </constraints>
@@ -715,8 +715,8 @@
                                 <color key="backgroundColor" red="0.1176470588" green="0.12941176469999999" blue="0.13725490200000001" alpha="0.28000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="centerY" secondItem="CPv-ew-cGz" secondAttribute="centerY" id="Afu-qk-eR0"/>
-                                    <constraint firstAttribute="trailing" secondItem="CPv-ew-cGz" secondAttribute="trailing" constant="50" id="WwF-b9-qpK"/>
-                                    <constraint firstItem="CPv-ew-cGz" firstAttribute="leading" secondItem="Oiq-eu-RhV" secondAttribute="leading" constant="50" id="afA-bW-M5H"/>
+                                    <constraint firstAttribute="trailing" secondItem="CPv-ew-cGz" secondAttribute="trailing" constant="80" id="WwF-b9-qpK"/>
+                                    <constraint firstItem="CPv-ew-cGz" firstAttribute="leading" secondItem="Oiq-eu-RhV" secondAttribute="leading" constant="80" id="afA-bW-M5H"/>
                                     <constraint firstAttribute="height" constant="193" id="m67-tI-huj"/>
                                 </constraints>
                             </view>
@@ -756,7 +756,7 @@
                                 <rect key="frame" x="0.0" y="831" width="768" height="193"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on the league table to change from the top hald of the table to the bottom half." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vie-PX-b7B">
-                                        <rect key="frame" x="50" y="23" width="668" height="147"/>
+                                        <rect key="frame" x="80" y="23" width="608" height="147"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="147" id="0KN-8I-Pav"/>
                                         </constraints>
@@ -769,8 +769,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="193" id="3CL-w0-cHO"/>
                                     <constraint firstAttribute="centerY" secondItem="Vie-PX-b7B" secondAttribute="centerY" id="UM4-Fn-lrt"/>
-                                    <constraint firstItem="Vie-PX-b7B" firstAttribute="leading" secondItem="t8m-44-d0k" secondAttribute="leading" constant="50" id="jB1-dh-eZv"/>
-                                    <constraint firstAttribute="trailing" secondItem="Vie-PX-b7B" secondAttribute="trailing" constant="50" id="okw-AY-z08"/>
+                                    <constraint firstItem="Vie-PX-b7B" firstAttribute="leading" secondItem="t8m-44-d0k" secondAttribute="leading" constant="80" id="jB1-dh-eZv"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vie-PX-b7B" secondAttribute="trailing" constant="80" id="okw-AY-z08"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -809,7 +809,7 @@
                                 <rect key="frame" x="0.0" y="831" width="768" height="193"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The bottom half of the table will be displayed in with the teams due to relegated highlighted in the same manner as the top 4" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yl2-Qn-zJ3">
-                                        <rect key="frame" x="50" y="23" width="668" height="147"/>
+                                        <rect key="frame" x="80" y="23" width="608" height="147"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="147" id="4RL-KJ-rBM"/>
                                         </constraints>
@@ -821,9 +821,9 @@
                                 <color key="backgroundColor" red="0.1176470588" green="0.12941176469999999" blue="0.13725490200000001" alpha="0.28000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="193" id="6pU-kq-1Ir"/>
-                                    <constraint firstItem="Yl2-Qn-zJ3" firstAttribute="leading" secondItem="vpm-A7-BV4" secondAttribute="leading" constant="50" id="XMp-dQ-Gjo"/>
+                                    <constraint firstItem="Yl2-Qn-zJ3" firstAttribute="leading" secondItem="vpm-A7-BV4" secondAttribute="leading" constant="80" id="XMp-dQ-Gjo"/>
                                     <constraint firstAttribute="centerY" secondItem="Yl2-Qn-zJ3" secondAttribute="centerY" id="gPm-Kd-VVh"/>
-                                    <constraint firstAttribute="trailing" secondItem="Yl2-Qn-zJ3" secondAttribute="trailing" constant="50" id="x8q-9g-dqc"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yl2-Qn-zJ3" secondAttribute="trailing" constant="80" id="x8q-9g-dqc"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -862,7 +862,7 @@
                                 <rect key="frame" x="0.0" y="831" width="768" height="193"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on the menu node to hide all the teams ar elements" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2mH-u2-Ucw">
-                                        <rect key="frame" x="50" y="23" width="668" height="147"/>
+                                        <rect key="frame" x="80" y="23" width="608" height="147"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="147" id="m20-uu-iDW"/>
                                         </constraints>
@@ -873,8 +873,8 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.1176470588" green="0.12941176469999999" blue="0.13725490200000001" alpha="0.28000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="2mH-u2-Ucw" firstAttribute="leading" secondItem="mbs-tl-URI" secondAttribute="leading" constant="50" id="BvH-H4-1CB"/>
-                                    <constraint firstAttribute="trailing" secondItem="2mH-u2-Ucw" secondAttribute="trailing" constant="50" id="X4d-BJ-tUz"/>
+                                    <constraint firstItem="2mH-u2-Ucw" firstAttribute="leading" secondItem="mbs-tl-URI" secondAttribute="leading" constant="80" id="BvH-H4-1CB"/>
+                                    <constraint firstAttribute="trailing" secondItem="2mH-u2-Ucw" secondAttribute="trailing" constant="80" id="X4d-BJ-tUz"/>
                                     <constraint firstAttribute="centerY" secondItem="2mH-u2-Ucw" secondAttribute="centerY" id="oNC-5X-bST"/>
                                     <constraint firstAttribute="height" constant="193" id="yEF-Dt-iLS"/>
                                 </constraints>
@@ -915,7 +915,7 @@
                                 <rect key="frame" x="0.0" y="831" width="768" height="193"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This screen only has the menu ball diplayed. tapping the menu will reload the teams next fixture in ar" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWh-6Z-NvA">
-                                        <rect key="frame" x="50" y="23" width="668" height="147"/>
+                                        <rect key="frame" x="80" y="23" width="608" height="147"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="147" id="LGu-eY-Jmu"/>
                                         </constraints>
@@ -926,9 +926,9 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.1176470588" green="0.12941176469999999" blue="0.13725490200000001" alpha="0.28000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="bWh-6Z-NvA" secondAttribute="trailing" constant="50" id="FD4-ga-gkt"/>
+                                    <constraint firstAttribute="trailing" secondItem="bWh-6Z-NvA" secondAttribute="trailing" constant="80" id="FD4-ga-gkt"/>
                                     <constraint firstAttribute="centerY" secondItem="bWh-6Z-NvA" secondAttribute="centerY" id="Nxc-fH-VI8"/>
-                                    <constraint firstItem="bWh-6Z-NvA" firstAttribute="leading" secondItem="CIi-90-HOJ" secondAttribute="leading" constant="50" id="P5b-se-8Fm"/>
+                                    <constraint firstItem="bWh-6Z-NvA" firstAttribute="leading" secondItem="CIi-90-HOJ" secondAttribute="leading" constant="80" id="P5b-se-8Fm"/>
                                     <constraint firstAttribute="height" constant="193" id="hdy-ta-tdU"/>
                                 </constraints>
                             </view>
@@ -990,7 +990,7 @@
                                 <rect key="frame" x="0.0" y="831" width="768" height="193"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the premier league logo (top left) on any screen to remove all ar elements and return to the main menu" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQ3-9E-Kko">
-                                        <rect key="frame" x="50" y="23" width="668" height="147"/>
+                                        <rect key="frame" x="80" y="23" width="608" height="147"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="147" id="UaP-iS-q6D"/>
                                         </constraints>
@@ -1001,8 +1001,8 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.1176470588" green="0.12941176469999999" blue="0.13725490200000001" alpha="0.28000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="hQ3-9E-Kko" secondAttribute="trailing" constant="50" id="2pm-Kz-tNO"/>
-                                    <constraint firstItem="hQ3-9E-Kko" firstAttribute="leading" secondItem="StA-Ug-apf" secondAttribute="leading" constant="50" id="DQV-cQ-o4A"/>
+                                    <constraint firstAttribute="trailing" secondItem="hQ3-9E-Kko" secondAttribute="trailing" constant="80" id="2pm-Kz-tNO"/>
+                                    <constraint firstItem="hQ3-9E-Kko" firstAttribute="leading" secondItem="StA-Ug-apf" secondAttribute="leading" constant="80" id="DQV-cQ-o4A"/>
                                     <constraint firstAttribute="centerY" secondItem="hQ3-9E-Kko" secondAttribute="centerY" id="gfc-dA-geV"/>
                                     <constraint firstAttribute="height" constant="193" id="u1o-92-8cH"/>
                                 </constraints>

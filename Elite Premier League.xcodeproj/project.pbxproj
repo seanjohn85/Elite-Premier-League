@@ -10,6 +10,10 @@
 		A808EABD0B60A55C88537E68 /* Pods_Elite_Premier_League.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3DBF8256119198DB3576979 /* Pods_Elite_Premier_League.framework */; };
 		C9270803202133EC000CB201 /* crestIdeniferCNN.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C9270802202133EC000CB201 /* crestIdeniferCNN.mlmodel */; };
 		C927080B2023E0E1000CB201 /* Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = C927080A2023E0E1000CB201 /* Fixture.swift */; };
+		C92E358B20597639000F391E /* newCNN2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C92E358A20597639000F391E /* newCNN2.mlmodel */; };
+		C92E358D20597646000F391E /* newCNN.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C92E358C20597645000F391E /* newCNN.mlmodel */; };
+		C92E359020597651000F391E /* FixtureNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0670B203D9DE500CD9DC5 /* FixtureNode.swift */; };
+		C92E359120597652000F391E /* FixtureNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0670B203D9DE500CD9DC5 /* FixtureNode.swift */; };
 		C941CD70201E13100046A974 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C941CD6F201E13100046A974 /* AppDelegate.swift */; };
 		C941CD72201E13100046A974 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C941CD71201E13100046A974 /* MenuViewController.swift */; };
 		C941CD75201E13100046A974 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C941CD73201E13100046A974 /* Main.storyboard */; };
@@ -55,6 +59,7 @@
 		C9A41ADD2029E30700B3221B /* PogbaMiniGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A41ADC2029E30700B3221B /* PogbaMiniGameViewController.swift */; };
 		C9B56758203240FC0055249B /* imback.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C9B56757203240FC0055249B /* imback.mp3 */; };
 		C9C5F0C220273C7600A9F3AD /* PremierLeague.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C941CD83201E2FC30046A974 /* PremierLeague.ttf */; };
+		C9D3CEF8206713EC001CC8AE /* CNN4.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C9D3CEF7206713EC001CC8AE /* CNN4.mlmodel */; };
 		C9D5AC8B204F77BE00CEC2C6 /* AnimateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D5AC8A204F77BE00CEC2C6 /* AnimateTest.swift */; };
 		C9D5AC8F204F7B0400CEC2C6 /* MiniGameTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D5AC8E204F7B0400CEC2C6 /* MiniGameTest.swift */; };
 		C9D5AC972050737B00CEC2C6 /* Elite_Premier_LeagueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D5AC962050737B00CEC2C6 /* Elite_Premier_LeagueUITests.swift */; };
@@ -82,6 +87,8 @@
 		B3DBF8256119198DB3576979 /* Pods_Elite_Premier_League.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Elite_Premier_League.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9270802202133EC000CB201 /* crestIdeniferCNN.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = crestIdeniferCNN.mlmodel; sourceTree = "<group>"; };
 		C927080A2023E0E1000CB201 /* Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixture.swift; sourceTree = "<group>"; };
+		C92E358A20597639000F391E /* newCNN2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = newCNN2.mlmodel; sourceTree = "<group>"; };
+		C92E358C20597645000F391E /* newCNN.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = newCNN.mlmodel; sourceTree = "<group>"; };
 		C941CD6C201E13100046A974 /* Elite Premier League.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Elite Premier League.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C941CD6F201E13100046A974 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C941CD71201E13100046A974 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +138,7 @@
 		C9A2363B203A0F20009754E8 /* TeamParent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamParent.swift; sourceTree = "<group>"; };
 		C9A41ADC2029E30700B3221B /* PogbaMiniGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PogbaMiniGameViewController.swift; sourceTree = "<group>"; };
 		C9B56757203240FC0055249B /* imback.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = imback.mp3; sourceTree = "<group>"; };
+		C9D3CEF7206713EC001CC8AE /* CNN4.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CNN4.mlmodel; sourceTree = "<group>"; };
 		C9D5AC8A204F77BE00CEC2C6 /* AnimateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateTest.swift; sourceTree = "<group>"; };
 		C9D5AC8E204F7B0400CEC2C6 /* MiniGameTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGameTest.swift; sourceTree = "<group>"; };
 		C9D5AC942050737A00CEC2C6 /* Elite Premier LeagueUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Elite Premier LeagueUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,7 +204,10 @@
 		C92708082023AD51000CB201 /* MLModels */ = {
 			isa = PBXGroup;
 			children = (
+				C9D3CEF7206713EC001CC8AE /* CNN4.mlmodel */,
+				C92E358A20597639000F391E /* newCNN2.mlmodel */,
 				C974197E2044DB4E00335FA1 /* CNN2.mlmodel */,
+				C92E358C20597645000F391E /* newCNN.mlmodel */,
 				C99E8313203DD4ED0030D2CB /* CNN.mlmodel */,
 				C9270802202133EC000CB201 /* crestIdeniferCNN.mlmodel */,
 				C941CD8C201E62700046A974 /* crestIdenifer3.mlmodel */,
@@ -563,6 +574,7 @@
 			files = (
 				C9566006202F444800A5180B /* LeagueTableRow.swift in Sources */,
 				C9A06710203DA11500CD9DC5 /* TableNode.swift in Sources */,
+				C92E358B20597639000F391E /* newCNN2.mlmodel in Sources */,
 				C941CD87201E33FD0046A974 /* Player.swift in Sources */,
 				C99E8314203DD4EE0030D2CB /* CNN.mlmodel in Sources */,
 				C974197F2044DB4E00335FA1 /* CNN2.mlmodel in Sources */,
@@ -579,6 +591,8 @@
 				C9A0670E203DA10600CD9DC5 /* PlayerNode.swift in Sources */,
 				C9A41ADD2029E30700B3221B /* PogbaMiniGameViewController.swift in Sources */,
 				C9A23638203A05DB009754E8 /* TeamsARViewController.swift in Sources */,
+				C9D3CEF8206713EC001CC8AE /* CNN4.mlmodel in Sources */,
+				C92E358D20597646000F391E /* newCNN.mlmodel in Sources */,
 				C9A0670A203D9B2500CD9DC5 /* MenuNode.swift in Sources */,
 				C9270803202133EC000CB201 /* crestIdeniferCNN.mlmodel in Sources */,
 				C9565FF7202D038900A5180B /* StatsView.swift in Sources */,
@@ -600,6 +614,7 @@
 				C94985BF204F651B006459B9 /* TableNodeTest.swift in Sources */,
 				C94985B1204F1568006459B9 /* MenuNodeTest.swift in Sources */,
 				C9D5AC8B204F77BE00CEC2C6 /* AnimateTest.swift in Sources */,
+				C92E359020597651000F391E /* FixtureNode.swift in Sources */,
 				C94985B9204F5CA5006459B9 /* NodeLabel.swift in Sources */,
 				C94985BB204F5E0F006459B9 /* TeamArTest.swift in Sources */,
 				C94985B3204F1750006459B9 /* FixtureNodeTest.swift in Sources */,
@@ -614,6 +629,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9D5AC972050737B00CEC2C6 /* Elite_Premier_LeagueUITests.swift in Sources */,
+				C92E359120597652000F391E /* FixtureNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -764,12 +780,15 @@
 			baseConfigurationReference = F381E7331962B634EF88F3FA /* Pods-Elite Premier League.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PKS83643LM;
+				DEVELOPMENT_TEAM = RX98TCH4D4;
 				INFOPLIST_FILE = "Elite Premier League/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.seanjohn85.Elite-Premier-League";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -780,12 +799,16 @@
 			baseConfigurationReference = 417204426604B89AD19658CD /* Pods-Elite Premier League.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PKS83643LM;
+				DEVELOPMENT_TEAM = RX98TCH4D4;
 				INFOPLIST_FILE = "Elite Premier League/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.seanjohn85.Elite-Premier-League";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

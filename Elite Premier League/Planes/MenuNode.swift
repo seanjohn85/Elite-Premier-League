@@ -11,15 +11,12 @@ import SceneKit
 import ARKit
 
 class MenuNode: SCNNode {
-    
-
     init(geometry: SCNGeometry) {
         super.init()
         self.geometry = geometry
         //animates the node
         animate()
     }
-    
     // SCNNode objects require this 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -27,7 +24,6 @@ class MenuNode: SCNNode {
     
     //adds the image texture to the menu
     func setUp(imageName : String){
-        //menuNode.geometry = SCNSphere(radius: 0.1)
         self.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "\(imageName)Texture")
         //positions the node in real world using x y z axis in meters
         self.position = SCNVector3(-1.5, 1.5, 0.1)

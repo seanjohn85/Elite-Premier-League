@@ -18,28 +18,34 @@ import BWWalkthrough
 class TeamsARViewController: UIViewController, ARSCNViewDelegate, BWWalkthroughViewControllerDelegate  {
     
     @IBOutlet weak var inforBar: UILabel!
+    private var visionRequests = [VNRequest]()
+    //used to hold the points in the world where the screen was pressed
+    private var hitTestResult : ARHitTestResult!
     //used to check if a crest is been checked
     private var teamFound = false
     //connection to the ar scene module
     @IBOutlet weak var sceneView: ARSCNView!
-    private var visionRequests = [VNRequest]()
-    //used to hold the points in the world where the screen was pressed
-    private var hitTestResult : ARHitTestResult!
-    //sets the AR configuration
-    private let configuration = ARWorldTrackingConfiguration()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Set the view's delegate
         sceneView.delegate = self
-        //runs the preset configuration in the scene to track the real world
-        sceneView.session.run(configuration)
+        // Create a new scene
+        let scene = SCNScene()
+        // Set the scene to the view
+        sceneView.scene = scene
         //adds tap gesture recongnizer to allow the user to interact with the screen
         loadTapGestureRecognizer()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Create a session configuration
+        let configuration = ARWorldTrackingConfiguration()
+        // Run the view's session
+        sceneView.session.run(configuration)
     }
 
     //enable the tab gersueres on the screen
     private func loadTapGestureRecognizer(){
-        
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
         self.sceneView.addGestureRecognizer(tapGestureRecognizer)
     }
@@ -88,17 +94,15 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate, BWWalkthroughV
     
     //pass the image tho the model
     private func extractImage(recognizer : UIGestureRecognizer){
-        
-        let sceneRecognizer = recognizer.view as! ARSCNView
+        let sceneView = recognizer.view as! ARSCNView
         //checks id a ar element is been touched by the user
         let touchLoaction = self.sceneView.center
-        
-        guard let currentframe = sceneRecognizer.session.currentFrame else {
+        guard let currentframe = sceneView.session.currentFrame else {
             print ("nothing in frame")
             return
         }
         
-        let hitTestResults = sceneRecognizer.hitTest(touchLoaction, types: .featurePoint)
+        let hitTestResults = sceneView.hitTest(touchLoaction, types: .featurePoint)
         
         if hitTestResults.isEmpty{
             self.inforBar.text = "Issue with image. Please ensure camera is still and in focus and try again."
@@ -178,6 +182,7 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate, BWWalkthroughV
                 return .success
             }
             .responseJSON { response in
+            
                 //if there was a response
                 if ((response.result.value) != nil) {
                     
@@ -313,6 +318,13 @@ class TeamsARViewController: UIViewController, ARSCNViewDelegate, BWWalkthroughV
         self.dismiss(animated: true, completion: nil)
     }
     
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Pause the view's session
+        sceneView.session.pause()
+    }
 
 }
 

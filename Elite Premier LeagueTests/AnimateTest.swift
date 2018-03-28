@@ -11,8 +11,6 @@ import XCTest
 @testable import Elite_Premier_League
 @testable import Pods_Elite_Premier_League
 
-
-
 class AnimateTest: XCTestCase {
     let lable = UILabel(frame: CGRect())
     let avc = AnimateViewController()

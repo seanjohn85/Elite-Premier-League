@@ -36,9 +36,27 @@ class MainScreenViewController: UIViewController, ARSCNViewDelegate, BWWalkthrou
         imageView.transform = imageView.transform.rotated(by: CGFloat(Double.pi / 2))
         // Set the view's delegate
         sceneView.delegate = self
-        //runs the preset configuration in the scene to track the real world
-        sceneView.session.run(configuration)
+        // Create a new scene
+        let scene = SCNScene()
+        // Set the scene to the view
+        sceneView.scene = scene
         loadTapGestureRecognizer()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Create a session configuration
+        let configuration = ARWorldTrackingConfiguration()
+        
+        // Run the view's session
+        sceneView.session.run(configuration)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Pause the view's session
+        sceneView.session.pause()
     }
     
     //enable the tab gestures
@@ -49,16 +67,16 @@ class MainScreenViewController: UIViewController, ARSCNViewDelegate, BWWalkthrou
     
     //used to handle tap gesture feeding images into core ml mode using vision requests
     @objc func tapped(recognizer : UIGestureRecognizer){
-        let sceneRecognizer = recognizer.view as! ARSCNView
+        let sceneView = recognizer.view as! ARSCNView
         //checks id a ar element is been touched by the user
         let touchLoaction = self.sceneView.center
         //if the current ar fram is empty exit this finction -- this should never be executed
-        guard let currentframe = sceneRecognizer.session.currentFrame else {
+        guard let currentframe = sceneView.session.currentFrame else {
             print ("nothing in frame")
             return
         }
         //used to get where the screen is touced in ar space
-        let hitTestResults = sceneRecognizer.hitTest(touchLoaction, types: .featurePoint)
+        let hitTestResults = sceneView.hitTest(touchLoaction, types: .featurePoint)
         
         //if there is nothing loaded in the hit test
         if hitTestResults.isEmpty{
@@ -125,7 +143,7 @@ class MainScreenViewController: UIViewController, ARSCNViewDelegate, BWWalkthrou
          }
     }
     
-    //crestes the 3d nodes
+    //creates the 3d nodes
     func displayName(text : String){
         let node = createTextNode(text : text)
         //positions the text the same loaction as the scaned image

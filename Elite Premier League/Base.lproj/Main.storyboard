@@ -133,7 +133,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b9U-Er-ELY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-135.3515625" y="-674.21875"/>
+            <point key="canvasLocation" x="-1560" y="-18"/>
         </scene>
         <!--TeamsAR View Controller-->
         <scene sceneID="IIL-7U-Z16">
@@ -207,7 +207,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C3b-7t-bLW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-886" y="237"/>
+            <point key="canvasLocation" x="-896" y="-686"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -284,7 +284,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.58992805755395" y="133.81294964028777"/>
+            <point key="canvasLocation" x="-1560" y="-686"/>
         </scene>
         <!--Image Recognition View Controller-->
         <scene sceneID="fFD-EI-D1q">
@@ -310,7 +310,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RDw-vi-WeD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="815" y="-134"/>
+            <point key="canvasLocation" x="1299" y="-137"/>
         </scene>
         <!--Team View Controller-->
         <scene sceneID="2VR-nS-6Ky">
@@ -356,7 +356,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BgR-Cg-PM5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="850" y="917"/>
+            <point key="canvasLocation" x="1710" y="882"/>
         </scene>
         <!--Pogba Mini Game View Controller-->
         <scene sceneID="6eA-iB-VCu">
@@ -450,7 +450,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="86X-nc-LjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="104" y="1209"/>
+            <point key="canvasLocation" x="-896" y="-18"/>
         </scene>
     </scenes>
     <resources>
@@ -460,6 +460,6 @@
         <image name="play" width="410" height="410"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="DFC-im-gCY"/>
+        <segue reference="zNG-DM-NH6"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -38,7 +38,6 @@ class TeamParent: SCNNode {
     //used to loop through the 3 different ar options on this screen and move to next option and remove the previous node
     func changeARPlane(){
         if arItem == 0{
-            //
             self.childNode(withName: "fixtureNode", recursively: true)?.removeFromParentNode()
             //show the players plane
             self.addPlayersNode()

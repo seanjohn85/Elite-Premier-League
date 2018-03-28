@@ -59,7 +59,6 @@ public class Player{
         return "\(self.team.thisCode)/\(self.photoURL).png"
     }
     
-    
     //return player details name and number
     func returnDetails() -> String{
         return "\(self.number). \(self.fName) \(self.lName)"

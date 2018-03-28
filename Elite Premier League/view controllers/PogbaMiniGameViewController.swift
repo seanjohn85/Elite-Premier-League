@@ -92,7 +92,6 @@ class PogbaMiniGameViewController: UIViewController, ARSCNViewDelegate, BWWalkth
     
     //used to add the 3d m0del
     func addNode(){
-        
         let pogba = SCNScene(named: "art.scnassets/pogba2.scn")
         guard let node = pogba?.rootNode.childNode(withName: "pogbs", recursively : false) else {return}
         let pogbaNode = node
@@ -131,7 +130,6 @@ class PogbaMiniGameViewController: UIViewController, ARSCNViewDelegate, BWWalkth
     func setTimer(){
         self.time.perform { () -> NextStep in
             self.countdown -= 1
-            
             self.timer.text = String(self.countdown)
             if self.countdown == 0{
                 self.timer.text = ""
@@ -193,7 +191,6 @@ class PogbaMiniGameViewController: UIViewController, ARSCNViewDelegate, BWWalkth
             try AVAudioSession.sharedInstance().setActive(true)
             
             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
-         
             //gets the player
             guard let player = player else { return }
             //plays the sound
